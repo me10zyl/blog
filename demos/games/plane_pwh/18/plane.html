@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../../dist/css/bootstrap.min.css">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            /*border: 1px black solid;*/
+        }
+
+        #game_scene {
+            position: relative;
+        }
+
+        #bgCanvas {
+            position: absolute;
+        }
+
+        #planeCanvas {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<section id="game">
+    <div style="margin-top: 225px;" id="pretxt">
+        资源加载中...
+    </div>
+    <section id="game_scene">
+        <canvas width="600" height="450" id="bgCanvas">
+            your browser can not support canvas!
+        </canvas>
+        <canvas width="600" height="450" id="planeCanvas">
+            your browser can not support canvas!
+        </canvas>
+    </section>
+    <section id="audios">
+        <audio id="BGM" loop>
+            <source src="media/background.ogg">
+        </audio>
+        <audio id="shootMusic">
+            <source src="media/Shoot.wav">
+        </audio>
+        <audio id="enemyExplosionMusic">
+            <source src="media/ExplosionEnemy.wav">
+        </audio>
+        <audio id="playerExplosionMusic">
+            <source src="media/ExplosionPlayer.wav">
+        </audio>
+        <audio id="changeSceneMusic">
+            <source src="media/ChangeScene.ogg">
+        </audio>
+    </section>
+</section>
+<script src="javascript/jquery-1.11.1.min.js"></script>
+<script src="javascript/preload.js"></script>
+<script src="javascript/ExplosionEnemey.js"></script>
+<script src="javascript/ExplosionPlayer.js"></script>
+<script src="javascript/Bullet.js"></script>
+<script src="javascript/Player.js"></script>
+<script src="javascript/Background.js"></script>
+<script src="javascript/Enemey.js"></script>
+<script src="javascript/Director.js"></script>
+<script src="javascript/keycontrol.js"></script>
+<script src="javascript/main.js"></script>
+</body>
+</html>

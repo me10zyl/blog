@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="msglist">
+</ul>
+<input type="text" id="msg">
+<input type="button" value="send" id="btnSend">
+<script src="../../scripts/jquery-1.11.1.min.js"></script>
+<script>
+    if (window.WebSocket) {
+        //连接WebSocket服务器
+        var ws = new WebSocket("ws://zyl-me.xicp.net:8899");
+        function appendMessage(e)
+        {
+            $("#msglist").append($("<li></li>").html(e));
+        }
+        //建立好websocket连接处理
+        ws.onopen = function () {
+            appendMessage("连接开启...")
+        };
+        //关闭连接处理
+        ws.onclose = function () {
+            appendMessage('连接关闭...')
+        };
+        //接收消息处理
+        ws.onmessage = function (e) {
+            appendMessage(e.data);
+        };
+
+        $("#btnSend").click(function () {
+            //发消息到服务器
+            ws.send($("#msg").val());
+            $("#msg").val("");
+        });
+    }
+</script>
+</body>
+</html>

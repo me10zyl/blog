@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Javascript Namespace</title>
+</head>
+<body>
+    <script>
+        var neusoft = {};/*生成对象*/
+        neusoft.html5games={};/*neusoft成员也是一个对象,html5games相当于模拟出的包*/
+        neusoft.html5games.pingpong = function(version){
+           this.version = version;
+        };
+        neusoft.html5games.pingpong.prototype.play = function()
+        {
+          alert(this.version);
+        };
+        var pp = new neusoft.html5games.pingpong("1.0");
+        pp.play();
+    </script>
+</body>
+</html>

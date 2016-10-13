@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jQuery set style</title>
+    <style>
+        .myclass {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="mydiv" class="myclass"></div>
+<input type="button" value="switch" id="btn"/>
+<script src="../../scripts/jquery-1.11.1.min.js"></script>
+<script>
+//    $("#mydiv").addClass("myclass");
+//    $("#mydiv").removeClass("myclass");//去掉指定Class
+//    $("#mydiv").removeClass();//去掉所有Class
+    $("#btn").click(
+            function(){
+                $("#mydiv").toggleClass("myclass");
+            }
+    );
+</script>
+</body>
+</html>

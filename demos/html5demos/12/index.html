@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../scripts/shCore.js"></script>
+    <script src="../../scripts/shBrushCSharp.js"></script>
+    <script src="../../scripts/shBrushPhp.js"></script>
+    <script src="../../scripts/shBrushJScript.js"></script>
+    <script src="../../scripts/shBrushJava.js"></script>
+    <script src="../../scripts/shBrushVb.js"></script>
+    <script src="../../scripts/shBrushSql.js"></script>
+    <script src="../../scripts/shBrushXml.js"></script>
+    <script src="../../scripts/shBrushDelphi.js"></script>
+    <script src="../../scripts/shBrushPython.js"></script>
+    <script src="../../scripts/shBrushRuby.js"></script>
+    <script src="../../scripts/shBrushCss.js"></script>
+    <script src="../../scripts/shBrushCpp.js"></script>
+    <script>SyntaxHighlighter.all();</script>
+    <link type="text/css" rel="stylesheet" href="../../styles/shCoreDefault.css"/>
+    <style>
+        canvas {
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <a href="../../index.html">&lt;&lt;主页</a>
+</div>
+<div>
+    <a href="http://www.w3school.com.cn/html5/html5_ref_canvas.asp">Canvas:http://www.w3school.com.cn/html5/html5_ref_canvas.asp</a>
+</div>
+<canvas id="mycanvas" width="500" height="500">
+    您的浏览器不支持canvas.
+</canvas>
+<canvas id="mycanvas2" width="500" height="500">
+    您的浏览器不支持canvas.
+</canvas>
+<canvas id="mycanvas3" width="500" height="500">
+    您的浏览器不支持canvas.
+</canvas>
+<canvas id="mycanvas4" width="500" height="600">
+    您的浏览器不支持canvas.
+</canvas>
+<canvas id="mycanvas5" width="500" height="500">
+    您的浏览器不支持canvas.
+</canvas>
+<canvas id="mycanvas6" width="500" height="500">
+    您的浏览器不支持canvas.
+</canvas>
+<script>
+    var mycanvas = document.getElementById('mycanvas');
+    var ctx = mycanvas.getContext('2d');
+    ctx.beginPath();
+    ctx.lineWidth = "5"
+    ctx.strokeStyle = "red"
+    ctx.moveTo(30, 30);
+    ctx.lineTo(100, 200);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.strokeStyle = "blue"
+    ctx.moveTo(100, 200);
+    ctx.lineTo(30, 200);
+    ctx.stroke();
+</script>
+<script>
+    var mycanvas2 = document.getElementById('mycanvas2');
+    var ctx = mycanvas2.getContext('2d');
+    ctx.beginPath();
+    ctx.lineWidth = "3"
+    ctx.strokeStyle = "red"
+    ctx.moveTo(30, 30);
+    ctx.lineTo(100, 200);
+    ctx.lineTo(30, 200);
+    ctx.lineTo(30, 30);
+    ctx.stroke();
+    ctx.fillStyle = "blue"
+    ctx.fill();
+</script>
+<script>
+    var mycanvas3 = document.getElementById('mycanvas3');
+    var ctx = mycanvas3.getContext('2d');
+    ctx.beginPath();
+    ctx.lineWidth = "2"
+    ctx.strokeStyle = "red";
+    ctx.rect(30, 30, 100, 100);
+    ctx.fillStyle = "blue";
+    ctx.stroke();
+    ctx.fill();
+</script>
+<script>
+    var mycanvas4 = document.getElementById('mycanvas4');
+    var ctx = mycanvas4.getContext('2d');
+    ctx.beginPath();
+    ctx.strokeStyle = "red"
+    var r = 100;
+    ctx.arc(r, r, r, 0, 2 * Math.PI, false);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(3 * r, r, r, 0, 3 / 2 * Math.PI, false);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(r, 3 * r, r, 0, Math.PI / 2 * 3, true);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.fillStyle = 'blue';
+    ctx.lineWidth = '3'
+    ctx.arc(3 * r, 3 * r, r, 0, Math.PI * 2, true);
+    ctx.stroke();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.lineWidth = '1'
+    ctx.arc(r, 5 * r, r, 0, Math.PI / 2, false);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.lineWidth = '3'
+    ctx.arc(3 * r, 5 * r, r, 0, Math.PI / 2, false);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+</script>
+<script>
+    var mycanvas5 = document.getElementById('mycanvas5');
+    var ctx = mycanvas5.getContext('2d');
+    ctx.moveTo(30,30);
+    ctx.strokeStyle = "cyan"
+    ctx.lineTo(30,300);
+    ctx.stroke();
+    ctx.strokeStyle = "black"
+    ctx.fillText("haha",100,150);
+    ctx.font = "40px Cursive"
+    ctx.strokeText("gaga",200,100);
+    ctx.textAlign = "start"
+    ctx.fillText("haha",50,90);
+    ctx.textBaseline = "bottom";
+    ctx.fillStyle = "red"
+    ctx.fillText("hiahia",100,200);
+</script>
+<script>
+    var mycanvas6 = document.getElementById('mycanvas6');
+    var ctx = mycanvas6.getContext('2d');
+    var img = new Image();
+    img.src="../11/video/poster.jpg";
+    ctx.translate(0,5);
+    ctx.rotate(Math.PI/4);
+    ctx.scale(2,2);
+    img.onload = function(){
+        ctx.drawImage(img,0,0,960,400,0,0,500,400);
+        ctx.clearRect(0,0,100,100);
+    }
+</script>
+<pre class="brush: javascript;">
+</pre>
+<script src="../../scripts/jquery-1.11.1.min.js"></script>
+<script>
+    var html = $('body').html();
+    html =  html.replace(/</g,"&lt;");
+    html =  html.replace(/>/g,"&gt;");
+    $('pre').html(
+            html
+    );
+</script>
+</body>
+</html>

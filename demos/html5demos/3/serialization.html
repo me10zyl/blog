@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Serialize and Deserialize</title>
+</head>
+<body>
+<script>
+    /*seialize序列化*/
+    var data={"name":"huangbo","age":38};
+    var sdata = JSON.stringify(data);/*JSON转字符串,序列化*/
+    alert(sdata);
+    alert(typeof(sdata))
+    /*deseialize反序列化*/
+    var data1='{"name":"huangbo","age":38}';
+    var odata = JSON.parse(data1);/*JSON字符串转对象，反序列化*/
+    alert(odata.name);
+
+</script>
+</body>
+</html>

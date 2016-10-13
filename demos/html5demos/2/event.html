@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件</title>
+</head>
+<body>
+    <input type="button" value="test" onclick="alert('hello');">
+    <input type="button" value="test2" onclick="test();">
+    <input onfocus="alert('获得焦点');">
+    <script>
+        function test()
+        {
+            alert('hello');
+        }
+        function Add(a, b) {
+            if (!isNaN(a) && !isNaN(b))/*a和b如果是数字*/
+                return a + b;
+        }
+    </script>
+</body>
+</html>

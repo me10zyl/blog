@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM基础操作</title>
+</head>
+<body>
+    <input type="button" value="test" id="mybtn">
+    <script>/*script一定要放进body底部,因为要获得 oInput*/
+       var oInput = document.getElementById("mybtn");
+//       oInput.value = "huangbo";
+       //1.
+       oInput.onclick = change;/*通过DOM在JS里面添加事件,不能添加(),否则执行change()并且onclick=undefined*/
+       function change()
+       {
+            alert("hello");
+       }
+
+      //2.
+       oInput.onclick = function(){
+           alert('hello');
+       }/*匿名fucntion,直接使用*/
+    </script>
+</body>
+</html>

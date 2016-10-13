@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body {
+        background: url(images/bg.jpg);
+        text-align: center;
+    }
+
+    #game {
+        position: relative;
+        margin: 0 auto;
+        width: 502px;
+        height: 462px;
+        border: 1px #666 solid;
+        border-radius: 10px;
+        background: url(images/table.jpg);
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+    }
+
+    #cards {
+        width: 380px;
+        height: 400px;
+        position: relative;
+    }
+
+    .card {
+        width: 80px;
+        height: 120px;
+        position: absolute;
+        -webkit-perspective: 500;
+    }
+
+    .face {
+        border-radius: 10px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        background-color: #ccc;
+        -webkit-transition: -webkit-transform 1s;
+    }
+
+    .front {
+        background: url(images/deck.png) 0 -480px;
+        z-index: 10;
+    }
+
+    .back {
+        background: url(images/deck.png);
+        -webkit-transform: rotateY(-180deg);
+        z-index: 8;
+    }
+
+    .card-flipped .front {
+        -webkit-transform: rotateY(180deg);
+        z-index: 8;
+    }
+
+    .card-flipped .back {
+        -webkit-transform: rotateY(0deg);
+        z-index: 10;
+    }
+
+    .face:hover {
+        -webkit-box-shadow: 0 0 40px #aaa;
+    }
+
+    .cardAJ {
+        background-position: -800px 0;
+    }
+
+    .cardAQ {
+        background-position: -880px 0;
+    }
+
+    .cardAK {
+        background-position: -960px 0;
+    }
+
+    .cardBJ {
+        background-position: -800px -120px;
+    }
+
+    .cardBQ {
+        background-position: -880px -120px;
+    }
+
+    .cardBK {
+        background-position: -960px -120px;
+    }
+
+    .win {
+        position: absolute;
+        top: 201px;
+        left: 200px;
+        font-size: 50px;
+        font-family: cursive;
+        color: red;
+        visibility: hidden;
+        z-index: 999;
+    }
+
+    #title {
+        margin: 10px;
+        color: #384943;
+        font-weight: bold;
+        font-size: 50px;
+    }
+
+    #footer {
+        margin-top: 15px;
+        font-size: 12px;
+    }
+</style>
+<body>
+<audio>
+    <source src="media/xinj.mp3">
+</audio>
+<div id="title">CSS3 配对游戏</div>
+<section id="game">
+    <div id="cards">
+        <div class="card">
+            <div class="face front"></div>
+            <div class="face back"></div>
+        </div>
+    </div>
+    <div class="win">
+        Win!
+    </div>
+</section>
+<div id="footer">New skill gotten!Including css selector body *:not(selector) and <br><a href="2.html">etc(the
+    comparation between relative and absolute,the css inherit rule).</a><br>
+</div>
+<script src="../../scripts/jquery-1.11.1.min.js">
+</script>
+<script>
+    $("audio")[0].play();
+    var neusoft = {};
+    neusoft.matchinggame = {};
+    neusoft.matchinggame.cardWidth = 80;
+    neusoft.matchinggame.cardHeight = 120;
+    neusoft.matchinggame.deck = ["cardAK", "cardAK", "cardAQ", "cardAQ", "cardAJ", "cardAJ", "cardBK", "cardBK", "cardBQ", "cardBQ", "cardBJ", "cardBJ"];
+    function shuffle(a, b) {
+        return Math.random() > 0.5 ? -1 : 1;
+    }
+    function win() {
+        $(".win").css({"visibility": "visible"})
+    }
+    function checkPattern(cards) {
+        var pattern1 = $(cards[0]).data("pattern");
+        var pattern2 = $(cards[1]).data("pattern");
+        if (pattern1 != pattern2) {
+            $(cards).removeClass("card-flipped");
+        } else {
+            $(cards).remove();
+        }
+        //判断游戏胜利
+        if ($(".card").length == 0) {
+            win();
+        }
+    }
+    function selectCard() {
+        var $fcards = $(".card-flipped");
+        //翻过2张牌了就不能翻了
+        if ($fcards.length >= 2) {
+            return;
+        }
+        $(this).addClass("card-flipped");
+        //翻到2张牌之后,检测一致性
+        if ($(".card-flipped").length == 2) {
+            setTimeout(function () {
+                checkPattern($(".card-flipped"))
+            }, 900);
+        }
+    }
+    function selectAll() {
+        var  time = 200+12*500;
+        $(".card").each(function (index) {
+            setTimeout(function () {
+                $(".card:eq(" + index + ")").addClass('card-flipped')
+            }, 100+index*500);
+        })
+        $(".card").each(function (index) {
+            setTimeout(function () {
+                $(".card:eq(" + (11 -index) + ")").removeClass('card-flipped')
+            }, time+100+index*500);
+        })
+    }
+    $(function () {
+        neusoft.matchinggame.deck.sort(shuffle);
+        var $card = $(".card");
+        for (var i = 0; i < neusoft.matchinggame.deck.length - 1; i++) {
+            $card.clone().appendTo("#cards");
+        }
+        $(".card").each(function (index) {
+            $(this).css({
+                "left": (neusoft.matchinggame.cardWidth + 20) * (index % 4) + "px",
+                "top": (neusoft.matchinggame.cardHeight + 20) * Math.floor(index / 4) + "px"
+            })
+            var pattern = neusoft.matchinggame.deck.pop();
+            $(this).data("pattern", pattern);
+            $(this).find(".back").addClass(pattern);
+            $(this).click(selectCard);
+        })
+        selectAll();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Audio</title>
+    <script src="../../scripts/shCore.js"></script>
+    <script src="../../scripts/shBrushCSharp.js"></script>
+    <script src="../../scripts/shBrushPhp.js"></script>
+    <script src="../../scripts/shBrushJScript.js"></script>
+    <script src="../../scripts/shBrushJava.js"></script>
+    <script src="../../scripts/shBrushVb.js"></script>
+    <script src="../../scripts/shBrushSql.js"></script>
+    <script src="../../scripts/shBrushXml.js"></script>
+    <script src="../../scripts/shBrushDelphi.js"></script>
+    <script src="../../scripts/shBrushPython.js"></script>
+    <script src="../../scripts/shBrushRuby.js"></script>
+    <script src="../../scripts/shBrushCss.js"></script>
+    <script src="../../scripts/shBrushCpp.js"></script>
+    <script>SyntaxHighlighter.all();</script>
+    <link type="text/css" rel="stylesheet" href="../../styles/shCoreDefault.css"/>
+</head>
+<body>
+<a href="../../index.html">返回</a>
+<audio controls>
+    <source src="../../../resource/13.ogg">
+</audio>
+<button >
+    开始
+</button>
+<button >
+    暂停
+</button>
+<button >
+    停止
+</button>
+<button >
+    静音
+</button>
+<div>
+    <a href="http://www.w3school.com.cn/html5/html5_ref_audio_video_dom.asp
+">参考资料：http://www.w3school.com.cn/html5/html5_ref_audio_video_dom.asp
+    </a>
+</div>
+<div>
+    <a href="http://media.io/">在线音频格式转换：http://media.io/
+    </a>
+    </div>
+<div>
+    <a href="http://www.mediaconverter.org/
+">在线视频格式转换：
+        http://www.mediaconverter.org/
+    </a>
+</div>
+<script src="../../scripts/jquery-1.11.1.min.js"></script>
+<script>
+    var audio = $('audio');
+    $('button:eq(0)').click(
+            function()
+            {
+                audio[0].play();
+            }
+    );
+    $('button:eq(1)').click(
+            function()
+            {
+                audio[0].pause();
+            }
+    );
+    $('button:eq(2)').click(
+            function()
+            {
+                audio[0].load();
+            }
+    );
+    $('button:eq(3)').click(
+            function()
+            {
+                audio[0].muted = !audio[0].muted;
+            }
+    );
+</script>
+<pre class="brush: xml;highlight: [1,2,3];">
+</pre>
+<script>
+    var html = $('body').html();
+    html =  html.replace(/</g,"&lt;");
+    html =  html.replace(/>/g,"&gt;");
+    $('pre').html(
+            html
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>去边框，加边框</title>
+</head>
+<style>
+    .block {
+        background-color: yellow;
+        width: 300px;
+        height: 300px;
+    }
+
+    .border {
+        border: 3px solid;
+    }
+</style>
+<body>
+<div class="block"></div>
+<input type="button" value="dingo">
+<script src="../../scripts/jquery-1.11.1.min.js"></script>
+<script>
+    //jQuery包装集转换为DOM对象
+    var btns = $(':input');
+    //dom对象转JQuery包装集
+    $(btns).click(function () {
+        $('.block').toggleClass("border");
+    })
+    //    btns[0].onclick = function()
+    //    {
+    //        $('.block').toggleClass("border");
+    //    }
+</script>
+</body>
+</html>

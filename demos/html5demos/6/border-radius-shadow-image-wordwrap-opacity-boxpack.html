@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>border-radius-shadow-image</title>
+    <link href="../../prism.css" rel="stylesheet">
+    <style type="text/css">
+        .border-radius {
+            border: 1px solid;
+            border-radius: 25px;
+            width: 60px;
+            height: 20px;
+        }
+
+        .border-radius-round {
+            border: 1px solid;
+            border-radius: 20px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .box-shadow {
+            background-color: red;
+            box-shadow: 6px 6px 4px #000; /*水平 垂直 模糊度 颜色*/
+            width: 60px;
+            height: 20px;
+        }
+
+        .borderimage1 {
+            border-image: url(images/border.png) 30 stretch stretch;/*顺时针切割30像素*/
+            border-width: 10px;
+            width: 200px;
+            height: 100px;
+        }
+
+        .borderimage2 {
+            border-image: url(images/border.png) 30% 35% 40% 30% round round;/*平铺不够时会拉伸*/
+            border-width: 6px;
+            width: 200px;
+            height: 100px;
+        }
+
+        .borderimage3 {
+            border-image: url(images/border.png) 30% 35% 40% 30% repeat repeat;/*重复*/
+            border-width: 6px;
+            width: 200px;
+            height: 100px;
+        }
+
+        @font-face {
+            font-family: test;
+            src: url('font/mzd.ttf');
+        }
+
+        .font {
+            font-family: test;
+        }
+
+        .text-shadow {
+            text-shadow: 5px 5px 1px #FF0000;/*h-shadow,v-shadow,[blur(模糊距离)],[颜色] |blur越高越模糊*/
+        }
+
+        .wordwrap {
+            background-color: #000000;
+            color: #FF0000;
+            width: 50px;
+            height: 100px;
+            word-wrap: break-word;
+        }
+
+        .opacity {
+            opacity: 0.3; /*不透明度*/
+        }
+
+        .box-pack {
+            width: 500px;
+            height: 200px;
+            background: #000;
+            display: -webkit-box;
+            -webkit-box-pack: center; /*水平居中*/
+            -webkit-box-align: center; /*垂直居中*/
+            margin: 0 auto; /*外部居中*/
+            /*text-align: center;*//*内部居中(gravity)*/
+        }
+
+        pre {
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+<small><a href="../../index.html">&lt;&lt;主页
+</a></small>
+<br>
+<a href="csssprite.html">CSS Sprite</a>
+<div>
+    CSS3 Background Sprite <a href="http://www.w3school.com.cn/css3/css3_background.asp">http://www.w3school.com.cn/css3/css3_background.asp</a>
+</div>
+<div>
+    CSS Sprite 制作工具：
+   <a href="http://cn.spritegen.website-performance.org/">http://cn.spritegen.website-performance.org/</a>
+</div>
+<div>
+    CSS3边框(border-radius、box-shadow、border-image)：
+    <a href="http://www.w3school.com.cn/css3/css3_border.asp">http://www.w3school.com.cn/css3/css3_border.asp</a>
+</div>
+<div>
+    CSS3 文本效果(text-shadow、word-wrap):
+    <a href="http://www.w3school.com.cn/css3/css3_text_effect.asp">
+        http://www.w3school.com.cn/css3/css3_text_effect.asp
+    </a>
+</div>
+<div>
+    CSS3 字体(@font-face):
+    <a href="http://www.w3school.com.cn/css3/css3_font.asp">http://www.w3school.com.cn/css3/css3_font.asp</a>
+</div>
+<div>
+    CSS3用户界面(1.display:box;
+    2.box-pack:center;
+    3.box-align:center;)
+    <a href="http://www.w3school.com.cn/cssref/pr_box-pack.asp">http://www.w3school.com.cn/cssref/pr_box-pack.asp</a>
+</div>
+<div>
+    透明度
+    <a href="http://www.w3school.com.cn/cssref/pr_opacity.asp">http://www.w3school.com.cn/cssref/pr_opacity.asp</a>
+</div>
+<pre><code class="language-css">
+    <div id="tt">
+    </div>
+</code>
+    </pre>
+<div class="border-radius">
+</div>
+<div class="border-radius-round">
+</div>
+<div class="box-shadow">
+</div>
+<br>
+
+<div class="borderimage1">
+</div>
+<div class="borderimage2">
+</div>
+<div class="borderimage3">
+</div>
+<h1 class="text-shadow">我有文字阴影效果！</h1>
+
+<div class="font">
+    北国风光，千里冰封，万里雪飘
+</div>
+<br>
+
+<div class="wordwrap">
+    sfsfdsfsdfsdfsfs
+    sdf
+    sdfsd
+</div>
+<div class="opacity">
+    我是透明的！！！！！！！！
+</div>
+<div class="box-pack">
+    <img src="images/border.png">
+</div>
+
+<script src="../../scripts/jquery-1.11.1.min.js"></script>
+<script>
+    $(function () {
+//        const $html = $('html');
+//        var val = $html.html();
+//        val = val.replace(/</g, "&lt;");
+//        val = val.replace(/>/g, "&gt;");
+        $style = $("style");
+        var val = $style.text();
+        $('#tt').html(val);
+    })
+</script>
+<script src="../../prism.js"></script>
+<div>
+</div>
+</body>
+</html>

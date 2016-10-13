@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>画布填充测试</title>
+    <style>
+        canvas {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+<canvas id='canvas' width="1300" height="960">
+</canvas>
+<script src="/demos/scripts/jquery-1.11.1.min.js"></script>
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    function strokeTriangle() {
+        ctx.beginPath();
+        ctx.lineWidth = "2"
+        ctx.strokeStyle = "red"
+        ctx.moveTo(300, 30)
+        ctx.lineTo(320, 100);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = "blue"
+        ctx.moveTo(320, 100)
+        ctx.lineTo(280, 100);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = "purple"
+        ctx.moveTo(280, 100)
+        ctx.lineTo(300, 30);
+        ctx.stroke();
+    }
+</script>
+<script>
+    var direction = [
+        {offsetX: 0, offsetY: -1},
+        {offsetX: -1, offsetY: 0},
+        {offsetX: 1, offsetY: 0},
+        {offsetX: 0, offsetY: 1}
+    ];
+    function floodFill(x, y, oldColor, newColor) {//注入填充算法-递归
+        var gottenImageData = ctx.getImageData(x, y, 1, 1);
+        if (gottenImageData.data[0] == oldColor.data[0] && gottenImageData.data[1] == oldColor.data[1] && gottenImageData.data[2] == oldColor.data[2]) {
+            ctx.putImageData(newColor, x, y);
+            for (var i = 0; i < direction.length; i++) {
+                floodFill(x + direction[i].offsetX, y + direction[i].offsetY, oldColor, newColor);
+            }
+        }
+    }
+    function foold(x, y, oldColor, newColor) {//测试的非递归注入填充算法
+        var img = 0;
+        var gottenImageData = ctx.getImageData(x, y, 1, 1);
+        for (var i = 0; i < 4; i++) {
+            var x1 = x, y1 = y;
+            do {
+                ctx.putImageData(newColor, x1, y1);
+                x1 = x1 + direction[i].offsetX;
+                y1 = y1 + direction[i].offsetY;
+                gottenImageData = ctx.getImageData(x1, y1, 1, 1);
+            } while (gottenImageData.data[0] == oldColor.data[0] && gottenImageData.data[1] == oldColor.data[1] && gottenImageData.data[2] == oldColor.data[2]);
+        }
+    }
+    $(function () {
+        $('body').click(
+                function (e) {
+                    alert(e.pageX + "," + e.pageY)
+                }
+        )
+        strokeTriangle();
+        var x = 299, y = 60;
+        var oldImageData = ctx.getImageData(x, y, 1, 1);
+        var newImageData = ctx.createImageData(1, 1);
+        newImageData.data[0] = 128;
+        newImageData.data[1] = 128;
+        newImageData.data[2] = 128;
+        newImageData.data[3] = 255;
+        floodFill(x, y, oldImageData, newImageData);
+//        for (var i = 0; i < 15; i++)
+//            foold(x + i, y + i, oldImageData, newImageData)
+//        for (var i = 1; i < 15; i++)
+//            foold(x - i, y + i, oldImageData, newImageData)
+    })
+</script>
+<script>
+    var dy = 300;
+    var img = new Image();
+    img.src = "canvasFillTest/love.jpg";
+    img.onload = function () {
+        ctx.drawImage(img, 0, dy);
+        var imgData = ctx.getImageData(0, dy, img.width, img.height);
+        for (var i = 0; i < imgData.data.length; i+=4) {
+            imgData.data[i] = 255 - imgData.data[i];
+            imgData.data[i + 1] = 255 - imgData.data[i + 1];
+            imgData.data[i + 2] = 255 - imgData.data[i + 2];
+            imgData.data[i + 3] = 255;
+        }
+        ctx.putImageData(imgData, 0, dy);
+    }
+</script>
+<pre></pre>
+<script>
+    var html = $('body').html();
+    html = html.replace(/</g, "&lt;");
+    html = html.replace(/>/g, "&gt;");
+    $('pre').html(
+            html
+    );
+</script>
+</body>
+</html>

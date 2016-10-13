@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title></title>
+<style>
+.controlbar {
+    position: relative;
+    top: -36px;
+    width: 100%;
+    height: 35px;
+    z-index: 999;
+}
+
+.play:hover {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite.png) -570px, 0;
+}
+
+.play {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite.png) -514px, 0;
+}
+
+.pause {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite.png) -221px, 0;
+}
+
+.pause:hover {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite.png) -277px, 0;
+}
+
+.stop:hover {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite.png) -387px, 0;
+}
+
+.stop {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite.png) -332px, 0;
+}
+
+.forward {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite2.png) -149px, 0;
+}
+
+.forward:hover {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite2.png) -235px, 0;
+}
+
+.backward {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite2.png) -64px, 0;
+    /*background: url(video/playerSprite2.png) -149px, 0;*/
+    /*-webkit-transform:rotateZ(-180deg);*/
+}
+
+.backward:hover {
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite2.png) -319px, 0;
+}
+
+.volume:hover {
+    background-position: -55px, 0;
+}
+
+.volume {
+    margin-left: 5px;
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite.png);
+}
+
+.fullScreen {
+    margin-left: 5px;
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite.png) -704px, 0;
+}
+
+.fullScreen:hover {
+    margin-left: 5px;
+    float: left;
+    position: relative;
+    width: 35px;
+    height: 33px;
+    background: url(video/playerSprite.png) -764px, 0;
+}
+
+.wartext {
+    position: absolute;
+    color: #ffffff;
+    left: 760px;
+}
+
+#player {
+    position: relative;
+    width: 800px;
+}
+
+.progressbar {
+    margin-left: 5px;
+    position: relative;
+    top: 11.5px;
+    float: left;
+    background: #000000;
+    border: #ffffff 1px solid;
+    width: 380px;
+    height: 10px;
+}
+
+.block {
+    position: absolute;
+    left: -1px;
+    top: -3px;
+    width: 17px;
+    height: 17px;
+    background: #cc0000;
+    z-index: 10;
+}
+
+.progress {
+    position: absolute;
+    background: #FFFFFF;
+    width: 0px;
+    height: 10px;
+    z-index: 8;
+}
+
+.cache {
+    position: absolute;
+    background: gray;
+    left: 0px;
+    width: 0px;
+    height: 10px;
+    z-index: 1;
+}
+
+.currentTime {
+    margin-left: 5px;
+    text-align: center;
+    position: relative;
+    top: 10.5px;
+    float: left;
+    color: white;
+    font-size: 12px;
+}
+
+.duration {
+    margin-left: 5px;
+    text-align: center;
+    position: relative;
+    top: 10.5px;
+    float: left;
+    color: white;
+    font-size: 12px;
+}
+
+.volumeBar {
+    margin-left: 5px;
+    position: relative;
+    top: 11.5px;
+    float: left;
+    background: #000000;
+    border: greenyellow 1px solid;
+    width: 70px;
+    height: 10px;
+}
+
+.volumeProgress {
+    position: absolute;
+    background: greenyellow;
+    width: 100%;
+    height: 10px;
+    z-index: 8;
+}
+
+.muted {
+    background-position: -110px
+}
+
+.muted:hover {
+    background-position: -165px
+}
+
+.poster {
+    position: absolute;
+    background: url("video/poster.jpg");
+    z-index: 1;
+}
+
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+</style>
+</head>
+<body>
+<div id="player">
+    <div class="poster"></div>
+    <div class="wartext">
+    </div>
+    <video src="http://zyl-me.xicp.net:1234/resource/oceans.mp4" width="100%" height="100%" preload="metadata">
+        您的浏览器不支持!
+    </video>
+    <div class="controlbar">
+        <div class="play"></div>
+        <div class="stop"></div>
+        <div class="backward"></div>
+        <div class="forward"></div>
+        <div class="currentTime">00:00:00</div>
+        <div class="progressbar">
+            <div class="progress"></div>
+            <div class="block"></div>
+            <div class="cache"></div>
+        </div>
+        <div class="duration">00:00:00</div>
+        <div class="volume"></div>
+        <div class="volumeBar">
+            <div class="volumeProgress"></div>
+        </div>
+        <div class="fullScreen"></div>
+    </div>
+</div>
+<script src="video/jquery-1.10.2.min.js"></script>
+<script>
+    var $v = $('video');
+    var v = $v[0];
+    var isStopped = true;
+    var timeOutHideWard;
+    var tempVolume;
+    var isMouseDownBlock;
+    function play() {
+        if (isStopped) {
+            v.play();
+            $('.play').removeClass('play').addClass('pause');
+        } else {
+            v.pause();
+            $('.pause').removeClass('pause').addClass('play');
+        }
+        isStopped = !isStopped;
+    }
+    function setInit() {
+        $('.pause').removeClass('pause').addClass('play');
+        $('.poster').show();
+        isStopped = true;
+        setProgressInit();
+    }
+    function stop() {
+        v.load();
+        setInit();
+    }
+    function pause() {
+        v.pause();
+    }
+    function forward() {
+        v.playbackRate += 0.5;
+        setWardText();
+    }
+    function setWardText() {
+        $(".wartext").text("×" + v.playbackRate);
+        $(".wartext").show();
+        clearTimeout(timeOutHideWard);
+        timeOutHideWard = setTimeout(function () {
+            $(".wartext").hide();
+        }, 2000);
+    }
+    function backward() {
+        v.playbackRate -= 0.5;
+        setWardText();
+    }
+    function getPlayPercent() {
+        var percent = v.currentTime / v.duration * 100;
+        return  percent;
+    }
+    function getCachePercent() {
+        var percent = v.buffered.end(0) / v.duration * 100;
+        return percent;
+    }
+    function chCurrentTime() {
+        var em = event.offsetX / $('.progressbar').width();
+        var currentTime = v.duration * em;
+        v.currentTime = currentTime;
+    }
+    function chVolume() {
+        var em = event.offsetX / $('.volumeBar').width();
+        v.volume = em;
+    }
+
+    function formatTime(second) {
+        return [parseInt(second / 60 / 60), parseInt(second / 60 % 60), parseInt(second % 60)].join(":").replace(/\b(\d)\b/g, "0$1");
+    }
+
+    function setProgress() {
+        $('.progress')[0].style.width = getPlayPercent() + "%";
+        $('.block')[0].style.left = getPlayPercent() + "%";
+        $(".cache")[0].style.width = getCachePercent() + "%";
+        $('.currentTime').text(formatTime(v.currentTime));
+    }
+    function getVolumePercent() {
+        return v.volume * 100;
+    }
+    function setVolumeProgress() {
+        $('.volumeProgress')[0].style.width = getVolumePercent() + "%";
+    }
+
+    function setProgressInit() {
+        $('.progress')[0].style.width = "0%";
+        $('.block')[0].style.left = "-1px";
+        $(".cache")[0].style.width = "0%";
+        $('.currentTime').text(formatTime(v.currentTime));
+    }
+
+    function fullscreen() {
+        document.documentElement.webkitRequestFullScreen();
+//        document.webkitCancelFullScreen();
+    }
+    function mute() {
+        if (v.muted) {
+            $(this).removeClass('muted');
+            v.volume = tempVolume;
+        }
+        else {
+            $(this).addClass('muted');
+            tempVolume = v.volume;
+            v.volume = 0;
+        }
+        v.muted = !v.muted;
+    }
+    $(function () {
+        $('.poster').width($v.width());
+        $('.poster').height(332);
+        $('.play').click(play);
+        $('.stop').click(stop);
+        $('.forward').click(forward);
+        $('.backward').click(backward);
+        $('.progressbar').click(chCurrentTime);
+        $('.progressbar').click(function () {
+            $('.poster').hide();
+        });
+        $('.volumeBar').click(chVolume);
+        $('.fullScreen').click(fullscreen);
+        $('.volume').click(mute);
+        $('.controlbar').hover(function () {
+//            $(this).css({"opacity": "1"});
+        }, function () {
+            if (!isStopped) {
+//                setTimeout(function(){
+//                    $('.controlbar').css({"opacity": "0"});
+//                },1000)
+            }
+        })
+        $v.click(play);
+        $('.block').mousedown(function () {
+            isMouseDownBlock = true;
+        });
+        /*$(document).mouseup(function (e) {
+            if (isMouseDownBlock) {
+                isMouseDownBlock = false;
+                var left = (e.pageX - $('.progressbar').offset().left) + "px";
+                $(".block")[0].style.left = left;
+                $('.progress')[0].style.width = left;
+                currentTime = v.duration * ( $('.progress').width() / $('.progressbar').width());
+                v.currentTime = currentTime;
+            }
+        });
+        $(document).mousemove(function (e) {
+            if (isMouseDownBlock) {
+                var left = (e.pageX - $('.progressbar').offset().left) + "px";
+                if (e.pageX >= $('.progressbar').offset().left && e.pageX <= ($('.progressbar').offset().left + $('.progressbar').width())){
+                    $(".block")[0].style.left = left;
+                    $('.progress')[0].style.width = left;
+                }
+            }
+        })*/
+        $v.bind("loadedmetadata", function () {
+            $('.duration').text(formatTime(v.duration))
+            setVolumeProgress();
+        })
+        $v.bind("timeupdate", function () {
+            if (!isMouseDownBlock)
+                setProgress();
+        })
+        $v.bind("volumechange", function () {
+            setVolumeProgress();
+        });
+        $v.bind("ended", function () {
+            setInit();
+        })
+        $v.bind("play", function () {
+            $('.poster').hide();
+        })
+//        var $block = $('.block');
+//        $block.draggable();
+    })
+</script>
+</body>
+</html>

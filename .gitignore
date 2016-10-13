@@ -8,3 +8,8 @@ Gemfile
 Gemfile.lock
 node_modules
 package.json
+.idea
+*~
+*.cmd
+node_modules
+demos/build
