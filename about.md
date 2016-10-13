@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-About ZyL's Blog
+关于 ZyL's Blog
 
-### More Information
+本站正在建立中...
 
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
+### 联系方式
 
 [me10zyl@qq.com](mailto:me10zyl@qq.com)
