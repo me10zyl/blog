@@ -1,126 +1,126 @@
 ---
 layout: post
-title: MySQL Êý¾Ý¿â±¸·Ý
+title: MySQL æ•°æ®åº“å¤‡ä»½
 ---
 
-# MySQL Êý¾Ý¿â±¸·Ý
+# MySQL æ•°æ®åº“å¤‡ä»½
 
-## ÈÈ±¸ÓëÀä±¸
-Êý¾Ý¿âµÄ±¸·ÝÓë»Ö¸´ÊÇÒ»Ïî×î»ù±¾µ«ÊÇÈ´²»¼òµ¥µÄ¹¤×÷£¬¸ù¾Ý²»Í¬ÀàÐÍÀ´»®·Ö±¸·ÝµÄ·½·¨£¬»®·Ö³ö×î»ù´¡µÄÁ½ÖÖ±¸·Ý£¬ÈÈ±¸ÓëÀä±¸¡£Àä±¸ÊÇÖ¸ÔÚÊý¾Ý¿âÍ£Ö¹µÄÇé¿öÏÂ£¬Ò»°ãÖ»ÐèÒª¸´ÖÆÏà¹ØÊý¾Ý¿âÎÄ¼þ£¬¶øÈÈ±¸¼´ÔÚÊý¾Ý¿âÔËÐÐµÄÊ±ºòÖ±½Ó±¸·Ý£¬¶ÔÕýÔÚÔËÐÐµÄÊý¾Ý¿âÃ»ÓÐÈÎºÎÓ°Ïì¡£ 
+## çƒ­å¤‡ä¸Žå†·å¤‡
+æ•°æ®åº“çš„å¤‡ä»½ä¸Žæ¢å¤æ˜¯ä¸€é¡¹æœ€åŸºæœ¬ä½†æ˜¯å´ä¸ç®€å•çš„å·¥ä½œï¼Œæ ¹æ®ä¸åŒç±»åž‹æ¥åˆ’åˆ†å¤‡ä»½çš„æ–¹æ³•ï¼Œåˆ’åˆ†å‡ºæœ€åŸºç¡€çš„ä¸¤ç§å¤‡ä»½ï¼Œçƒ­å¤‡ä¸Žå†·å¤‡ã€‚å†·å¤‡æ˜¯æŒ‡åœ¨æ•°æ®åº“åœæ­¢çš„æƒ…å†µä¸‹ï¼Œä¸€èˆ¬åªéœ€è¦å¤åˆ¶ç›¸å…³æ•°æ®åº“æ–‡ä»¶ï¼Œè€Œçƒ­å¤‡å³åœ¨æ•°æ®åº“è¿è¡Œçš„æ—¶å€™ç›´æŽ¥å¤‡ä»½ï¼Œå¯¹æ­£åœ¨è¿è¡Œçš„æ•°æ®åº“æ²¡æœ‰ä»»ä½•å½±å“ã€‚ 
 
-ÒÔÏÂÍ¨¹ýÁ½ÖÖ±¸·ÝÀ´±£Ö¤Êý¾ÝµÄ°²È«£¬¸´ÖÆ±¸·ÝÓë¿ìÕÕ±¸·Ý¡£¸´ÖÆ±¸·ÝÓÃÓÚÊý¾Ý¿âÊµÊ±±¸·Ý£¬µ±¿ª·¢ÈËÔ±¶ÔÖ÷Êý¾Ý¿â½øÐÐÎó²Ù×÷Ê±£¬Æä½á¹ûÒ²»áÓ¦ÓÃµ½´ÓÊý¾Ý¿â£¬ËùÒÔÐèÒª¶Ô´ÓÊý¾Ý¿â½øÐÐ¿ìÕÕ(snapshot)À´·ÀÖ¹´ÓÊý¾Ý¿âÊý¾Ý¶ªÊ§¡£
+ä»¥ä¸‹é€šè¿‡ä¸¤ç§å¤‡ä»½æ¥ä¿è¯æ•°æ®çš„å®‰å…¨ï¼Œå¤åˆ¶å¤‡ä»½ä¸Žå¿«ç…§å¤‡ä»½ã€‚å¤åˆ¶å¤‡ä»½ç”¨äºŽæ•°æ®åº“å®žæ—¶å¤‡ä»½ï¼Œå½“å¼€å‘äººå‘˜å¯¹ä¸»æ•°æ®åº“è¿›è¡Œè¯¯æ“ä½œæ—¶ï¼Œå…¶ç»“æžœä¹Ÿä¼šåº”ç”¨åˆ°ä»Žæ•°æ®åº“ï¼Œæ‰€ä»¥éœ€è¦å¯¹ä»Žæ•°æ®åº“è¿›è¡Œå¿«ç…§(snapshot)æ¥é˜²æ­¢ä»Žæ•°æ®åº“æ•°æ®ä¸¢å¤±ã€‚
 
-## 1. ¸´ÖÆ±¸·Ý
-Í¬´ó¶àÊý¹ØÏµÐÍÊý¾Ý¿âÒ»Ñù£¬ÈÕÖ¾ÎÄ¼þÊÇMySQLÊý¾Ý¿âµÄÖØÒª×é³É²¿·Ö¡£MySQLÓÐ¼¸ÖÖ²»Í¬µÄÈÕÖ¾ÎÄ¼þ£¬Í¨³£°üÀ¨´íÎóÈÕÖ¾ÎÄ¼þ£¬¶þ½øÖÆÈÕÖ¾£¬Í¨ÓÃÈÕÖ¾£¬Âý²éÑ¯ÈÕÖ¾£¬µÈµÈ¡£ÕâÐ©ÈÕÖ¾¿ÉÒÔ°ïÖúÎÒÃÇ¶¨Î»mysqldÄÚ²¿·¢ÉúµÄÊÂ¼þ£¬Êý¾Ý¿âÐÔÄÜ¹ÊÕÏ£¬¼ÇÂ¼Êý¾ÝµÄ±ä¸üÀúÊ·£¬ÓÃ»§»Ö¸´Êý¾Ý¿âµÈµÈ¡£  
+## 1. å¤åˆ¶å¤‡ä»½
+åŒå¤§å¤šæ•°å…³ç³»åž‹æ•°æ®åº“ä¸€æ ·ï¼Œæ—¥å¿—æ–‡ä»¶æ˜¯MySQLæ•°æ®åº“çš„é‡è¦ç»„æˆéƒ¨åˆ†ã€‚MySQLæœ‰å‡ ç§ä¸åŒçš„æ—¥å¿—æ–‡ä»¶ï¼Œé€šå¸¸åŒ…æ‹¬é”™è¯¯æ—¥å¿—æ–‡ä»¶ï¼ŒäºŒè¿›åˆ¶æ—¥å¿—ï¼Œé€šç”¨æ—¥å¿—ï¼Œæ…¢æŸ¥è¯¢æ—¥å¿—ï¼Œç­‰ç­‰ã€‚è¿™äº›æ—¥å¿—å¯ä»¥å¸®åŠ©æˆ‘ä»¬å®šä½mysqldå†…éƒ¨å‘ç”Ÿçš„äº‹ä»¶ï¼Œæ•°æ®åº“æ€§èƒ½æ•…éšœï¼Œè®°å½•æ•°æ®çš„å˜æ›´åŽ†å²ï¼Œç”¨æˆ·æ¢å¤æ•°æ®åº“ç­‰ç­‰ã€‚  
 
-ÆäÖÐ¶þ½øÖÆÈÕÖ¾¿ÉÓÃÓÚMySQLÊý¾Ý¿âµÄ±¸·Ý£¬Í¨¹ýÒ»¸öÍêÈ«±¸·Ý½øÐÐ¶þ½øÖÆÈÕÖ¾µÄÖØ×öÀ´Íê³ÉÊý¾Ý¿âµÄpoint-in-timeµÄ»Ö¸´¹¤×÷£¬MySQLÊý¾Ý¿â¸´ÖÆ(replication)µÄÔ­Àí¾ÍÊÇÒì²½ÊµÊ±µØ½«¶þ½øÖÆÈÕÖ¾ÖØ×ö´«ËÍ²¢Ó¦ÓÃµ½´ÓÊý¾Ý¿â¡£
+å…¶ä¸­äºŒè¿›åˆ¶æ—¥å¿—å¯ç”¨äºŽMySQLæ•°æ®åº“çš„å¤‡ä»½ï¼Œé€šè¿‡ä¸€ä¸ªå®Œå…¨å¤‡ä»½è¿›è¡ŒäºŒè¿›åˆ¶æ—¥å¿—çš„é‡åšæ¥å®Œæˆæ•°æ®åº“çš„point-in-timeçš„æ¢å¤å·¥ä½œï¼ŒMySQLæ•°æ®åº“å¤åˆ¶(replication)çš„åŽŸç†å°±æ˜¯å¼‚æ­¥å®žæ—¶åœ°å°†äºŒè¿›åˆ¶æ—¥å¿—é‡åšä¼ é€å¹¶åº”ç”¨åˆ°ä»Žæ•°æ®åº“ã€‚
 
-MySQL ¸´ÖÆÊÇMySQLÊý¾Ý¿âÌá¹©µÄÒ»ÖÖ¸ß¿ÉÓÃ¸ßÐÔÄÜµÄ½â¾ö·½°¸£¬¸´ÖÆµÄÔ­Àí²¢²»ÄÑ£¬ÆäÊµ¾ÍÊÇÒ»¸öÍêÈ«±¸·Ý¼ÓÉÏ¶þ½øÖÆÈÕÖ¾±¸·ÝµÄ»¹Ô­¡£
-## 2. ¿ìÕÕ±¸·Ý
-`Logical Volume Manager (LVM)`Ìá¹©ÁË¶ÔÈÎÒâÒ»¸ö`Logical Volume(LV)`×ö¡°¿ìÕÕ¡±(snapshot)µÄ¹¦ÄÜ£¬ÒÔ´ËÀ´»ñµÃÒ»¸ö·ÖÇøµÄ×´Ì¬Ò»ÖÂÐÔ±¸·Ý¡£
-ÔÚÄ³Ò»¸ö×´Ì¬ÏÂ×ö±¸·ÝµÄÊ±ºò£¬¿ÉÄÜÓÐÓ¦ÓÃÕýÔÚ·ÃÎÊÄ³Ò»¸öÎÄ¼þ»òÕßÊý¾Ý¿â£¬Õâ¾ÍÊÇÊ¹µÃ±¸·ÝµÄÊ±ºòÎÄ¼þ´¦ÓÚÒ»¸ö×´Ì¬£¬¶ø±¸·ÝÍêºó£¬ÎÄ¼þÈ´´¦ÓÚÁíÍâÒ»¸ö×´Ì¬£¬´Ó¶øÔì³É±¸·ÝµÄ·ÇÒ»ÖÂÐÔ£¬ÕâÖÖ×´Ì¬»Ö¸´Êý¾Ý¿âÊý¾Ý¼¸ºõ²»»á³É¹¦¡£
+MySQL å¤åˆ¶æ˜¯MySQLæ•°æ®åº“æä¾›çš„ä¸€ç§é«˜å¯ç”¨é«˜æ€§èƒ½çš„è§£å†³æ–¹æ¡ˆï¼Œå¤åˆ¶çš„åŽŸç†å¹¶ä¸éš¾ï¼Œå…¶å®žå°±æ˜¯ä¸€ä¸ªå®Œå…¨å¤‡ä»½åŠ ä¸ŠäºŒè¿›åˆ¶æ—¥å¿—å¤‡ä»½çš„è¿˜åŽŸã€‚
+## 2. å¿«ç…§å¤‡ä»½
+`Logical Volume Manager (LVM)`æä¾›äº†å¯¹ä»»æ„ä¸€ä¸ª`Logical Volume(LV)`åšâ€œå¿«ç…§â€(snapshot)çš„åŠŸèƒ½ï¼Œä»¥æ­¤æ¥èŽ·å¾—ä¸€ä¸ªåˆ†åŒºçš„çŠ¶æ€ä¸€è‡´æ€§å¤‡ä»½ã€‚
+åœ¨æŸä¸€ä¸ªçŠ¶æ€ä¸‹åšå¤‡ä»½çš„æ—¶å€™ï¼Œå¯èƒ½æœ‰åº”ç”¨æ­£åœ¨è®¿é—®æŸä¸€ä¸ªæ–‡ä»¶æˆ–è€…æ•°æ®åº“ï¼Œè¿™å°±æ˜¯ä½¿å¾—å¤‡ä»½çš„æ—¶å€™æ–‡ä»¶å¤„äºŽä¸€ä¸ªçŠ¶æ€ï¼Œè€Œå¤‡ä»½å®ŒåŽï¼Œæ–‡ä»¶å´å¤„äºŽå¦å¤–ä¸€ä¸ªçŠ¶æ€ï¼Œä»Žè€Œé€ æˆå¤‡ä»½çš„éžä¸€è‡´æ€§ï¼Œè¿™ç§çŠ¶æ€æ¢å¤æ•°æ®åº“æ•°æ®å‡ ä¹Žä¸ä¼šæˆåŠŸã€‚
 
-×´Ì¬µÄ½â¾ö°ì·¨ÊÇ½«Æä·ÖÇø¹ÒÔØÎªÖ»¶Á£¬È»ºóÍ¨¹ýÊý¾Ý¿âµÄ±í¼¶±ðËø¶¨(table-level write locks)ÉõÖÁÍ£Ö¹Êý¾Ý¿âÀ´±¸·ÝÊý¾Ý¡£ËùÓÐÕâÐ©·½·¨ÎÞÒâÑÏÖØÓ°ÏìÁË·þÎñµÄ¿ÉÓÃÐÔ¡£Ê¹ÓÃLVM snapshot¼È¿ÉÒÔ»ñµÃÒ»ÖÂÐÔ±¸·Ý£¬ÓÖ²»»áÓ°Ïì·þÎñÆ÷µÄ¿ÉÓÃÐÔ¡£
-## 3. ¿ªÊ¼±¸·Ý
-#### 1.×¼±¸¹¤×÷
-ÓÐÁ½Ì¨·þÎñÆ÷`192.168.2.5`Óë`192.168.2.230`£¬ÔÚÍ¬Ò»¾ÖÓòÍø£¬ÎªÁË¿ìËÙ²¿Êð²¢ÇÒ²»Ó°Ïì²Ù×÷ÏµÍ³£¬½«Ê¹ÓÃ`docker`×÷ÎªÔËÐÐ`mysql`µÄÈÝÆ÷¡£  
-´Ó`docker hub`À­È¡»òÕß×Ô¼ºÖÆ×÷Ò»¸ö¾µÏñ£¬ÕâÀïÒÑ¾­ÔÚ`192.168.2.5`ÖÆ×÷ºÃÁËÒ»¸ö¾µÏñ£¬²¢ÒÑ¾­pushµ½ÁË`192.168.2.230`¡£
+çŠ¶æ€çš„è§£å†³åŠžæ³•æ˜¯å°†å…¶åˆ†åŒºæŒ‚è½½ä¸ºåªè¯»ï¼Œç„¶åŽé€šè¿‡æ•°æ®åº“çš„è¡¨çº§åˆ«é”å®š(table-level write locks)ç”šè‡³åœæ­¢æ•°æ®åº“æ¥å¤‡ä»½æ•°æ®ã€‚æ‰€æœ‰è¿™äº›æ–¹æ³•æ— æ„ä¸¥é‡å½±å“äº†æœåŠ¡çš„å¯ç”¨æ€§ã€‚ä½¿ç”¨LVM snapshotæ—¢å¯ä»¥èŽ·å¾—ä¸€è‡´æ€§å¤‡ä»½ï¼Œåˆä¸ä¼šå½±å“æœåŠ¡å™¨çš„å¯ç”¨æ€§ã€‚
+## 3. å¼€å§‹å¤‡ä»½
+#### 1.å‡†å¤‡å·¥ä½œ
+æœ‰ä¸¤å°æœåŠ¡å™¨`192.168.2.5`ä¸Ž`192.168.2.230`ï¼Œåœ¨åŒä¸€å±€åŸŸç½‘ï¼Œä¸ºäº†å¿«é€Ÿéƒ¨ç½²å¹¶ä¸”ä¸å½±å“æ“ä½œç³»ç»Ÿï¼Œå°†ä½¿ç”¨`docker`ä½œä¸ºè¿è¡Œ`mysql`çš„å®¹å™¨ã€‚  
+ä»Ž`docker hub`æ‹‰å–æˆ–è€…è‡ªå·±åˆ¶ä½œä¸€ä¸ªé•œåƒï¼Œè¿™é‡Œå·²ç»åœ¨`192.168.2.5`åˆ¶ä½œå¥½äº†ä¸€ä¸ªé•œåƒï¼Œå¹¶å·²ç»pushåˆ°äº†`192.168.2.230`ã€‚
 
-¿ªÊ¼ÔÚ`192.168.2.5` **ÔËÐÐMySQL**:
+å¼€å§‹åœ¨`192.168.2.5` **è¿è¡ŒMySQL**:
 
     docker run -d -h mysql-server --restart=always --name=mysql_server -p 3306:3306 -v /mnt1/data/mysql:/mnt/data/mysql-online 192.168.2.230:5000/sunyuki/mysqllinux:latest
     
-ÕâÑù»áÔËÐÐÒ»¸ö`docker`ÈÝÆ÷£¬²¢ÇÒ½«`docker`ÖÐµÄ`mysql`Êý¾Ý¿âÎÄ¼þ`mnt/data/mysql-online`¹ÒÔØµ½ÁË±¾µØ´ÅÅÌ`/mnt1/data/mysql`¡£
+è¿™æ ·ä¼šè¿è¡Œä¸€ä¸ª`docker`å®¹å™¨ï¼Œå¹¶ä¸”å°†`docker`ä¸­çš„`mysql`æ•°æ®åº“æ–‡ä»¶`mnt/data/mysql-online`æŒ‚è½½åˆ°äº†æœ¬åœ°ç£ç›˜`/mnt1/data/mysql`ã€‚
     
-Í¬ÑùµÄ£¬ÔÚ`192.168.2.230`Ö´ÐÐÏàÍ¬µÄÃüÁî£¬ÕâÑùÔÚÁ½Ì¨»úÆ÷µÄÔËÐÐµÄ`mysql`ÊÇÒ»ÑùµÄ£¬²¢ÇÒÁ½¸öÈÝÆ÷µÄÃû³ÆÊÇ`mysql_server`¡£
+åŒæ ·çš„ï¼Œåœ¨`192.168.2.230`æ‰§è¡Œç›¸åŒçš„å‘½ä»¤ï¼Œè¿™æ ·åœ¨ä¸¤å°æœºå™¨çš„è¿è¡Œçš„`mysql`æ˜¯ä¸€æ ·çš„ï¼Œå¹¶ä¸”ä¸¤ä¸ªå®¹å™¨çš„åç§°æ˜¯`mysql_server`ã€‚
     
 
     
-#### 2.ÆôÓÃÊý¾Ý¿â¶þ½øÖÆÈÕÖ¾
-ÒòÎª¸´ÖÆµÄÔ­ÀíÊÇÖØ×ö¶þ½øÖÆÈÕÖ¾£¬ËùÒÔÐèÒªÎªÁ½Ì¨»úÆ÷¶¼ÆôÓÃ¶þ½øÖÆÈÕÖ¾¡£
+#### 2.å¯ç”¨æ•°æ®åº“äºŒè¿›åˆ¶æ—¥å¿—
+å› ä¸ºå¤åˆ¶çš„åŽŸç†æ˜¯é‡åšäºŒè¿›åˆ¶æ—¥å¿—ï¼Œæ‰€ä»¥éœ€è¦ä¸ºä¸¤å°æœºå™¨éƒ½å¯ç”¨äºŒè¿›åˆ¶æ—¥å¿—ã€‚
 
-Á½Ì¨»úÆ÷¶¼ÔËÐÐÆð`docker`ÈÝÆ÷ºó£¬Á¬½Óµ½`192.168.2.5`½øÈë`mysql_server`ÈÝÆ÷¸ü¸ÄÅäÖÃÎÄ¼þ:
+ä¸¤å°æœºå™¨éƒ½è¿è¡Œèµ·`docker`å®¹å™¨åŽï¼Œè¿žæŽ¥åˆ°`192.168.2.5`è¿›å…¥`mysql_server`å®¹å™¨æ›´æ”¹é…ç½®æ–‡ä»¶:
 
     docker exec -it mysql_server /bin/bash
 
 
-ÔÚÊý¾Ý¿âÅäÖÃÎÄ¼þÖÐÉèÖÃ(Í¨³£Îª`/etc/my.cnf`):
+åœ¨æ•°æ®åº“é…ç½®æ–‡ä»¶ä¸­è®¾ç½®(é€šå¸¸ä¸º`/etc/my.cnf`):
     
     [mysqld]
     log-bin = mysql-bin
     sync_binlog = 1
     innodb_support_xa = 1
     
-Á¬½Óµ½`192.168.2.230`×öÍ¬ÑùµÄ²Ù×÷¡£
+è¿žæŽ¥åˆ°`192.168.2.230`åšåŒæ ·çš„æ“ä½œã€‚
     
-ÕâÑùÁ½Ì¨»úÆ÷¶¼ÆôÓÃÁË¶þ½øÖÆÈÕÖ¾¡£
-#### 2.¸ü¸ÄÊý¾Ý¿â server-id
-´òËã½«`192.168.230`×÷Îª**´Ó·þÎñÆ÷**£¬`192.168.2.5`×÷Îª**Ö÷·þÎñÆ÷**£¬ÐèÒª½«Á½Ì¨»úÆ÷µÄÊý¾Ý¿â`server-id`¸ü¸ÄµÄ²»Ò»Ñù¡£  
+è¿™æ ·ä¸¤å°æœºå™¨éƒ½å¯ç”¨äº†äºŒè¿›åˆ¶æ—¥å¿—ã€‚
+#### 2.æ›´æ”¹æ•°æ®åº“ server-id
+æ‰“ç®—å°†`192.168.230`ä½œä¸º**ä»ŽæœåŠ¡å™¨**ï¼Œ`192.168.2.5`ä½œä¸º**ä¸»æœåŠ¡å™¨**ï¼Œéœ€è¦å°†ä¸¤å°æœºå™¨çš„æ•°æ®åº“`server-id`æ›´æ”¹çš„ä¸ä¸€æ ·ã€‚  
 
-ÔÚ`192.168.2.230`:  
-½øÈëdockerÈÝÆ÷:
+åœ¨`192.168.2.230`:  
+è¿›å…¥dockerå®¹å™¨:
 
     docker exec -it mysql_server /bin/bash
     
-¸ü¸ÄÊý¾Ý¿âÅäÖÃÎÄ¼þ:
+æ›´æ”¹æ•°æ®åº“é…ç½®æ–‡ä»¶:
     
     [mysqld]
     server-id = 2
     
-²¢ÇÒÖØÃüÃû`192.168.2.230`ÖÐµÄ `auto.cnf`:
+å¹¶ä¸”é‡å‘½å`192.168.2.230`ä¸­çš„ `auto.cnf`:
 
     mv auto.cnf auto.cnf.bak
     
-ÖØÃüÃûÕâ¸öÎÄ¼þµÄÔ­ÒòÊÇÕâ¸öÎÄ¼þ¶¨ÒåÁËÁ½Ì¨·þÎñÆ÷µÄ`uuid`£¬ÒòÎªÁ½Ì¨·þÎñÆ÷µÄ`docker`¾µÏñÊÇÒ»ÑùµÄ£¬ËùÒÔÒªÈÃ`mysql`ÖØÐÂÉú³É`uuid`¡£
+é‡å‘½åè¿™ä¸ªæ–‡ä»¶çš„åŽŸå› æ˜¯è¿™ä¸ªæ–‡ä»¶å®šä¹‰äº†ä¸¤å°æœåŠ¡å™¨çš„`uuid`ï¼Œå› ä¸ºä¸¤å°æœåŠ¡å™¨çš„`docker`é•œåƒæ˜¯ä¸€æ ·çš„ï¼Œæ‰€ä»¥è¦è®©`mysql`é‡æ–°ç”Ÿæˆ`uuid`ã€‚
 
-`auto.cnf`ÖÐµÄÄÚÈÝÒ»ÀÀ:
+`auto.cnf`ä¸­çš„å†…å®¹ä¸€è§ˆ:
 
     [auto]
     server-uuid=9f31bddf-d965-11e6-9c77-0242ac110003
 
-ÖØÆô`mysql`
+é‡å¯`mysql`
     
     service mysql restart
 
-ÔÚ`192.168.2.5`:  
-½øÈëdockerÈÝÆ÷:
+åœ¨`192.168.2.5`:  
+è¿›å…¥dockerå®¹å™¨:
 
     docker exec -it mysql_server /bin/bash
     
-¸ü¸ÄÊý¾Ý¿âÅäÖÃÎÄ¼þ:
+æ›´æ”¹æ•°æ®åº“é…ç½®æ–‡ä»¶:
     
     [mysqld]
     server-id = 1
 
-ÖØÆô`mysql`
+é‡å¯`mysql`
 
     service mysql restart
     
-#### 3.ÅäÖÃÖ÷´ÓÊý¾Ý¿â
-ÔÚ`192.168.2.5`:  
-½øÈë`192.168.2.5`µÄ`docker`ÈÝÆ÷:  
-´´½¨ÐÂÓÃ»§ÓÃÓÚ¸´ÖÆ¹¦ÄÜ:
+#### 3.é…ç½®ä¸»ä»Žæ•°æ®åº“
+åœ¨`192.168.2.5`:  
+è¿›å…¥`192.168.2.5`çš„`docker`å®¹å™¨:  
+åˆ›å»ºæ–°ç”¨æˆ·ç”¨äºŽå¤åˆ¶åŠŸèƒ½:
     
     mysql> CREATE USER 'repl'@'192.168.2.230' IDENTIFIED BY 'repl';
     mysql> GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.2.230';
     
-Èç¹ûÏë¿´Ò»ÏÂ½á¹û£¬¿ÉÒÔ²é¿´`mysql`ÓÃ»§
+å¦‚æžœæƒ³çœ‹ä¸€ä¸‹ç»“æžœï¼Œå¯ä»¥æŸ¥çœ‹`mysql`ç”¨æˆ·
 
     mysql> select user,host from mysql.user;
 
-Ê×ÏÈ²éÑ¯Ö÷Êý¾Ý¿âÈÕÖ¾ÎÄ¼þÎ»ÖÃ:  
+é¦–å…ˆæŸ¥è¯¢ä¸»æ•°æ®åº“æ—¥å¿—æ–‡ä»¶ä½ç½®:  
 
     mysql> show master status
     
     | file             | position |
     | mysql-bin.000017 | 120      |
     
-»ñÈ¡µ½Á½¸öÖØÒªµÄÐÅÏ¢£¬¶þ½øÖÆÈÕÖ¾ÎÄ¼þÃûÓëÖ´ÐÐÎ»ÖÃ  
+èŽ·å–åˆ°ä¸¤ä¸ªé‡è¦çš„ä¿¡æ¯ï¼ŒäºŒè¿›åˆ¶æ—¥å¿—æ–‡ä»¶åä¸Žæ‰§è¡Œä½ç½®  
 
 
-ÔÚ`192.168.2.230`:  
-½øÈë`192.168.2.230`µÄ`docker`ÈÝÆ÷:  
-ÅäÖÃ´Ó·þÎñÆ÷:
+åœ¨`192.168.2.230`:  
+è¿›å…¥`192.168.2.230`çš„`docker`å®¹å™¨:  
+é…ç½®ä»ŽæœåŠ¡å™¨:
 
     mysql> CHANGE MASTER TO
     MASTER_HOST ='192.168.2.5',
@@ -129,29 +129,29 @@ MySQL ¸´ÖÆÊÇMySQLÊý¾Ý¿âÌá¹©µÄÒ»ÖÖ¸ß¿ÉÓÃ¸ßÐÔÄÜµÄ½â¾ö·½°¸£¬¸´ÖÆµÄÔ­Àí²¢²»ÄÑ£¬ÆäÊµ¾
     MASTER_LOG_FILE ='mysql-bin.000017',
     MASTER_LOG_POS =120;
 
-ÆäÖÐ`MASTER_LOG_FILE`Óë`MASTER_LOG_POS`ÒªÓëÖ÷Êý¾Ý¿âÖÐµÄ`show master status`µÄ½á¹ûÒ»ÖÂ¡£
+å…¶ä¸­`MASTER_LOG_FILE`ä¸Ž`MASTER_LOG_POS`è¦ä¸Žä¸»æ•°æ®åº“ä¸­çš„`show master status`çš„ç»“æžœä¸€è‡´ã€‚
 
-¿ªÆô´ÓÊý¾Ý¿â:
+å¼€å¯ä»Žæ•°æ®åº“:
     
     mysql> start slave;
     
-²é¿´ÊÇ·ñÅäÖÃ³É¹¦:
+æŸ¥çœ‹æ˜¯å¦é…ç½®æˆåŠŸ:
 
     mysql> show slave status;
     
     | Slave_IO_Running | Slave_SQL_Running | Last_IO_Error | Last_SQL_Error|
     | yes              | yes               |               |               |
     
-Èç¹û`Slave_SQL_Running`Óë`Slave_IO_Running`ÆäÖÐÒ»¸ö²»ÊÇ`yes`£¬¾ÍÃ»ÓÐÅäÖÃ³É¹¦£¬¾ßÌå´íÎó¿ÉÒÔÔÚ`Last_IO_Error`ºÍ`Last_SQL_Error`ÖÐ²é¿´¡£
+å¦‚æžœ`Slave_SQL_Running`ä¸Ž`Slave_IO_Running`å…¶ä¸­ä¸€ä¸ªä¸æ˜¯`yes`ï¼Œå°±æ²¡æœ‰é…ç½®æˆåŠŸï¼Œå…·ä½“é”™è¯¯å¯ä»¥åœ¨`Last_IO_Error`å’Œ`Last_SQL_Error`ä¸­æŸ¥çœ‹ã€‚
 
-ÒÀ¾ÝÕâ¸öÔ­Àí£¬¿ÉÒÔÐ´Ò»¸ö½Å±¾ÓÃ»§ÊµÊ±µÄÈ¥¼ì²éÖ÷´ÓÊý¾Ý¿âÊÇ²»ÊÇ³ö´í£¬Èç¹û³ö´íÁË¾Í·¢ÓÊ¼þ¸ø¹ÜÀíÕß£¬ÕâÀïÊ¹ÓÃµÄÊÇ`python`Ð´µÄ½Å±¾¡£
+ä¾æ®è¿™ä¸ªåŽŸç†ï¼Œå¯ä»¥å†™ä¸€ä¸ªè„šæœ¬ç”¨æˆ·å®žæ—¶çš„åŽ»æ£€æŸ¥ä¸»ä»Žæ•°æ®åº“æ˜¯ä¸æ˜¯å‡ºé”™ï¼Œå¦‚æžœå‡ºé”™äº†å°±å‘é‚®ä»¶ç»™ç®¡ç†è€…ï¼Œè¿™é‡Œä½¿ç”¨çš„æ˜¯`python`å†™çš„è„šæœ¬ã€‚
     
-°²×°`mysql-connector for python`:
+å®‰è£…`mysql-connector for python`:
 
     wget https://dev.mysql.com/get/Downloads/Connector-Python/mysql-connector-python-2.1.5-1.el6.x86_64.rpm
     rpm -i mysql-connector-python-2.1.5-1.el6.x86_64.rpm
     
-°²ºÃconnectorºó¿ªÊ¼Ð´`python`½Å±¾:
+å®‰å¥½connectoråŽå¼€å§‹å†™`python`è„šæœ¬:
 ```
 #!/usr/bin/python
 import mysql.connector
@@ -234,12 +234,12 @@ finally:
     cnx.close
     logger.info('program terminate')
 ```
-Õâ¸ö½Å±¾µÄÓÃ´¦¾ÍÊÇÃ¿Á½·ÖÖÓÈ¥¼ì²âÖ÷´Ó·þÎñÆ÷Á¬½ÓÊÇ·ñÕý³££¬Èç¹û²»Õý³£½«»á·¢ËÍ´íÎóÏûÏ¢¸ø¹ÜÀíÔ±¡£  
-µ½ÕâÀïÖ÷´ÓÊý¾Ý¿âÅäÖÃ¾ÍÍê³ÉÁË£¬¿ÉÒÔÍ¨¹ýÁ¬½Ó`192.168.2.5`£¬Ö´ÐÐÊý¾Ý¿â´´½¨²Ù×÷£¬È»ºóÔÙµ½`192.168.2.230`¿´ÐÂµÄÊý¾Ý¿âÊÇ·ñ´´½¨À´ÊÔÑé`mysql`µÄ¸´ÖÆ(replication)¹¦ÄÜ¡£
-#### 4.×Ô¶¯´´½¨¿ìÕÕ
-ÕâÒ»²½¿ªÊ¼ÔÚ**´ÓÊý¾Ý¿â**ËùÔÚ·þÎñÆ÷`192.168.2.230`µÄÊý¾Ý¿âÎÄ¼þ½øÐÐ¿ìÕÕµÄ²Ù×÷£¬ÆäÊµÕâÒ»²½Ö®Ç°£¬½«`mysql`µÄÊý¾Ý¿âÎÄ¼þÂ·¾¶`/mnt1/data/mysql`¹ÒÔØµ½ÁËÒ»¸ö×¨ÓÃµÄLVMÂß¼­¾í¡£  
-ÔÚ`192.168.2.230`Ö´ÐÐ£¨²»½øÈë`docker`):  
-²é¿´·ÖÇø:
+è¿™ä¸ªè„šæœ¬çš„ç”¨å¤„å°±æ˜¯æ¯ä¸¤åˆ†é’ŸåŽ»æ£€æµ‹ä¸»ä»ŽæœåŠ¡å™¨è¿žæŽ¥æ˜¯å¦æ­£å¸¸ï¼Œå¦‚æžœä¸æ­£å¸¸å°†ä¼šå‘é€é”™è¯¯æ¶ˆæ¯ç»™ç®¡ç†å‘˜ã€‚  
+åˆ°è¿™é‡Œä¸»ä»Žæ•°æ®åº“é…ç½®å°±å®Œæˆäº†ï¼Œå¯ä»¥é€šè¿‡è¿žæŽ¥`192.168.2.5`ï¼Œæ‰§è¡Œæ•°æ®åº“åˆ›å»ºæ“ä½œï¼Œç„¶åŽå†åˆ°`192.168.2.230`çœ‹æ–°çš„æ•°æ®åº“æ˜¯å¦åˆ›å»ºæ¥è¯•éªŒ`mysql`çš„å¤åˆ¶(replication)åŠŸèƒ½ã€‚
+#### 4.è‡ªåŠ¨åˆ›å»ºå¿«ç…§
+è¿™ä¸€æ­¥å¼€å§‹åœ¨**ä»Žæ•°æ®åº“**æ‰€åœ¨æœåŠ¡å™¨`192.168.2.230`çš„æ•°æ®åº“æ–‡ä»¶è¿›è¡Œå¿«ç…§çš„æ“ä½œï¼Œå…¶å®žè¿™ä¸€æ­¥ä¹‹å‰ï¼Œå°†`mysql`çš„æ•°æ®åº“æ–‡ä»¶è·¯å¾„`/mnt1/data/mysql`æŒ‚è½½åˆ°äº†ä¸€ä¸ªä¸“ç”¨çš„LVMé€»è¾‘å·ã€‚  
+åœ¨`192.168.2.230`æ‰§è¡Œï¼ˆä¸è¿›å…¥`docker`):  
+æŸ¥çœ‹åˆ†åŒº:
 ```
 root@syk230# fdisk -l
     Device     Boot   Start        End    Sectors  Size Id Type
@@ -247,7 +247,7 @@ root@syk230# fdisk -l
 /dev/sda2       1001470 3907028991 3906027522  1.8T  5 Extended
 /dev/sda5       1001472 3907028991 3906027520  1.8T 8e Linux LVM
 ```
-²é¿´¾í×é:
+æŸ¥çœ‹å·ç»„:
 ```
 root@syk230# vgdisplay
       --- Volume group ---
@@ -272,11 +272,11 @@ root@syk230# vgdisplay
   VG UUID               brRcUd-vF1G-rWjH-EJW5-jiWG-fsrN-j2RtlN
 ```
     
-ÔÚ`syk230-vg`¾í×éÉÏ´´½¨Ò»¸öÃûÎª`mysql`µÄÂß¼­¾í£¬´óÐ¡Îª3G:
+åœ¨`syk230-vg`å·ç»„ä¸Šåˆ›å»ºä¸€ä¸ªåä¸º`mysql`çš„é€»è¾‘å·ï¼Œå¤§å°ä¸º3G:
 
     lvcreate -L 3G -n mysql syk230-vg
     
-²é¿´Âß¼­¾í:
+æŸ¥çœ‹é€»è¾‘å·:
 ```
 root@syk230# lvdisplay
   --- Logical volume ---
@@ -298,20 +298,20 @@ root@syk230# lvdisplay
   - currently set to     256
   Block device           252:2
 ```
-¸ñÊ½»¯·ÖÇø(ext4):
+æ ¼å¼åŒ–åˆ†åŒº(ext4):
 
     mkfs.ext4 /dev/syk230-vg/mysql
     
-¹ÒÔØ·ÖÇø:
+æŒ‚è½½åˆ†åŒº:
 
     vim /etc/fstab
 
-Ìí¼ÓÄÚÈÝ:
+æ·»åŠ å†…å®¹:
     
     /dev/mapper/syk230--vg-mysql /mnt1/data/mysql ext4 defaults 0 2
     
-ÖÁ´Ë£¬Îª´æ´¢mysqlÊý¾ÝÂß¼­¾í´´½¨ºÃÁË¡£  
-**±àÐ´×Ô¶¯´´½¨±¸·ÝµÄ½Å±¾**:
+è‡³æ­¤ï¼Œä¸ºå­˜å‚¨mysqlæ•°æ®é€»è¾‘å·åˆ›å»ºå¥½äº†ã€‚  
+**ç¼–å†™è‡ªåŠ¨åˆ›å»ºå¤‡ä»½çš„è„šæœ¬**:
 ```
 #!/bin/bash
 tmppath=/mnt1/data/mysqlbak1
@@ -333,35 +333,35 @@ umount $tmppath
 rmdir $tmppath
 lvremove -f /dev/syk230-vg/mysqlsnap1
 ```
-ÆäÖÐ`172.17.0.3`ÊÇ`docker`ÖÐ`mysql_server`ÈÝÆ÷±¾»úÄÚÍøip¡£¿ÉÒÔÍ¨¹ý
+å…¶ä¸­`172.17.0.3`æ˜¯`docker`ä¸­`mysql_server`å®¹å™¨æœ¬æœºå†…ç½‘ipã€‚å¯ä»¥é€šè¿‡
 
     docker network inspect bridge
     
-²éÑ¯¡£  
-½«Ö´ÐÐ½Å±¾¼Æ»®Ìí¼Óµ½`crontab`ÖÐ:
+æŸ¥è¯¢ã€‚  
+å°†æ‰§è¡Œè„šæœ¬è®¡åˆ’æ·»åŠ åˆ°`crontab`ä¸­:
 
     crontab -e
 
-Ìí¼ÓÄÚÈÝ
+æ·»åŠ å†…å®¹
     
     0 0 * * * /bin/bash /mnt1/data/mysqlbak.sh
     
-ÕâÑùÃ¿ÌìÁè³¿±¸·ÝÒ»´ÎÊý¾Ý¿â£¬²¢ÇÒ²»ÐèÒªÍ£Ö¹Êý¾Ý¿â¡£
+è¿™æ ·æ¯å¤©å‡Œæ™¨å¤‡ä»½ä¸€æ¬¡æ•°æ®åº“ï¼Œå¹¶ä¸”ä¸éœ€è¦åœæ­¢æ•°æ®åº“ã€‚
 
-**É¾³ý30ÌìÖ®Ç°µÄ±¸·Ý**  
+**åˆ é™¤30å¤©ä¹‹å‰çš„å¤‡ä»½**  
 
     find /mnt1/data/mysqlbak -mtime +30 -delete > /mnt1/data/mysqldel.sh
     chmod 755 /mnt1/data/mysqldel.sh
     
-crontab Ìí¼ÓÄÚÈÝ:
+crontab æ·»åŠ å†…å®¹:
     
     0 0 * * * /bin/bash /mnt1/data/mysqldel.sh
 
-#### 5.Ð¡½á
-×ÜµÄËµÀ´£¬ÅäÖÃMySQLµÄ¸´ÖÆ¹¦ÄÜ±ÈÅäÖÃLVM¼òµ¥Ì«¶à,Ö÷ÒªÊÇÒòÎªÊÇ·ñÄÜÕýÈ·µÄÊ¹ÓÃLVM¿ìÕÕ¹¦ÄÜ¸úÓ²ÅÌÅäÖÃÑ¡ÏîÓÐÖ±½ÓµÄ¹ØÏµ£¬Ö÷ÒªÓÐÒÔÏÂ¼¸µãÐèÒª×¢Òâµ½£º 
-- °²×°ÏµÍ³µÄÊ±ºòÒªÑ¡LVM¹ÜÀíµÄ´ÅÅÌ
-- °²×°ÏµÍ³·ÖÇøµÄÊ±ºò**Ò»¶¨²»Òª½«ÏµÍ³·ÖÇøÕ¼ÂúÕû¸ö´ÅÅÌ**£¬·ñÔòLVMÎÞ·¨·ÖÅäÐÂµÄ¿Õ¼äÀ´´´½¨Âß¼­¾í£¬ÇÒÏµÍ³·ÖÇø²»¿ÉÉ¾³ýºÍËõÐ¡(·ñÔòÐèÒªÓÃ`cd-live`»òÕß`usb-live`)
-- Ìí¼ÓÐÂÓ²ÅÌµÄÊ±ºòÓÃ`pvcreate`,`vgcreate`·Ö±ðÀ´´´½¨ÎïÀí¾íºÍ¾í×é
-- Èç¹û°²×°ÏµÍ³Ê±Ã»ÓÐÑ¡ÔñLVM£¬ÓÃ`fdisk`´´½¨ÐÂµÄ·ÖÇø²¢ÇÒ¸ü¸Ä´ÅÅÌÀàÐÍÎª`8e`(LVMÀàÐÍ´úÂë)
+#### 5.å°ç»“
+æ€»çš„è¯´æ¥ï¼Œé…ç½®MySQLçš„å¤åˆ¶åŠŸèƒ½æ¯”é…ç½®LVMç®€å•å¤ªå¤š,ä¸»è¦æ˜¯å› ä¸ºæ˜¯å¦èƒ½æ­£ç¡®çš„ä½¿ç”¨LVMå¿«ç…§åŠŸèƒ½è·Ÿç¡¬ç›˜é…ç½®é€‰é¡¹æœ‰ç›´æŽ¥çš„å…³ç³»ï¼Œä¸»è¦æœ‰ä»¥ä¸‹å‡ ç‚¹éœ€è¦æ³¨æ„åˆ°ï¼š 
+- å®‰è£…ç³»ç»Ÿçš„æ—¶å€™è¦é€‰LVMç®¡ç†çš„ç£ç›˜
+- å®‰è£…ç³»ç»Ÿåˆ†åŒºçš„æ—¶å€™**ä¸€å®šä¸è¦å°†ç³»ç»Ÿåˆ†åŒºå æ»¡æ•´ä¸ªç£ç›˜**ï¼Œå¦åˆ™LVMæ— æ³•åˆ†é…æ–°çš„ç©ºé—´æ¥åˆ›å»ºé€»è¾‘å·ï¼Œä¸”ç³»ç»Ÿåˆ†åŒºä¸å¯åˆ é™¤å’Œç¼©å°(å¦åˆ™éœ€è¦ç”¨`cd-live`æˆ–è€…`usb-live`)
+- æ·»åŠ æ–°ç¡¬ç›˜çš„æ—¶å€™ç”¨`pvcreate`,`vgcreate`åˆ†åˆ«æ¥åˆ›å»ºç‰©ç†å·å’Œå·ç»„
+- å¦‚æžœå®‰è£…ç³»ç»Ÿæ—¶æ²¡æœ‰é€‰æ‹©LVMï¼Œç”¨`fdisk`åˆ›å»ºæ–°çš„åˆ†åŒºå¹¶ä¸”æ›´æ”¹ç£ç›˜ç±»åž‹ä¸º`8e`(LVMç±»åž‹ä»£ç )
 
-½áºÏMySQLµÄ¸´ÖÆ¹¦ÄÜºÍLVMµÄ¿ìÕÕ¹¦ÄÜ£¬¼ÈÄÜ±£Ö¤Êý¾ÝµÄÊµÊ±Í¬²½£¬ÓÖÄÜ·ÀÖ¹³ÌÐò»òÊý¾Ý¿â¹ÜÀíÔ±µÄÎó²Ù×÷¡£
+ç»“åˆMySQLçš„å¤åˆ¶åŠŸèƒ½å’ŒLVMçš„å¿«ç…§åŠŸèƒ½ï¼Œæ—¢èƒ½ä¿è¯æ•°æ®çš„å®žæ—¶åŒæ­¥ï¼Œåˆèƒ½é˜²æ­¢ç¨‹åºæˆ–æ•°æ®åº“ç®¡ç†å‘˜çš„è¯¯æ“ä½œã€‚
