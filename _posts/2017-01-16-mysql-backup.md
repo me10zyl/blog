@@ -155,88 +155,88 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
     
 安好connector后开始写`python`脚本:
 
+```python
+#!/usr/bin/python
+import mysql.connector
+import logging
+import time
+import smtplib
+from email.mime.text import MIMEText
 
-	#!/usr/bin/python
-	import mysql.connector
-	import logging
-	import time
-	import smtplib
-	from email.mime.text import MIMEText
-	
-	# mysql
-	HOST = '127.0.0.1'
-	USER = 'xxx'
-	PASSWORD = 'xxxx'
-	LOG_FILE = '/var/log/mysqlchk.log'
-	TIME_GAP = 120  # interval time gap (unit seconds)
-	
-	# smtp
-	mailto_list = ["me@qq.com"]
-	mail_host = "smtp.domain.com"
-	mail_user = "xxx"
-	mail_pass = "xxx"
-	mail_postfix = "domain.com"
-	mail_nick_name = 'MySQL CHK'
-	mail_subject = '[ERROR] MySQL Replication Error'
-	
-	logger = logging.getLogger(__name__)
-	logger.setLevel(logging.INFO)
-	# create a file handler
-	handler = logging.FileHandler(LOG_FILE)
-	handler.setLevel(logging.INFO)
-	# create a logging format
-	formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-	handler.setFormatter(formatter)
-	# add the handlers to the logger
-	logger.addHandler(handler)
-	
-	logger.info('program start')
-	cnx = mysql.connector.connect(user=USER, password=PASSWORD, host=HOST)
-	
-	
-	def send_mail(to_list, sub, content):
-	    me = mail_nick_name + "<" + mail_user + "@" + mail_postfix + ">"
-	    msg = MIMEText(content, _subtype='plain', _charset='gb2312')
-	    msg['Subject'] = sub
-	    msg['From'] = me
-	    msg['To'] = ";".join(to_list)
-	    try:
-	        server = smtplib.SMTP()
-	        server.connect(mail_host)
-	        server.login(mail_user, mail_pass)
-	        server.sendmail(me, to_list, msg.as_string())
-	        server.close()
-	        return True
-	    except Exception, e:
-	        print str(e)
-	        return False
-	
-	
-	try:
-	    def check():
-	        logger.info('start check slave status..')
-	        cur = cnx.cursor()
-	        query = ("show slave status")
-	        cur.execute(query)
-	        res = cur.fetchone()
-	        (slave_io_running, slave_sql_running, last_io_error) = (res[10], res[11], res[35])
-	        if slave_io_running != 'yes' and slave_sql_running != 'yes':
-	            error = '[ERROR]Slave Error:{0}'.format(last_io_error);
-	            logger.error(error)
-	            send_mail(mailto_list, mail_subject, error)
-	        cur.close()
-	
-	
-	    while True:
-	        check()
-	        time.sleep(TIME_GAP)
-	except Exception, e:
-	    logger.error(str(e))
-	    send_mail(mailto_list, mail_subject, str(e))
-	finally:
-	    cnx.close
-	    logger.info('program terminate')
+# mysql
+HOST = '127.0.0.1'
+USER = 'xxx'
+PASSWORD = 'xxxx'
+LOG_FILE = '/var/log/mysqlchk.log'
+TIME_GAP = 120  # interval time gap (unit seconds)
 
+# smtp
+mailto_list = ["me@qq.com"]
+mail_host = "smtp.domain.com"
+mail_user = "xxx"
+mail_pass = "xxx"
+mail_postfix = "domain.com"
+mail_nick_name = 'MySQL CHK'
+mail_subject = '[ERROR] MySQL Replication Error'
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+# create a file handler
+handler = logging.FileHandler(LOG_FILE)
+handler.setLevel(logging.INFO)
+# create a logging format
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+# add the handlers to the logger
+logger.addHandler(handler)
+
+logger.info('program start')
+cnx = mysql.connector.connect(user=USER, password=PASSWORD, host=HOST)
+
+
+def send_mail(to_list, sub, content):
+    me = mail_nick_name + "<" + mail_user + "@" + mail_postfix + ">"
+    msg = MIMEText(content, _subtype='plain', _charset='gb2312')
+    msg['Subject'] = sub
+    msg['From'] = me
+    msg['To'] = ";".join(to_list)
+    try:
+        server = smtplib.SMTP()
+        server.connect(mail_host)
+        server.login(mail_user, mail_pass)
+        server.sendmail(me, to_list, msg.as_string())
+        server.close()
+        return True
+    except Exception, e:
+        print str(e)
+        return False
+
+
+try:
+    def check():
+        logger.info('start check slave status..')
+        cur = cnx.cursor()
+        query = ("show slave status")
+        cur.execute(query)
+        res = cur.fetchone()
+        (slave_io_running, slave_sql_running, last_io_error) = (res[10], res[11], res[35])
+        if slave_io_running != 'yes' and slave_sql_running != 'yes':
+            error = '[ERROR]Slave Error:{0}'.format(last_io_error);
+            logger.error(error)
+            send_mail(mailto_list, mail_subject, error)
+        cur.close()
+
+
+    while True:
+        check()
+        time.sleep(TIME_GAP)
+except Exception, e:
+    logger.error(str(e))
+    send_mail(mailto_list, mail_subject, str(e))
+finally:
+    cnx.close
+    logger.info('program terminate')
+```
 
 这个脚本的用处就是每两分钟去检测主从服务器连接是否正常，如果不正常将会发送错误消息给管理员。  
 到这里主从数据库配置就完成了，可以通过连接`192.168.2.5`，执行数据库创建操作，然后再到`192.168.2.230`看新的数据库是否创建来试验`mysql`的复制(replication)功能。
