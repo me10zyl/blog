@@ -150,152 +150,154 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
     rpm -i mysql-connector-python-2.1.5-1.el6.x86_64.rpm
     
 安好connector后开始写`python`脚本:
-```
-#!/usr/bin/python
-import mysql.connector
-import logging
-import time
-import smtplib
-from email.mime.text import MIMEText
-
-# mysql
-HOST = '127.0.0.1'
-USER = 'xxx'
-PASSWORD = 'xxxx'
-LOG_FILE = '/var/log/mysqlchk.log'
-TIME_GAP = 120  # interval time gap (unit seconds)
-
-# smtp
-mailto_list = ["me@qq.com"]
-mail_host = "smtp.domain.com"
-mail_user = "xxx"
-mail_pass = "xxx"
-mail_postfix = "domain.com"
-mail_nick_name = 'MySQL CHK'
-mail_subject = '[ERROR] MySQL Replication Error'
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-# create a file handler
-handler = logging.FileHandler(LOG_FILE)
-handler.setLevel(logging.INFO)
-# create a logging format
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-# add the handlers to the logger
-logger.addHandler(handler)
-
-logger.info('program start')
-cnx = mysql.connector.connect(user=USER, password=PASSWORD, host=HOST)
 
 
-def send_mail(to_list, sub, content):
-    me = mail_nick_name + "<" + mail_user + "@" + mail_postfix + ">"
-    msg = MIMEText(content, _subtype='plain', _charset='gb2312')
-    msg['Subject'] = sub
-    msg['From'] = me
-    msg['To'] = ";".join(to_list)
-    try:
-        server = smtplib.SMTP()
-        server.connect(mail_host)
-        server.login(mail_user, mail_pass)
-        server.sendmail(me, to_list, msg.as_string())
-        server.close()
-        return True
-    except Exception, e:
-        print str(e)
-        return False
+	#!/usr/bin/python
+	import mysql.connector
+	import logging
+	import time
+	import smtplib
+	from email.mime.text import MIMEText
+	
+	# mysql
+	HOST = '127.0.0.1'
+	USER = 'xxx'
+	PASSWORD = 'xxxx'
+	LOG_FILE = '/var/log/mysqlchk.log'
+	TIME_GAP = 120  # interval time gap (unit seconds)
+	
+	# smtp
+	mailto_list = ["me@qq.com"]
+	mail_host = "smtp.domain.com"
+	mail_user = "xxx"
+	mail_pass = "xxx"
+	mail_postfix = "domain.com"
+	mail_nick_name = 'MySQL CHK'
+	mail_subject = '[ERROR] MySQL Replication Error'
+	
+	logger = logging.getLogger(__name__)
+	logger.setLevel(logging.INFO)
+	# create a file handler
+	handler = logging.FileHandler(LOG_FILE)
+	handler.setLevel(logging.INFO)
+	# create a logging format
+	formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+	handler.setFormatter(formatter)
+	# add the handlers to the logger
+	logger.addHandler(handler)
+	
+	logger.info('program start')
+	cnx = mysql.connector.connect(user=USER, password=PASSWORD, host=HOST)
+	
+	
+	def send_mail(to_list, sub, content):
+	    me = mail_nick_name + "<" + mail_user + "@" + mail_postfix + ">"
+	    msg = MIMEText(content, _subtype='plain', _charset='gb2312')
+	    msg['Subject'] = sub
+	    msg['From'] = me
+	    msg['To'] = ";".join(to_list)
+	    try:
+	        server = smtplib.SMTP()
+	        server.connect(mail_host)
+	        server.login(mail_user, mail_pass)
+	        server.sendmail(me, to_list, msg.as_string())
+	        server.close()
+	        return True
+	    except Exception, e:
+	        print str(e)
+	        return False
+	
+	
+	try:
+	    def check():
+	        logger.info('start check slave status..')
+	        cur = cnx.cursor()
+	        query = ("show slave status")
+	        cur.execute(query)
+	        res = cur.fetchone()
+	        (slave_io_running, slave_sql_running, last_io_error) = (res[10], res[11], res[35])
+	        if slave_io_running != 'yes' and slave_sql_running != 'yes':
+	            error = '[ERROR]Slave Error:{0}'.format(last_io_error);
+	            logger.error(error)
+	            send_mail(mailto_list, mail_subject, error)
+	        cur.close()
+	
+	
+	    while True:
+	        check()
+	        time.sleep(TIME_GAP)
+	except Exception, e:
+	    logger.error(str(e))
+	    send_mail(mailto_list, mail_subject, str(e))
+	finally:
+	    cnx.close
+	    logger.info('program terminate')
 
 
-try:
-    def check():
-        logger.info('start check slave status..')
-        cur = cnx.cursor()
-        query = ("show slave status")
-        cur.execute(query)
-        res = cur.fetchone()
-        (slave_io_running, slave_sql_running, last_io_error) = (res[10], res[11], res[35])
-        if slave_io_running != 'yes' and slave_sql_running != 'yes':
-            error = '[ERROR]Slave Error:{0}'.format(last_io_error);
-            logger.error(error)
-            send_mail(mailto_list, mail_subject, error)
-        cur.close()
-
-
-    while True:
-        check()
-        time.sleep(TIME_GAP)
-except Exception, e:
-    logger.error(str(e))
-    send_mail(mailto_list, mail_subject, str(e))
-finally:
-    cnx.close
-    logger.info('program terminate')
-```
 这个脚本的用处就是每两分钟去检测主从服务器连接是否正常，如果不正常将会发送错误消息给管理员。  
 到这里主从数据库配置就完成了，可以通过连接`192.168.2.5`，执行数据库创建操作，然后再到`192.168.2.230`看新的数据库是否创建来试验`mysql`的复制(replication)功能。
 #### 4.自动创建快照
 这一步开始在**从数据库**所在服务器`192.168.2.230`的数据库文件进行快照的操作，其实这一步之前，将`mysql`的数据库文件路径`/mnt1/data/mysql`挂载到了一个专用的LVM逻辑卷。  
 在`192.168.2.230`执行（不进入`docker`):  
 查看分区:
-```
-root@syk230# fdisk -l
-    Device     Boot   Start        End    Sectors  Size Id Type
-/dev/sda1  *       2048     999423     997376  487M 83 Linux
-/dev/sda2       1001470 3907028991 3906027522  1.8T  5 Extended
-/dev/sda5       1001472 3907028991 3906027520  1.8T 8e Linux LVM
-```
+
+	root@syk230# fdisk -l
+	    Device     Boot   Start        End    Sectors  Size Id Type
+	/dev/sda1  *       2048     999423     997376  487M 83 Linux
+	/dev/sda2       1001470 3907028991 3906027522  1.8T  5 Extended
+	/dev/sda5       1001472 3907028991 3906027520  1.8T 8e Linux LVM
+
 查看卷组:
-```
-root@syk230# vgdisplay
-      --- Volume group ---
-  VG Name               syk230-vg
-  System ID
-  Format                lvm2
-  Metadata Areas        1
-  Metadata Sequence No  52
-  VG Access             read/write
-  VG Status             resizable
-  MAX LV                0
-  Cur LV                4
-  Open LV               3
-  Max PV                0
-  Cur PV                1
-  Act PV                1
-  VG Size               1.82 TiB
-  PE Size               4.00 MiB
-  Total PE              476809
-  Alloc PE / Size       11076 / 43.27 GiB
-  Free  PE / Size       465733 / 1.78 TiB
-  VG UUID               brRcUd-vF1G-rWjH-EJW5-jiWG-fsrN-j2RtlN
-```
+
+	root@syk230# vgdisplay
+	      --- Volume group ---
+	  VG Name               syk230-vg
+	  System ID
+	  Format                lvm2
+	  Metadata Areas        1
+	  Metadata Sequence No  52
+	  VG Access             read/write
+	  VG Status             resizable
+	  MAX LV                0
+	  Cur LV                4
+	  Open LV               3
+	  Max PV                0
+	  Cur PV                1
+	  Act PV                1
+	  VG Size               1.82 TiB
+	  PE Size               4.00 MiB
+	  Total PE              476809
+	  Alloc PE / Size       11076 / 43.27 GiB
+	  Free  PE / Size       465733 / 1.78 TiB
+	  VG UUID               brRcUd-vF1G-rWjH-EJW5-jiWG-fsrN-j2RtlN
+
     
 在`syk230-vg`卷组上创建一个名为`mysql`的逻辑卷，大小为3G:
 
     lvcreate -L 3G -n mysql syk230-vg
     
 查看逻辑卷:
-```
-root@syk230# lvdisplay
-  --- Logical volume ---
-  LV Path                /dev/syk230-vg/mysql
-  LV Name                mysql
-  VG Name                syk230-vg
-  LV UUID                09gVIy-r0vY-rGrX-G6sf-EDm4-483o-ZDaO66
-  LV Write Access        read/write
-  LV Creation host, time syk230, 2017-01-12 12:16:22 +0800
-  LV snapshot status     source of
-                         mysqlsnap [active]
-  LV Status              available
-  # open                 1
-  LV Size                3.00 GiB
-  Current LE             768
-  Segments               1
-  Allocation             inherit
-  Read ahead sectors     auto
-  - currently set to     256
-  Block device           252:2
-```
+
+	root@syk230# lvdisplay
+	  --- Logical volume ---
+	  LV Path                /dev/syk230-vg/mysql
+	  LV Name                mysql
+	  VG Name                syk230-vg
+	  LV UUID                09gVIy-r0vY-rGrX-G6sf-EDm4-483o-ZDaO66
+	  LV Write Access        read/write
+	  LV Creation host, time syk230, 2017-01-12 12:16:22 +0800
+	  LV snapshot status     source of
+	                         mysqlsnap [active]
+	  LV Status              available
+	  # open                 1
+	  LV Size                3.00 GiB
+	  Current LE             768
+	  Segments               1
+	  Allocation             inherit
+	  Read ahead sectors     auto
+	  - currently set to     256
+	  Block device           252:2
+
 格式化分区(ext4):
 
     mkfs.ext4 /dev/syk230-vg/mysql
@@ -310,27 +312,27 @@ root@syk230# lvdisplay
     
 至此，为存储mysql数据逻辑卷创建好了。  
 **编写自动创建备份的脚本**:
-```
-#!/bin/bash
-tmppath=/mnt1/data/mysqlbak1
-bakpath=/mnt1/data/mysqlbak
-filename=`date +%Y%m%d.tar.gz`
 
-mysql -h 172.17.0.3 -u xxx --password=xxx -e "flush tables with read lock"
-lvcreate -s -n mysqlsnap1 -L 5G /dev/syk230-vg/mysql
-mysql -h 172.17.0.3 -u xxx --password=xxx -e "unlock tables"
-if [ ! -d "$tmppath" ]; then
-        mkdir $tmppath
-fi
-if [ ! -d "$bakpath" ]; then
-        mkdir $bakpath
-fi
-mount /dev/syk230-vg/mysqlsnap1 $tmppath
-tar -cf "$bakpath/$filename" $tmppath
-umount $tmppath
-rmdir $tmppath
-lvremove -f /dev/syk230-vg/mysqlsnap1
-```
+	#!/bin/bash
+	tmppath=/mnt1/data/mysqlbak1
+	bakpath=/mnt1/data/mysqlbak
+	filename=`date +%Y%m%d.tar.gz`
+	
+	mysql -h 172.17.0.3 -u xxx --password=xxx -e "flush tables with read lock"
+	lvcreate -s -n mysqlsnap1 -L 5G /dev/syk230-vg/mysql
+	mysql -h 172.17.0.3 -u xxx --password=xxx -e "unlock tables"
+	if [ ! -d "$tmppath" ]; then
+	        mkdir $tmppath
+	fi
+	if [ ! -d "$bakpath" ]; then
+	        mkdir $bakpath
+	fi
+	mount /dev/syk230-vg/mysqlsnap1 $tmppath
+	tar -cf "$bakpath/$filename" $tmppath
+	umount $tmppath
+	rmdir $tmppath
+	lvremove -f /dev/syk230-vg/mysqlsnap1
+
 其中`172.17.0.3`是`docker`中`mysql_server`容器本机内网ip。可以通过
 
     docker network inspect bridge
