@@ -322,10 +322,13 @@ finally:
 	tmppath=/mnt1/data/mysqlbak1
 	bakpath=/mnt1/data/mysqlbak
 	filename=`date +%Y%m%d.tar.gz`
+	binpos=/tmp/binpos.log
 	
-	mysql -h 172.17.0.3 -u xxx --password=xxx -e "flush tables with read lock"
+	mysql -h 172.17.0.2 -u zyl --password=zyl -e "flush tables with read lock"
+	mysql -h 172.17.0.2 -u zyl --password=zyl -e "show master status\G" | grep 'File\|Position' | xargs > $binpos
+	mysql -h 172.17.0.2 -u zyl --password=zyl -e "show slave status\G" | grep 'Relay_Log_File\|Relay_Log_Pos' | xargs >> $binpos
 	lvcreate -s -n mysqlsnap1 -L 5G /dev/syk230-vg/mysql
-	mysql -h 172.17.0.3 -u xxx --password=xxx -e "unlock tables"
+	mysql -h 172.17.0.2 -u zyl --password=zyl -e "unlock tables"
 	if [ ! -d "$tmppath" ]; then
 	        mkdir $tmppath
 	fi
@@ -333,10 +336,12 @@ finally:
 	        mkdir $bakpath
 	fi
 	mount /dev/syk230-vg/mysqlsnap1 $tmppath
-	tar -cf "$bakpath/$filename" $tmppath
+	mv $binpos $tmppath
+	tar -czf "$bakpath/$filename" -C $tmppath .
 	umount $tmppath
 	rmdir $tmppath
 	lvremove -f /dev/syk230-vg/mysqlsnap1
+
 
 其中`172.17.0.3`是`docker`中`mysql_server`容器本机内网ip。可以通过
 
