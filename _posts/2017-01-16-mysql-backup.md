@@ -343,7 +343,7 @@ finally:
 	lvremove -f /dev/syk230-vg/mysqlsnap1
 
 
-其中`172.17.0.3`是`docker`中`mysql_server`容器本机内网ip。可以通过
+其中`172.17.0.2`是`docker`中`mysql_server`容器本机内网ip。可以通过
 
     docker network inspect bridge
     
