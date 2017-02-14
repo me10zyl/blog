@@ -4,16 +4,21 @@ title: MySQL 数据库恢复
 ---
 
 
+
 ## 二进制日志的恢复
 
 二进制日志非常关键，用户可以通过它完成`point-in-time`的恢复工作。MySQL数据库的replication同样需要二进制日志。  
 要恢复二进制日志是非常简单的，通过mysqlbinlog即可。mysqlbinlog的使用方法如下：
-```shell
+
+```bash
 shell>mysqlbinlog [options] logfile
+
 ```
 例如要还原binlog.000001，可以使用以下命令：
+
 ```shell
 shell>mysqlbinlog binlog.000001 | mysql -h 171.17.0.2 -u root --password=pwd
+
 ```
 也可以先导出到一个sql文件，再用source命令来导入
 ```shell
@@ -55,6 +60,52 @@ root@192.168.2.230$ mkdir -p tmpres/old
 解压备份文件
 ```shell
 root@192.168.2.230$ tar -xzf /mnt1/data/mysqlbak/20170213.tar.gz -C /mnt1/data/tmpres/bak .
+```
+拷贝现在的数据文件
+```shell
+root@192.168.2.230$ cp -r /mnt1/data/mysql/* /mnt1/data/tmpres/old
+```
+到此为止，数据库备份数据文件在 `/mnt1/data/tmpres/bak`， 数据库现在的数据文件在 `/mnt1/data/tmpres/old`。  
+
+用备份数据覆盖现在的数据库数据
+```shell
+root@192.168.2.230$ rm -rf /mnt1/data/mysql/*
+root@192.168.2.230$ cp -r /mnt1/data/tmpres/bak/* /mnt1/data/mysql
+```
+查看备份时的binlog position
+```shell
+root@192.168.2.230$ cat /mnt1/data/tmpres/bak/binpos.log
+File: mysql-bin.000026 Position: 763
+Relay_Log_File: mysql-relay-bin.000026 Relay_Log_Pos: 837
+```
+可以看到当时的binlog start position为763，现在只需要找出binlog stop postion，即需要略过的删数据库postion。
+
+找出需要跳过的语句的position
+```shell
+root@192.168.2.230$ mysqlbinlog /mnt1/data/mysql/old/mysql-bin.000026
+...
+/*!*/;
+# at 895
+#170214 22:34:09 server id 1  end_log_pos 852 CRC32 0x4266be1d  Query   thread_id=319   exec_time=4294932166    error_code=0
+SET TIMESTAMP=1487082849/*!*/;
+DROP DATABASE `test1`
+/*!*/;
+# at 905
+...
+# at 1052
+#170214 12:49:30 server id 2  end_log_pos 899 CRC32 0x833b69af  Rotate to mysql-bin.000027  pos: 4
+SET @@SESSION.GTID_NEXT= 'AUTOMATIC' /* added by mysqlbinlog */ /*!*/;
+DELIMITER ;
+# End of log file
+/*!50003 SET COMPLETION_TYPE=@OLD_COMPLETION_TYPE*/;
+/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=0*/;
+```
+找到了drop database 的 postion 为895，所以start-postion=763,stop-position=895。下一段binlog的start-position=905,end-position=EOF 文件末尾。
+```shell
+root@192.168.2.230$ mysqlbinlog --start-position=763 --stop-position=895 | mysql -h 171.17.0.2 -u root --password=pwd
+root@192.168.2.230$ mysqlbinlog --startposition=905 | mysql -h 171.17.0.2 -u root --password=pwd
+```
+从数据库已经恢复完成。0$ tar -xzf /mnt1/data/mysqlbak/20170213.tar.gz -C /mnt1/data/tmpres/bak .
 ```
 拷贝现在的数据文件
 ```shell
