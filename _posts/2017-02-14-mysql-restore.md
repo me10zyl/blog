@@ -106,7 +106,7 @@ server2 `192.168.2.230` docker容器运行 mysql **从数据库**
 当主库出现问题时，这时需要立即切换到备库，主要流程如下：
 
 1.  限制主库访问，只有同步备库的角色才能访问。
-2.  确认备库是否同步完成。
+2.  确认备库是否同步完成并关闭replication功能。
 3.  关掉主库，程序正式使用备库。
 
 #### 1.主库设置限制访问
@@ -115,9 +115,10 @@ server2 `192.168.2.230` docker容器运行 mysql **从数据库**
     
     mysql> flush tables with read lock;
     
-#### 2.确认备库是否同步完成
+#### 2.确认备库是否同步完成并关闭同步功能
 
     mysql> show slave status;
+    mysql> stop slave;
     
 如果`Slave_IO_State` 是 `Waiting for master to send event`， 说明已同步完成。
 
