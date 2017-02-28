@@ -100,3 +100,29 @@ server2 `192.168.2.230` docker容器运行 mysql **从数据库**
     root@192.168.2.230$ mysqlbinlog --startposition=905 | mysql -h 171.17.0.2 -u root --password=pwd
 
 从数据库已经恢复完成。
+
+### 场景2 主库备库切换
+
+当主库出现问题时，这时需要立即切换到备库，主要流程如下：
+
+1.  限制主库访问，只有同步备库的角色才能访问。
+2.  确认备库是否同步完成。
+3.  关掉主库，程序正式使用备库。
+
+#### 1.主库设置限制访问
+
+锁表，只能读，不能写：
+    
+    mysql> flush tables with read lock;
+    
+#### 2.确认备库是否同步完成
+
+    mysql> show slave status;
+    
+如果`Slave_IO_State` 是 `Waiting for master to send event`， 说明已同步完成。
+
+#### 3.关闭主库
+    
+    root@192.168.2.5$ service mysql stop
+    
+关闭主库后，程序的连接设置成备库。
