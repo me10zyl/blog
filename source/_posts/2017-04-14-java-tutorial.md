@@ -1,11 +1,15 @@
 ---
 layout: post
 title: Java程序设计
+tags: java
+author: zengyilun
 ---
 
 # Java程序设计环境
 
 Jre(java runtime environment): 是一个虚拟机，类似.net的clr，里面有Java内存模型，基于自动内存托管堆，集成了各种分代GC回收算法，以及类子节码解析器以及各种JIT等等；
+
+<!-- more -->
 
 Jdk(java development kit): 包括Jre，并且提供了Java代码到类子节码文件的编译器，以及线程/内存/虚拟机的诊断工具等等；
 
@@ -27,7 +31,7 @@ win+R -> cmd 输入java
 
 ## Hello world
 
-![hello]({{site.baseurl}}/images/hello.png)
+![hello]({{ site.assets }}/img/hello.png)
 
 保存为HelloWorld.java    
 编译javac HelloWorld.java  -- 生成 HelloWorld.class  
@@ -59,7 +63,7 @@ java 中没有无符号类型的数值类型。
 #### 类型转换 ：
 
 *虚线代表精度丢失*。  
-![type-conversion]({{site.baseurl}}/images/type-conversion.png)
+![type-conversion]({{ site.assets }}/img/type-conversion.png)
 
 #### 包装数据类型：
 
@@ -96,7 +100,7 @@ IEEE 754
 
 IEEE二进制浮点数算术标准（IEEE 754）是20世纪80年代以来最广泛使用的浮点数运算标准，为许多CPU与浮点运算器所采用。
 
-![float]({{site.baseurl}}/images/float.gif)
+![float]({{ site.assets }}/img/float.gif)
 
 符号位 指数 尾数
 
@@ -211,7 +215,7 @@ String 是只读的，String 类的方法都是创建了一个新的String, 并�
 	String s = "abcd";
 	s = s.concat("ef");
 
-![readonly]({{site.baseurl}}/images/string-readonly.jpeg)
+![readonly]({{ site.assets }}/img/string-readonly.jpeg)
 
 #### ==和equals的区别
 
@@ -631,7 +635,7 @@ Java允许使用包将类组织起来，类似于命名空间。
 
 #### Java中各种访问级别区别(default/private/public/protected)
 
-![access-level]({{site.baseurl}}/images/access-level.png)
+![access-level]({{ site.assets }}/img/access-level.png)
 
 
 #### 内部类
@@ -790,7 +794,7 @@ Java允许使用包将类组织起来，类似于命名空间。
 
 异常
 
-![exceptions]({{site.baseurl}}/images/exception.jpeg)
+![exceptions]({{ site.assets }}/img/exception.jpeg)
 
 	Throwable
 	\--				
@@ -989,7 +993,7 @@ TreeMap 有序
 
 collection 与 collections 的区别
 
-![coll]({{site.baseurl}}/images/collections.jpeg)
+![coll]({{ site.assets }}/img/collections.jpeg)
 
 线程安全与不安全
 
@@ -1124,7 +1128,7 @@ Thread.currentThread().isIntercepted(); -- 不会清除中断状态
 特别是，可以调用线程的stop方法，该方法抛出TreadDeath错误对象，由此杀死线程。但是这个方法已过时。
 
 
-![thread]({{site.baseurl}}/images/thread.png)
+![thread]({{ site.assets }}/img/thread.png)
 
 Thread
 
@@ -1418,7 +1422,7 @@ If the attempted operation is not possible immedidately, the method call blocks 
 + PriorityBlockingQueue 优先级容量队列 - 元素需实现Comparable， 但不一定是按优先级排序的，但第一个一定是优先级最高的元素 
 + SynchronousQueue 同步队列， 没有容量（或者说只能存一个）， 只能拿一个和取一个
 
-![blockingQueue]({{site.baseurl}}/images/blocking-queue.png)
+![blockingQueue]({{ site.assets }}/img/blocking-queue.png)
 
 	public class BlockingQueueExample {
 	
@@ -1479,7 +1483,7 @@ If the attempted operation is not possible immedidately, the method call blocks 
 #### 交换器
 
 
-![exchanger]({{site.baseurl}}/images/exchanger.png)
+![exchanger]({{ site.assets }}/img/exchanger.png)
 
 	Exchanger exchanger = new Exchanger();
 
@@ -1615,12 +1619,12 @@ git rebase
 
 	git rebase
 
-![]({{site.baseurl}}/images/merge.jpg)
+![]({{ site.assets }}/img/merge.jpg)
 
 	git merge mywork origin
 
-![]({{site.baseurl}}/images/rebase0.jpg)
-![]({{site.baseurl}}/images/rebase.jpg)
+![]({{ site.assets }}/img/rebase0.jpg)
+![]({{ site.assets }}/img/rebase.jpg)
 
 	git rebase mywork origin
 
