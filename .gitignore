@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 _site
 .DS_Store
 .jekyll
@@ -8,3 +9,12 @@ Gemfile
 Gemfile.lock
 node_modules
 package.json
+=======
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+>>>>>>> hexo
