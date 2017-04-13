@@ -1,36 +1,23 @@
-<<<<<<< HEAD
----
-layout: default
----
-
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
-=======
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>CSS 盒子模型 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content=".img-desc{     font-size:10px;     color:#555; }   基本框CSS假定每个元素都会生成一个或多个矩形框，这些成为元素框。各个元素框中心有一个内容区（content area），内容区周围有可选的内边距、边框和外边距。内边距不能是负值，但是外边距可以。外边距通常是透明的。 盒子模型  元素的width被认为从左内边界到右边界的距离，height是从上">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 盒子模型">
+<meta property="og:url" content="http://yoursite.com/2017/04/13/2016-10-10-CSS/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content=".img-desc{     font-size:10px;     color:#555; }   基本框CSS假定每个元素都会生成一个或多个矩形框，这些成为元素框。各个元素框中心有一个内容区（content area），内容区周围有可选的内边距、边框和外边距。内边距不能是负值，但是外边距可以。外边距通常是透明的。 盒子模型  元素的width被认为从左内边界到右边界的距离，height是从上">
+<meta property="og:image" content="http://yoursite.com/images/box.png">
+<meta property="og:updated_time" content="2016-10-13T07:30:56.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="CSS 盒子模型">
+<meta name="twitter:description" content=".img-desc{     font-size:10px;     color:#555; }   基本框CSS假定每个元素都会生成一个或多个矩形框，这些成为元素框。各个元素框中心有一个内容区（content area），内容区周围有可选的内边距、边框和外边距。内边距不能是负值，但是外边距可以。外边距通常是透明的。 盒子模型  元素的width被认为从左内边界到右边界的距离，height是从上">
+<meta name="twitter:image" content="http://yoursite.com/images/box.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -79,183 +66,7 @@ layout: default
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/13/hello-world/" class="article-date">
-  <time datetime="2017-04-13T12:37:05.738Z" itemprop="datePublished">2017-04-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/13/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/13/hello-world/" data-id="cj1gfbw7l000axwtt0t87cq8x" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2017-04-14-java-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/13/2017-04-14-java-tutorial/" class="article-date">
-  <time datetime="2017-04-13T12:37:05.729Z" itemprop="datePublished">2017-04-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/13/2017-04-14-java-tutorial/">Java程序设计</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Java程序设计环境"><a href="#Java程序设计环境" class="headerlink" title="Java程序设计环境"></a>Java程序设计环境</h1><p>Jre(java runtime environment): 是一个虚拟机，类似.net的clr，里面有Java内存模型，基于自动内存托管堆，集成了各种分代GC回收算法，以及类子节码解析器以及各种JIT等等；</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/04/13/2017-04-14-java-tutorial/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/" data-id="cj1gfbw750004xwttzk1n45lg" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2017-02-14-mysql-restore" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/13/2017-02-14-mysql-restore/" class="article-date">
-  <time datetime="2017-04-13T12:37:05.720Z" itemprop="datePublished">2017-04-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/13/2017-02-14-mysql-restore/">MySQL 数据库恢复</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="二进制日志的恢复"><a href="#二进制日志的恢复" class="headerlink" title="二进制日志的恢复"></a>二进制日志的恢复</h2><p>二进制日志非常关键，用户可以通过它完成<code>point-in-time</code>的恢复工作。MySQL数据库的replication同样需要二进制日志。<br>
-        
-          <p class="article-more-link">
-            <a href="/2017/04/13/2017-02-14-mysql-restore/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/13/2017-02-14-mysql-restore/" data-id="cj1gfbw6x0002xwttzb4jjksh" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2017-01-16-mysql-backup" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/13/2017-01-16-mysql-backup/" class="article-date">
-  <time datetime="2017-04-13T12:37:05.719Z" itemprop="datePublished">2017-04-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/13/2017-01-16-mysql-backup/">MySQL 数据库备份</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="热备与冷备"><a href="#热备与冷备" class="headerlink" title="热备与冷备"></a>热备与冷备</h2><p>数据库的备份与恢复是一项最基本但是却不简单的工作，根据不同类型来划分备份的方法，划分出最基础的两种备份，热备与冷备。冷备是指在数据库停止的情况下，一般只需要复制相关数据库文件，而热备即在数据库运行的时候直接备份，对正在运行的数据库没有任何影响。<br>
-        
-          <p class="article-more-link">
-            <a href="/2017/04/13/2017-01-16-mysql-backup/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/13/2017-01-16-mysql-backup/" data-id="cj1gfbw6u0001xwttpdczltb1" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2016-10-10-CSS" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2016-10-10-CSS" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/13/2016-10-10-CSS/" class="article-date">
   <time datetime="2017-04-13T12:37:05.706Z" itemprop="datePublished">2017-04-13</time>
@@ -268,8 +79,8 @@ layout: default
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/13/2016-10-10-CSS/">CSS 盒子模型</a>
+    <h1 class="article-title" itemprop="name">
+      CSS 盒子模型
     </h1>
   
 
@@ -363,10 +174,19 @@ layout: default
     </footer>
   </div>
   
-</article>
-
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/13/2017-01-16-mysql-backup/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">MySQL 数据库备份</div>
+    </a>
+  
+</nav>
 
   
+</article>
 
 </section>
         
@@ -469,4 +289,3 @@ layout: default
   </div>
 </body>
 </html>
->>>>>>> 3a2e02bce040100db39acc457ef0ec44ce813c7c
