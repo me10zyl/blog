@@ -70,4 +70,4 @@ theme: landscape
 deploy:
   type: git
   repo: https://github.com/me10zyl/me10zyl.github.io
-  branch: hexo
+  branch: master
