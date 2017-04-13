@@ -265,75 +265,11 @@
 </style>
 
 <h2 id="基本框"><a href="#基本框" class="headerlink" title="基本框"></a>基本框</h2><p>CSS假定每个元素都会生成一个或多个矩形框，这些成为元素框。<br>各个元素框中心有一个内容区（<strong>content area</strong>），内容区周围有可选的内边距、边框和外边距。内边距不能是负值，但是外边距可以。外边距通常是透明的。</p>
-<center><br><img src="/images/box.png" alt="box-model"><br><div class="img-desc">盒子模型</div><br></center>
-
-<p>元素的<code>width</code>被认为从左内边界到右边界的距离，<code>height</code>是从上内边界到下内边界的距离。也就是说，元素的<code>width</code>与<code>height</code>不包含<code>padding、margin</code>。</p>
-<p>讨论盒子模型之前需要先了解一些术语:  </p>
-<ul>
-<li>正常流 : 大多数元素从左向右、从上向下显示，要让一个元素不在正常流中，唯一的办法就是使之成为浮动或者定位元素。</li>
-<li>非替换元素 ： 元素包含在文档中，如<code>em</code>, <code>a</code>。</li>
-<li>替换元素 ： 作为其他内容的一个占位符，如<code>img</code>，大多数表单也可以替换，如`<input type="radio">“。</li>
-<li>块级元素 ： 指段落、标题或者div之类的元素，这些元素会在正常流中，会在其框之前和之后产生<quote>“换行”</quote>。</li>
-<li>行内元素 ： 指storng或者span之类的元素。不会在元素前后生成“行分隔符”。</li>
-<li>根元素 ： html元素。</li>
-</ul>
-<h2 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h2><h2 id="水平格式化"><a href="#水平格式化" class="headerlink" title="水平格式化"></a>水平格式化</h2><h4 id="水平属性"><a href="#水平属性" class="headerlink" title="水平属性"></a>水平属性</h4><p>块级元素水平共有7个宽度，其总宽度为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">total-width = width + margin-left + margin-right + border-left + border-right + padding-left + padding-right</div></pre></td></tr></table></figure></p>
-<p>共7个宽度，其中 <code>margin-left</code>, <code>magin-right</code>, <code>width</code> 可以设置为<strong>auto</strong>。</p>
-<h4 id="使用auto"><a href="#使用auto" class="headerlink" title="使用auto"></a>使用auto</h4><p>块级元素水平属性中<code>margin-left</code>, <code>magin-right</code>, <code>width</code> 可以设置为<strong>auto</strong>，意思就是浏览器自动计算其值，当其中有两个值确定了，第三个值就会被设置为占满父元素剩下所需的宽度。</p>
-<ul>
-<li>当3个属性没有一个为<strong>auto</strong>，那么这种格式化属性“过分受限”，此时，浏览器会将<code>margin-right</code>设置为<strong>auto</strong>，此时右外边距将“填补”所需的距离。</li>
-<li>当3个属性都为<strong>auto</strong>时，就是默认块元素所显示的那样。</li>
-</ul>
-<h4 id="设置元素水平居中"><a href="#设置元素水平居中" class="headerlink" title="设置元素水平居中"></a>设置元素水平居中</h4><p>当<code>margin-left</code>, <code>magin-right</code>, <code>width</code>其中有二个设置了明确的值，第三个属性设置为<strong>auto</strong>时，会使第三个属性的宽度确定所需的长度，从而使元素狂的宽度等于父元素的width。<br>所以设置元素的宽度再使左右外边距为<strong>auto</strong>，即  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">margin-left:auto;margin-right:auto;width:100px</div></pre></td></tr></table></figure>
-<p>这样就能使元素的左右两边外边距自动计算从而实现居中。这样与<code>text-align:center</code>的区别就是，text-align只能应用于块级元素中的<strong>内联元素</strong>。</p>
-<h2 id="垂直格式化"><a href="#垂直格式化" class="headerlink" title="垂直格式化"></a>垂直格式化</h2><h4 id="垂直属性"><a href="#垂直属性" class="headerlink" title="垂直属性"></a>垂直属性</h4><p>块级元素水平共有7个高度，其总高度为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">total-height = height + margin-top + margin-bottom + border-top + border-bottom + padding-top + padding-bottom</div></pre></td></tr></table></figure></p>
-<p>共7个高度，其中 <code>margin-top</code>, <code>magin-bottom</code>, <code>height</code> 可以设置为<strong>auto</strong>，<strong>遗憾的是</strong>，<code>margin-top</code>和<code>margin-bottom</code>为auto时，会被自动解析为0，所以很不容易让正常流元素居中。高度为<strong>auto</strong>时，其高度为内容的高度。</p>
-<h4 id="使用auto-1"><a href="#使用auto-1" class="headerlink" title="使用auto"></a>使用auto</h4><p>高度使用<strong>auto</strong>会使之适应子元素的内容高度，而外边距使用<strong>auto</strong>会使外边距为0。</p>
-<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><p>将元素居中的唯一办法就是把上下边距都设置为25%。</p>
-<h4 id="合并垂直外边距"><a href="#合并垂直外边距" class="headerlink" title="合并垂直外边距"></a>合并垂直外边距</h4><p>垂直相邻外边距会合并，以较大者为总的垂直外边距。<strong>但是</strong>如果元素有内边距和外边距，他们绝对不会合并。<br>考虑下面的情况：</p>
-<div style="height: auto;background: silver"><br>    <p style="margin-top: 2em; margin-bottom: 2em;">A paragraph!</p><br></div><br><div style="height: auto;background: silver;border-top:1px solid;border-bottom: 1px solid;"><br>    <p style="margin-top: 2em; margin-bottom: 2em;">Another paragraph!</p><br></div>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div style=&quot;height: auto;background: silver&quot;&gt;</div><div class="line">    &lt;p style=&quot;margin-top: 2em; margin-bottom: 2em;&quot;&gt;A paragraph!&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div style=&quot;height: auto;background: silver;border-top:1px solid;border-bottom: 1px solid;&quot;&gt;</div><div class="line">    &lt;p style=&quot;margin-top: 2em; margin-bottom: 2em;&quot;&gt;Another paragraph!&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>当父元素高度为<strong>auto</strong>，仅包含块级子元素，并且没有内边距或者边框，这时子元素的外边距将会“<strong>超出</strong>”父元素。</p>
-<h2 id="块级替换元素"><a href="#块级替换元素" class="headerlink" title="块级替换元素"></a>块级替换元素</h2><p>块级替换元素，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=&apos;test.png&apos; style=&apos;display:block&apos; /&gt;</div></pre></td></tr></table></figure>
-<p>与块级非替换元素的区别就是，设置<code>width:auto、height:auto</code>时，其高度宽度为元素都是替换内容的固有宽度高度。</p>
-<h2 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h2><h4 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h4><ul>
-<li>匿名文本：顾名思义，未包含在行内元素的文本如 <code>&lt;div&gt;anonymous text&lt;/div&gt;</code></li>
-<li>em框：也称为字符框，实际字体可能比em框大或者小，<code>font-size</code> 决定了em框的大小</li>
-<li>内容区：即em框，如果是替换元素，就是元素的固有高度加上外边距、边框和内边距</li>
-<li>行间距(leading)：是font-size与line-height之差，这个差实际上要分成两半，分别应用于内容区的顶部和底部，为内容区增加的这两部分分别称为半间距(half-leading)。行间距只适用于非替换元素</li>
-<li>行内框：内容区加上行间距，对于非替换元素，刚好等于line-height，对于替换元素，恰好等于内容区的高度，因为line-height不适用于替换元素</li>
-<li>行框：包含该行中出现的行内框的最高点和最低点的小框，换句话说，就是该行的总共高度（上边界到下边界）</li>
-</ul>
-<h4 id="行内替换元素"><a href="#行内替换元素" class="headerlink" title="行内替换元素"></a>行内替换元素</h4><p>替换元素可以增加行框的高度，但不影响line-height的值，然而，替换元素还是有一个line-height值，因为要用于vertical-align的计算。</p>
-<h2 id="块级元素VS行内元素"><a href="#块级元素VS行内元素" class="headerlink" title="块级元素VS行内元素"></a>块级元素VS行内元素</h2><ul>
-<li>块级元素的背景应用于整个元素包括外边距，而行内元素的背景应用于内容区和内边距</li>
-<li>行内非替换元素的内外边距、边框没有垂直效果，而块级元素则有</li>
-<li>行内元素不能设置其width、height</li>
-</ul>
-<h2 id="替换元素的特殊之处"><a href="#替换元素的特殊之处" class="headerlink" title="替换元素的特殊之处"></a>替换元素的特殊之处</h2><ul>
-<li>块级替换元素的width或height为auto时，刚好是图片的宽度与高度</li>
-<li>行内替换元素的内外边距、边框有垂直效果</li>
-</ul>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li><code>内容区</code> 为CSS属性中的 <code>width</code> 和 <code>height</code> ，并不包括内外边距与边框</li>
-<li>背景色包括 <code>内边距</code> 和 <code>内容区</code> ，但不包括 <code>外边距</code></li>
-<li>块级元素的 <code>height</code> 为auto时，高度为内容区大小</li>
-<li>块级元素的 <code>width</code> 尽可能的占满父元素</li>
-<li>块级元素<strong><em>水平方向</em></strong> <code>margin</code> 为<strong>auto</strong>时， 会尽可能的占满父元素</li>
-<li>块级元素<strong><em>水平居中</em></strong> <code>margin-left:auto, margin-right: auto, width: 100px</code> </li>
-<li>块级元素<strong><em>垂直方向</em></strong> <code>margin</code> 为<strong>auto</strong>时， 会被自动解析为0</li>
-<li>块级元素<strong><em>垂直方向</em></strong> <code>margin</code> 会<strong>合并</strong></li>
-<li>块级元素仅包含块级子元素时，如果没有设置 <code>padding</code> 、 <code>border</code> 与 <code>height</code> ，父元素<strong><em>垂直方向</em></strong>的 <code>margin</code> 会与 子元素垂直方向的 <code>margin</code> <strong>合并</strong>。</li>
-<li>块级元素<strong><em>垂直居中</em></strong> <code>margin</code> 不容易居中，唯一办法就是设置上下外边距为25%</li>
-<li>块级<strong><em>替换元素</em></strong>的高度宽度由替换内容决定</li>
-<li>行内元素不能包含块元素（XHTML定义的就是这样）</li>
-<li>行内元素没有 <code>width</code> 和 <code>height</code> ，也没有垂直方向的 <code>margin</code></li>
-<li>行内元素的内边距和边框不改变行高，边框边界由<code>font-size</code>（em框）决定，而不是<code>line-height</code></li>
-</ul>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/10/10/CSS/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
