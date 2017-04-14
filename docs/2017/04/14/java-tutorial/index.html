@@ -12,24 +12,24 @@
 <meta property="og:url" content="http://me10zyl.top/2017/04/14/java-tutorial/index.html">
 <meta property="og:site_name" content="zyl@note">
 <meta property="og:description" content="Java程序设计环境Jre(java runtime environment): 是一个虚拟机，类似.net的clr，里面有Java内存模型，基于自动内存托管堆，集成了各种分代GC回收算法，以及类子节码解析器以及各种JIT等等；">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/hello.png">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/type-conversion.png">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/float.gif">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/string-readonly.jpeg">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/access-level.png">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/exception.jpeg">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/collections.jpeg">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/thread.png">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/blocking-queue.png">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/exchanger.png">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/merge.jpg">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/rebase0.jpg">
-<meta property="og:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/rebase.jpg">
-<meta property="og:updated_time" content="2017-04-14T04:32:40.646Z">
+<meta property="og:image" content="http://me10zyl.top/images/hello.png">
+<meta property="og:image" content="http://me10zyl.top/images/type-conversion.png">
+<meta property="og:image" content="http://me10zyl.top/images/float.gif">
+<meta property="og:image" content="http://me10zyl.top/images/string-readonly.jpeg">
+<meta property="og:image" content="http://me10zyl.top/images/access-level.png">
+<meta property="og:image" content="http://me10zyl.top/images/exception.jpeg">
+<meta property="og:image" content="http://me10zyl.top/images/collections.jpeg">
+<meta property="og:image" content="http://me10zyl.top/images/thread.png">
+<meta property="og:image" content="http://me10zyl.top/images/blocking-queue.png">
+<meta property="og:image" content="http://me10zyl.top/images/exchanger.png">
+<meta property="og:image" content="http://me10zyl.top/images/merge.jpg">
+<meta property="og:image" content="http://me10zyl.top/images/rebase0.jpg">
+<meta property="og:image" content="http://me10zyl.top/images/rebase.jpg">
+<meta property="og:updated_time" content="2017-04-14T04:40:06.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java程序设计">
 <meta name="twitter:description" content="Java程序设计环境Jre(java runtime environment): 是一个虚拟机，类似.net的clr，里面有Java内存模型，基于自动内存托管堆，集成了各种分代GC回收算法，以及类子节码解析器以及各种JIT等等；">
-<meta name="twitter:image" content="http://me10zyl.top/2017/04/14/java-tutorial/images/hello.png">
+<meta name="twitter:image" content="http://me10zyl.top/images/hello.png">
   
     <link rel="alternate" href="/atom.xml" title="zyl@note" type="application/atom+xml">
   
@@ -117,7 +117,7 @@ java-tutor</time>
 <p>安装</p>
 <p>如果是使用的压缩包的安装方式， 需要配置环境变量JAVA_HOME=/jdk/path/, PATH=.;%PATH%;%JAVA_HOME%/bin;</p>
 <p>win+R -&gt; cmd 输入java</p>
-<h1 id="Java基本的程序设计"><a href="#Java基本的程序设计" class="headerlink" title="Java基本的程序设计"></a>Java基本的程序设计</h1><h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h2><p><img src="images/hello.png" alt="hello"></p>
+<h1 id="Java基本的程序设计"><a href="#Java基本的程序设计" class="headerlink" title="Java基本的程序设计"></a>Java基本的程序设计</h1><h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h2><p><img src="/images/hello.png" alt="hello"></p>
 <p>保存为HelloWorld.java<br>编译javac HelloWorld.java  – 生成 HelloWorld.class<br>运行java HelloWorld<br>打印输出<br>Hello, World  </p>
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h4 id="基础数据类型："><a href="#基础数据类型：" class="headerlink" title="基础数据类型："></a>基础数据类型：</h4><p>int/short/long/byte/float/double/char/boolean/pointer</p>
 <p>int 4 bytes =  2 ^ 8 ^ 4 / 2 ~ 2 ^ 8 ^ 4 / 2 - 1 = 2 ^ 32 / 2 ~ 0 ~ 2 ^ 32 / 2 - 1 = 2,147,483, 647</p>
@@ -181,7 +181,7 @@ java-tutor</time>
 </tbody>
 </table>
 <p>java 中没有无符号类型的数值类型。</p>
-<h4 id="类型转换-："><a href="#类型转换-：" class="headerlink" title="类型转换 ："></a>类型转换 ：</h4><p><em>虚线代表精度丢失</em>。<br><img src="images/type-conversion.png" alt="type-conversion"></p>
+<h4 id="类型转换-："><a href="#类型转换-：" class="headerlink" title="类型转换 ："></a>类型转换 ：</h4><p><em>虚线代表精度丢失</em>。<br><img src="/images/type-conversion.png" alt="type-conversion"></p>
 <h4 id="包装数据类型："><a href="#包装数据类型：" class="headerlink" title="包装数据类型："></a>包装数据类型：</h4><p>Integer/Long/Short/Byte/Float/Double/Character/Number</p>
 <pre><code>Integer a = 5; -&gt; Integer a = new Integer(5);
 int b = Integer.parseInt(&quot;5&quot;); -&gt; Integer b = Integer.parseInt(&quot;5&quot;);
@@ -202,7 +202,7 @@ System.out.println(a);
     0.6000000000000001
 </code></pre><p>IEEE 754</p>
 <p>IEEE二进制浮点数算术标准（IEEE 754）是20世纪80年代以来最广泛使用的浮点数运算标准，为许多CPU与浮点运算器所采用。</p>
-<p><img src="images/float.gif" alt="float"></p>
+<p><img src="/images/float.gif" alt="float"></p>
 <p>符号位 指数 尾数</p>
 <p>BigDecimal 比float, double 有更大的精度（无限精度）.<br>BigInterger 当整数超过Long大小时(2^64/2-1)，可以用这个。</p>
 <p>如浮点类型一样， BigDecimal 也有一些令人奇怪的行为。尤其在使用 equals() 方法来检测数值之间是否相等时要小心。 equals() 方法认为，两个表示同一个数但换算值不同（例如， 100.00 和 100.000 ）的 BigDecimal 值是不相等的。然而， compareTo() 方法会认为这两个数是相等的，所以在从数值上比较两个 BigDecimal 值时，应该使用 compareTo() 而不是 equals() 。</p>
@@ -275,7 +275,7 @@ for(int i = 0;i &lt; 10; i++){}
 </code></pre><p>再比如</p>
 <pre><code>String s = &quot;abcd&quot;;
 s = s.concat(&quot;ef&quot;);
-</code></pre><p><img src="images/string-readonly.jpeg" alt="readonly"></p>
+</code></pre><p><img src="/images/string-readonly.jpeg" alt="readonly"></p>
 <h4 id="和equals的区别"><a href="#和equals的区别" class="headerlink" title="==和equals的区别"></a>==和equals的区别</h4><pre><code>String a = &quot;test&quot;;
 String b = &quot;test&quot;;
 String c = new String(&quot;test&quot;);
@@ -587,7 +587,7 @@ public class A implements B {} -- 实现接口
 <pre><code>import java.util.Date;
 
 import some.package.*;
-</code></pre><h4 id="Java中各种访问级别区别-default-private-public-protected"><a href="#Java中各种访问级别区别-default-private-public-protected" class="headerlink" title="Java中各种访问级别区别(default/private/public/protected)"></a>Java中各种访问级别区别(default/private/public/protected)</h4><p><img src="images/access-level.png" alt="access-level"></p>
+</code></pre><h4 id="Java中各种访问级别区别-default-private-public-protected"><a href="#Java中各种访问级别区别-default-private-public-protected" class="headerlink" title="Java中各种访问级别区别(default/private/public/protected)"></a>Java中各种访问级别区别(default/private/public/protected)</h4><p><img src="/images/access-level.png" alt="access-level"></p>
 <h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><pre><code>public class A{
     private int i = 0;
     public class B{
@@ -713,7 +713,7 @@ System.out.println(method1.invoke(a, null));
     B
     method1
 </code></pre><h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>异常</p>
-<p><img src="images/exception.jpeg" alt="exceptions"></p>
+<p><img src="/images/exception.jpeg" alt="exceptions"></p>
 <pre><code>Throwable
 \--                
     \-- Exception 
@@ -868,7 +868,7 @@ for(Object key : keySet){
 }
 map.put(&quot;key&quot;, &quot;value&quot;);
 </code></pre><p>collection 与 collections 的区别</p>
-<p><img src="images/collections.jpeg" alt="coll"></p>
+<p><img src="/images/collections.jpeg" alt="coll"></p>
 <p>线程安全与不安全</p>
 <p>ArrayList - Vector</p>
 <p>Stack 先进后出</p>
@@ -967,7 +967,7 @@ public class Main {
 <li>因为一个没有捕获的异常终止了run方法而意外死亡</li>
 </ul>
 <p>特别是，可以调用线程的stop方法，该方法抛出TreadDeath错误对象，由此杀死线程。但是这个方法已过时。</p>
-<p><img src="images/thread.png" alt="thread"></p>
+<p><img src="/images/thread.png" alt="thread"></p>
 <p>Thread</p>
 <ul>
 <li>void join() 等待终止指定的线程</li>
@@ -1242,7 +1242,7 @@ public static void main(String[] args) {
 <li>PriorityBlockingQueue 优先级容量队列 - 元素需实现Comparable， 但不一定是按优先级排序的，但第一个一定是优先级最高的元素 </li>
 <li>SynchronousQueue 同步队列， 没有容量（或者说只能存一个）， 只能拿一个和取一个</li>
 </ul>
-<p><img src="images/blocking-queue.png" alt="blockingQueue"></p>
+<p><img src="/images/blocking-queue.png" alt="blockingQueue"></p>
 <pre><code>public class BlockingQueueExample {
 
     public static void main(String[] args) throws Exception {
@@ -1298,7 +1298,7 @@ public class Consumer implements Runnable{
         }
     }
 }
-</code></pre><h4 id="交换器"><a href="#交换器" class="headerlink" title="交换器"></a>交换器</h4><p><img src="images/exchanger.png" alt="exchanger"></p>
+</code></pre><h4 id="交换器"><a href="#交换器" class="headerlink" title="交换器"></a>交换器</h4><p><img src="/images/exchanger.png" alt="exchanger"></p>
 <pre><code>Exchanger exchanger = new Exchanger();
 
 ExchangerRunnable exchangerRunnable1 =
@@ -1395,9 +1395,9 @@ git remote rename origin origin2
 <p>git rebase</p>
 <p>衍合</p>
 <pre><code>git rebase
-</code></pre><p><img src="images/merge.jpg" alt=""></p>
+</code></pre><p><img src="/images/merge.jpg" alt=""></p>
 <pre><code>git merge mywork origin
-</code></pre><p><img src="images/rebase0.jpg" alt=""><br><img src="images/rebase.jpg" alt=""></p>
+</code></pre><p><img src="/images/rebase0.jpg" alt=""><br><img src="/images/rebase.jpg" alt=""></p>
 <pre><code>git rebase mywork origin
 </code></pre><p>相当于git merge，但是要和git merge的区别就是git merge产生冲突时会新建一个分支但不会更改原来的分支,git rebase直接删掉自己的分支然后再新建一个分支,如果没有产生冲突和git merge一模一样。</p>
 <p>git pull</p>

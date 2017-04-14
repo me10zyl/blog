@@ -31,7 +31,7 @@ win+R -> cmd 输入java
 
 ## Hello world
 
-![hello](images/hello.png)
+![hello](/images/hello.png)
 
 保存为HelloWorld.java    
 编译javac HelloWorld.java  -- 生成 HelloWorld.class  
@@ -63,7 +63,7 @@ java 中没有无符号类型的数值类型。
 #### 类型转换 ：
 
 *虚线代表精度丢失*。  
-![type-conversion](images/type-conversion.png)
+![type-conversion](/images/type-conversion.png)
 
 #### 包装数据类型：
 
@@ -100,7 +100,7 @@ IEEE 754
 
 IEEE二进制浮点数算术标准（IEEE 754）是20世纪80年代以来最广泛使用的浮点数运算标准，为许多CPU与浮点运算器所采用。
 
-![float](images/float.gif)
+![float](/images/float.gif)
 
 符号位 指数 尾数
 
@@ -215,7 +215,7 @@ String 是只读的，String 类的方法都是创建了一个新的String, 并�
 	String s = "abcd";
 	s = s.concat("ef");
 
-![readonly](images/string-readonly.jpeg)
+![readonly](/images/string-readonly.jpeg)
 
 #### ==和equals的区别
 
@@ -635,7 +635,7 @@ Java允许使用包将类组织起来，类似于命名空间。
 
 #### Java中各种访问级别区别(default/private/public/protected)
 
-![access-level](images/access-level.png)
+![access-level](/images/access-level.png)
 
 
 #### 内部类
@@ -794,7 +794,7 @@ Java允许使用包将类组织起来，类似于命名空间。
 
 异常
 
-![exceptions](images/exception.jpeg)
+![exceptions](/images/exception.jpeg)
 
 	Throwable
 	\--				
@@ -993,7 +993,7 @@ TreeMap 有序
 
 collection 与 collections 的区别
 
-![coll](images/collections.jpeg)
+![coll](/images/collections.jpeg)
 
 线程安全与不安全
 
@@ -1128,7 +1128,7 @@ Thread.currentThread().isIntercepted(); -- 不会清除中断状态
 特别是，可以调用线程的stop方法，该方法抛出TreadDeath错误对象，由此杀死线程。但是这个方法已过时。
 
 
-![thread](images/thread.png)
+![thread](/images/thread.png)
 
 Thread
 
@@ -1422,7 +1422,7 @@ If the attempted operation is not possible immedidately, the method call blocks 
 + PriorityBlockingQueue 优先级容量队列 - 元素需实现Comparable， 但不一定是按优先级排序的，但第一个一定是优先级最高的元素 
 + SynchronousQueue 同步队列， 没有容量（或者说只能存一个）， 只能拿一个和取一个
 
-![blockingQueue](images/blocking-queue.png)
+![blockingQueue](/images/blocking-queue.png)
 
 	public class BlockingQueueExample {
 	
@@ -1483,7 +1483,7 @@ If the attempted operation is not possible immedidately, the method call blocks 
 #### 交换器
 
 
-![exchanger](images/exchanger.png)
+![exchanger](/images/exchanger.png)
 
 	Exchanger exchanger = new Exchanger();
 
@@ -1619,12 +1619,12 @@ git rebase
 
 	git rebase
 
-![](images/merge.jpg)
+![](/images/merge.jpg)
 
 	git merge mywork origin
 
-![](images/rebase0.jpg)
-![](images/rebase.jpg)
+![](/images/rebase0.jpg)
+![](/images/rebase.jpg)
 
 	git rebase mywork origin
 
