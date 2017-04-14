@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java程序设计 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Java程序设计环境Jre(java runtime environment): 是一个虚拟机，类似.net的clr，里面有Java内存模型，基于自动内存托管堆，集成了各种分代GC回收算法，以及类子节码解析器以及各种JIT等等；">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java程序设计">
+<meta property="og:url" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java程序设计环境Jre(java runtime environment): 是一个虚拟机，类似.net的clr，里面有Java内存模型，基于自动内存托管堆，集成了各种分代GC回收算法，以及类子节码解析器以及各种JIT等等；">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼0--%3E/img/hello.png">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼1--%3E/img/type-conversion.png">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼2--%3E/img/float.gif">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼3--%3E/img/string-readonly.jpeg">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼4--%3E/img/access-level.png">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼5--%3E/img/exception.jpeg">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼6--%3E/img/collections.jpeg">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼7--%3E/img/thread.png">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼8--%3E/img/blocking-queue.png">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼9--%3E/img/exchanger.png">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼10--%3E/img/merge.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼11--%3E/img/rebase0.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼12--%3E/img/rebase.jpg">
+<meta property="og:updated_time" content="2017-04-13T14:47:35.047Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java程序设计">
+<meta name="twitter:description" content="Java程序设计环境Jre(java runtime environment): 是一个虚拟机，类似.net的clr，里面有Java内存模型，基于自动内存托管堆，集成了各种分代GC回收算法，以及类子节码解析器以及各种JIT等等；">
+<meta name="twitter:image" content="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/!--￼0--%3E/img/hello.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-04-14-java-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/13/2017-04-14-java-tutorial/" class="article-date">
+  <time datetime="2017-04-13T14:47:35.047Z" itemprop="datePublished">2017-04-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java程序设计
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java程序设计环境"><a href="#Java程序设计环境" class="headerlink" title="Java程序设计环境"></a>Java程序设计环境</h1><p>Jre(java runtime environment): 是一个虚拟机，类似.net的clr，里面有Java内存模型，基于自动内存托管堆，集成了各种分代GC回收算法，以及类子节码解析器以及各种JIT等等；</p>
+<a id="more"></a>
+<p>Jdk(java development kit): 包括Jre，并且提供了Java代码到类子节码文件的编译器，以及线程/内存/虚拟机的诊断工具等等；</p>
+<p>SWING/AWT: Java桌面端程序开发组件，可以理解为.net的WPF一套的技术，这套技术没有WPF普及，这个原因还是因为客户机基本都是windows系统，.net和windows集成更好都是一家公司，另外WPF的表现力更好；</p>
+<p>Applet: 可以运行在网页上面的Java小程序，可以理解为.net的Silverlight那套的技术，由于Flash以及Html5，该技术宿命也和SL一样走向了衰亡；</p>
+<p>Jdk 的安装：</p>
+<p>下载jdk <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
+<p>安装</p>
+<p>如果是使用的压缩包的安装方式， 需要配置环境变量JAVA_HOME=/jdk/path/, PATH=.;%PATH%;%JAVA_HOME%/bin;</p>
+<p>win+R -&gt; cmd 输入java</p>
+<h1 id="Java基本的程序设计"><a href="#Java基本的程序设计" class="headerlink" title="Java基本的程序设计"></a>Java基本的程序设计</h1><h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h2><p><img src="!--￼0--&gt;/img/hello.png" alt="hello"></p>
+<p>保存为HelloWorld.java<br>编译javac HelloWorld.java  – 生成 HelloWorld.class<br>运行java HelloWorld<br>打印输出<br>Hello, World  </p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h4 id="基础数据类型："><a href="#基础数据类型：" class="headerlink" title="基础数据类型："></a>基础数据类型：</h4><p>int/short/long/byte/float/double/char/boolean/pointer</p>
+<p>int 4 bytes =  2 ^ 8 ^ 4 / 2 ~ 2 ^ 8 ^ 4 / 2 - 1 = 2 ^ 32 / 2 ~ 0 ~ 2 ^ 32 / 2 - 1 = 2,147,483, 647</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">大小</th>
+<th style="text-align:center">范围</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">4 bytes</td>
+<td style="text-align:center">-2,147,483,648 to 2,147,483, 647 (just over 2 billion)</td>
+<td style="text-align:center">The wrapper type is Integer. Use BigInteger for arbitrary precision integers</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">2 bytes</td>
+<td style="text-align:center">-32,768 to 32,767</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">8 bytes</td>
+<td style="text-align:center">-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
+<td style="text-align:center">Literals end with L (e.g. 1L)</td>
+</tr>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">1 byte</td>
+<td style="text-align:center">-128 to 127</td>
+<td style="text-align:center">Note that the range is not 0 … 255</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">4 bytes</td>
+<td style="text-align:center">approximately -3.40282347E+38F (6-7 significant decimal digits)</td>
+<td style="text-align:center">Literals end with F (e.g. 0.5F)</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">8 bytes</td>
+<td style="text-align:center">approximately -1.79769313486231570E+308 (15 significant decimal digits)</td>
+<td style="text-align:center">Use BigDecimal for arbitrary precision floating-point numbers</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">2 bytes</td>
+<td style="text-align:center">\u0000 to \uFFFF</td>
+<td style="text-align:center">The wrapper type is Character. Unicode characters &gt; U+FFFF require two char values</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">true or false</td>
+</tr>
+</tbody>
+</table>
+<p>java 中没有无符号类型的数值类型。</p>
+<h4 id="类型转换-："><a href="#类型转换-：" class="headerlink" title="类型转换 ："></a>类型转换 ：</h4><p><em>虚线代表精度丢失</em>。<br><img src="!--￼1--&gt;/img/type-conversion.png" alt="type-conversion"></p>
+<h4 id="包装数据类型："><a href="#包装数据类型：" class="headerlink" title="包装数据类型："></a>包装数据类型：</h4><p>Integer/Long/Short/Byte/Float/Double/Character/Number</p>
+<pre><code>Integer a = 5; -&gt; Integer a = new Integer(5);
+int b = Integer.parseInt(&quot;5&quot;); -&gt; Integer b = Integer.parseInt(&quot;5&quot;);
+</code></pre><p>包装类可以为空，包装类有一些工具可以将其他类型的变量转换。 </p>
+<h4 id="原子数据类型："><a href="#原子数据类型：" class="headerlink" title="原子数据类型："></a>原子数据类型：</h4><p>AtomicInteger/AtomicLong/AtomicBoolean 线程安全版的基础包装数据类型，实现方式并非同步锁，机器语言级别的实现方式，比同步锁有更高的效率。</p>
+<p>比如AtomicInteger 的 .incrementAndGet() 可以安全的自增长 而省去了 同步。</p>
+<h4 id="特殊数据类型："><a href="#特殊数据类型：" class="headerlink" title="特殊数据类型："></a>特殊数据类型：</h4><p>BigDecimal/BigInteger</p>
+<pre><code>double d = 29.0 * 0.01;
+System.out.println(d);
+System.out.println((int) (d * 100));
+输出:
+    0.29
+    28
+
+double a = 0.2 + 0.4;
+System.out.println(a);
+输出：
+    0.6000000000000001
+</code></pre><p>IEEE 754</p>
+<p>IEEE二进制浮点数算术标准（IEEE 754）是20世纪80年代以来最广泛使用的浮点数运算标准，为许多CPU与浮点运算器所采用。</p>
+<p><img src="!--￼2--&gt;/img/float.gif" alt="float"></p>
+<p>符号位 指数 尾数</p>
+<p>BigDecimal 比float, double 有更大的精度（无限精度）.<br>BigInterger 当整数超过Long大小时(2^64/2-1)，可以用这个。</p>
+<p>如浮点类型一样， BigDecimal 也有一些令人奇怪的行为。尤其在使用 equals() 方法来检测数值之间是否相等时要小心。 equals() 方法认为，两个表示同一个数但换算值不同（例如， 100.00 和 100.000 ）的 BigDecimal 值是不相等的。然而， compareTo() 方法会认为这两个数是相等的，所以在从数值上比较两个 BigDecimal 值时，应该使用 compareTo() 而不是 equals() 。</p>
+<p>Java中的浮点数参考文献：<a href="https://www.ibm.com/developerworks/cn/java/j-jtp0114/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/java/j-jtp0114/</a></p>
+<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><p>类 - 首字母大小驼峰  class CamelCase{}<br>接口 - 与类相同 interface USBInterface {}<br>变量 - 首字母小写驼峰  int camelCase = 10<br>常量 - 全大写，下划线分割 public static final String CONSTANT_STRING = “VALUE”<br>方法 - 首字母小写驼峰 void doSomething(){}<br>包 - 全小写，公司域名倒写 com.sunyuki.Test   </p>
+<p>官方文档 <a href="http://www.oracle.com/technetwork/java/codeconventions-135099.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/codeconventions-135099.html</a></p>
+<h2 id="变量与常量"><a href="#变量与常量" class="headerlink" title="变量与常量"></a>变量与常量</h2><p>变量:</p>
+<pre><code>double salary;
+int vocationDays;
+long earthPopluation;
+
+salary = 20;
+
+int middle；
+for(int i = 0;i &lt; 10; i++){}
+</code></pre><p>常量:</p>
+<pre><code>final double cannotChange;
+</code></pre><p>数组：<br>    int a[] = {1, 2, 3};<br>    int[] a = new int[3];<br>    String[] b = new String[]{“a”, “b”, “c”};</p>
+<p>JAVA可以将变量的声明放任意地方。 </p>
+<h2 id="运算符（Operator"><a href="#运算符（Operator" class="headerlink" title="运算符（Operator)"></a>运算符（Operator)</h2><p>基础运算符 + - * / % =<br>条件运算符 &amp;&amp; ||<br>位运算符 &amp; | ^ ~ &gt;&gt; &lt;&lt; &gt;&gt;&gt; &lt;&lt;&lt;<br>自增运算符 ++, –<br>三元运算符 ?:<br>关系运算符 == != &gt; &lt;= &lt;<br>类型比较运算符 instanceof</p>
+<p>数学函数与常量</p>
+<ul>
+<li>Math.sin</li>
+<li>Math.cos</li>
+<li>Math.tan</li>
+<li>Math.atan</li>
+<li>Math.log</li>
+<li><p>Math.log10</p>
+</li>
+<li><p>Math.PI</p>
+</li>
+<li>Math.E</li>
+</ul>
+<p>优先级：  </p>
+<ul>
+<li>[] . () (method call)    Left to right      </li>
+<li>! ~ ++ – + (unary) - (unary) () (cast) new     </li>
+<li><ul>
+<li>/ %          </li>
+</ul>
+</li>
+<li>&lt;&lt; &gt;&gt; &gt;&gt;&gt;      </li>
+<li>&lt; &lt;= &gt; &gt;= instanceof      </li>
+<li>== !=      </li>
+<li>&amp;      </li>
+<li>^            </li>
+<li>|          </li>
+<li>&amp;&amp;             </li>
+<li>||        </li>
+<li>?:       </li>
+<li>= += -= *= /= %= &amp;= |= ^= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;=    </li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符: ‘A’   转ascii: （int)’A’<br>字符串: String a = “hello, world”<br>字符串拼接: “A” + “B”  </p>
+<p>字符串的一些方法:</p>
+<ul>
+<li>charAt()  </li>
+<li>length()</li>
+<li>substring(0, length) 左闭右开</li>
+<li>startsWith()</li>
+<li>endsWith()</li>
+<li>indexOf()</li>
+<li>concat()</li>
+<li>replace()</li>
+<li>replaceAll() 正则</li>
+<li>trim()</li>
+<li>toUpperCase();</li>
+</ul>
+<p>String 是只读的，String 类的方法都是创建了一个新的String, 并没有改变原来的。</p>
+<pre><code>String upper = &quot;test&quot;.toUpperCase();
+</code></pre><p>再比如</p>
+<pre><code>String s = &quot;abcd&quot;;
+s = s.concat(&quot;ef&quot;);
+</code></pre><p><img src="!--￼3--&gt;/img/string-readonly.jpeg" alt="readonly"></p>
+<h4 id="和equals的区别"><a href="#和equals的区别" class="headerlink" title="==和equals的区别"></a>==和equals的区别</h4><pre><code>String a = &quot;test&quot;;
+String b = &quot;test&quot;;
+String c = new String(&quot;test&quot;);
+a == b -&gt; true
+b == c -&gt; false
+a.equals(b) -&gt; true
+b.equals(c) -&gt; true
+</code></pre><p>== ： 测试内存地址相等<br>.equals : 逻辑相等</p>
+<p>a和b都是从常量池中取的数据， 而new String是新分配一个内存地址</p>
+<pre><code>// These two have the same value
+new String(&quot;test&quot;).equals(&quot;test&quot;) // --&gt; true 
+
+// ... but they are not the same object
+new String(&quot;test&quot;) == &quot;test&quot; // --&gt; false 
+
+// ... neither are these
+new String(&quot;test&quot;) == new String(&quot;test&quot;) // --&gt; false 
+
+// ... but these are because literals are interned by 
+// the compiler and thus refer to the same object
+&quot;test&quot; == &quot;test&quot; // --&gt; true 
+
+String#equals:
+@Override
+public boolean equals(Object anObject) {
+    if (this == anObject) {
+        return true;
+    }
+    if (anObject instanceof String) {
+        String anotherString = (String)anObject;
+        int n = value.length;
+        if (n == anotherString.value.length) {
+            char v1[] = value;
+            char v2[] = anotherString.value;
+            int i = 0;
+            while (n-- != 0) {
+                if (v1[i] != v2[i])
+                    return false;
+                i++;
+            }
+            return true;
+        }
+    }
+    return false;
+}
+</code></pre><p>equals 可以使用equals方法检测两个字符串是否相等。</p>
+<h4 id="StringBuffer和StringBuilder"><a href="#StringBuffer和StringBuilder" class="headerlink" title="StringBuffer和StringBuilder"></a>StringBuffer和StringBuilder</h4><p>普通拼接</p>
+<pre><code>String str = &quot;&quot;;
+str += &quot;abc&quot;; -&gt; new StringBuider().append(&quot;abc&quot;);
+System.out.println(str);
+</code></pre><p>循环时</p>
+<pre><code>String res = &quot;&quot;;
+for(int i = 0; i &lt; fields.length; i++){
+    res += fields[i];  -&gt; res = new StringBuilder().append(fields[i]);
+}
+return res;
+
+StringBuilder sb = new StringBuilder();
+for(int i = 0; i &lt; fields.length; i++){
+    sb.append(fields[i]);
+}
+return sb.toString();
+</code></pre><p>StringBuilder 中不正确的用法</p>
+<pre><code>new StringBuilder().append(&quot;a&quot; + &quot;b&quot;); -&gt; new StringBuilder(new StringBuilder(&quot;a&quot;).append(&quot;b&quot;).toString());
+</code></pre><p>在循环中， 使用StringBuilder 而不是字符串的拼接更有效率、更节省内存。</p>
+<p>StringBuffer 是 StringBuilder 的线程安全版。</p>
+<p>String的Format(这里可以顺便提一下Java的可变参数)</p>
+<p>格式化输出：</p>
+<pre><code>String str = String.format(&quot;there is  only %s %d minutes&quot;, &quot;last&quot;, 10);
+System.out.format(&quot;there is  only %s %d minutes&quot;, &quot;last&quot;, 10)
+System.out.printf(&quot;there is  only %s %d minutes&quot;, &quot;last&quot;, 10)
+</code></pre><p>格式化说明符  </p>
+<p>常见转换符 d、x、o、f、s、c、b、h（哈希）、%、n（平台独立换行符）</p>
+<p>没有ld、lld、lf 这些。</p>
+<p>Java函数可变参数：</p>
+<pre><code>public void printf(String format, String... specification){
+    String arg0 = specification[0];
+    ...
+    System.out.print(arg0);
+}
+</code></pre><p>正则表达式:</p>
+<pre><code>String[] words = str.split(&quot;\\s+&quot;); 切割
+---
+String newWords = str.replaceAll(&quot;[0-9]+&quot;,&quot;#&quot;); 替换
+--
+Pattern pattern = Pattern.compile(&quot;[0-9]+&quot;);
+Matcher matcher = pattern.matcher(str); 
+while (matcher.find()) { 
+ process(str.substring(matcher.start(), matcher.end())); 
+} 获取
+---
+Pattern pattern = Pattern.compile(&quot;[0-9]+(\\w)&quot;);
+Matcher matcher = pattern.matcher(str); 
+while (matcher.find()) { 
+ process(str.group(1)); 
+} 获取（组）
+</code></pre><h2 id="控制流程"><a href="#控制流程" class="headerlink" title="控制流程"></a>控制流程</h2><h4 id="块作用域"><a href="#块作用域" class="headerlink" title="块作用域"></a>块作用域</h4><p>一对花括号就是一个块，块决定了变量的作用域。</p>
+<p>局部变量与全局变量：</p>
+<pre><code>public static void main(String args[]){
+    int n;
+    ..
+    {
+        int b;
+        int k;
+    }
+}
+</code></pre><p>Java 中局部变量不允许覆盖全局变量！</p>
+<h4 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h4><pre><code>public class Test{
+    int    a; //默认值0
+    boolean c;//false
+    char d; //null
+
+    public void test(){
+        int b;//是一个垃圾数，但Java强制要求必须初始化，不必担心。
+        System.out.println(b); // -- 报错， 因为没有初始化
+    }
+}
+</code></pre><h4 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h4><pre><code>if(a &gt;= b){
+    ..
+}else if(a &gt;= c){
+    ..
+}else{
+    ..
+}
+
+switch(choice){
+    case 1:
+        ..
+        break;
+    case 2:
+        ..
+        break;
+    default:
+        //other input
+        break;
+}
+</code></pre><h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><p>do while/while do/for/foreach</p>
+<pre><code>int i = 0;
+while(i &lt; 10){
+...
+i++
+}
+
+do{
+    ...
+    i++;
+}while(i &lt; 10);
+
+for(int i = 0;i &lt; 10;i++){
+    ...
+}
+
+String[] strs = new String()[];
+
+List list = new ArrayList(); 
+for(Object item : list){ -&gt; for each 其实是 使用了实现了Iterable接口的类的iterator方法。
+}
+
+Iterator it = list.iterator();
+while(it.hasNext){
+    process(it.next());
+}
+</code></pre><h4 id="中断循环"><a href="#中断循环" class="headerlink" title="中断循环"></a>中断循环</h4><pre><code>while(it.hasNext()){
+    if(it.next() == accuary){
+        ...
+        break;
+    }
+}
+
+while(it.hasNext()){
+    if(it.next() == badResult){
+        ...
+        countinue;
+    }
+    ...
+}
+
+A:
+while(it.hasNext()){
+    ...
+    for(int i = 0;i &lt; size;i++){
+        if(isFind){
+            break A;    
+        }
+    }
+}
+</code></pre><h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><pre><code>public class A {
+    private int i; -- 成员变量(member field)
+    private static int j; -- 静态成员变量
+    public static final CONSTANT_A = &quot;HELLO&quot; -- 类常量
+    public static void main(){String[] args[]){} -- 类函数、静态函数
+    public A(){} -- 默认构造函数，如果没有任何构造函数 就有这个
+    public A(int i){ -- 带参数的构造函数
+        this.i = i;
+    }
+    class B{
+        private int x;        
+        ...
+    }
+}
+</code></pre><h4 id="接口与抽象类"><a href="#接口与抽象类" class="headerlink" title="接口与抽象类"></a>接口与抽象类</h4><pre><code>public interface A {
+    int a = 0; -&gt; public final int a;   -- 接口只能是常量 
+    void method1(); -&gt; public abstract void method1(); -- 默认就是抽象方法
+}
+public abstract class A {
+    public abstract void method1();
+}
+</code></pre><p>接口与抽象类并不能实例化。</p>
+<h4 id="类的实例化"><a href="#类的实例化" class="headerlink" title="类的实例化"></a>类的实例化</h4><pre><code>A a = new A();
+</code></pre><h4 id="继承已有一个类"><a href="#继承已有一个类" class="headerlink" title="继承已有一个类"></a>继承已有一个类</h4><pre><code>public class B(){
+
+    public B(){
+        System.out.println(&quot;B 默认构造函数&quot;);
+    }
+
+    public B(String b){
+        System.out.println(&quot;b 带参构造函数&quot;);
+    }
+}
+
+class A extends B {
+
+    public A(){
+        //super(); -- 如果没写， 将默认添加
+    }
+
+    public A(String a){
+        //super(); -- 如果没写， 将默认添加
+        super(a); -- 只能调用其中一个超类的构造函数
+        System.out.println(a + &quot; 带参构造函数&quot;);
+    }
+}
+
+A a = new A();
+A a2 = new A(&quot;a&quot;);
+
+打印结果：
+    B 默认构造函数
+    b 带参构造函数
+    a 带参构造函数
+</code></pre><h4 id="Object-类-所有类的超类"><a href="#Object-类-所有类的超类" class="headerlink" title="Object 类 - 所有类的超类"></a>Object 类 - 所有类的超类</h4><pre><code>class Employee -&gt; class Employee extends Object
+</code></pre><p>Object 类的方法</p>
+<pre><code>class Object{
+
+    public native int hashCode();
+    public final native Class&lt;?&gt; getClass();
+    public boolean equals(Object obj) { return (this == obj);}
+    public String toString() {
+        return getClass().getName() + &quot;@&quot; + Integer.toHexString(hashCode());
+    }
+
+}
+</code></pre><p><strong>equals 方法</strong></p>
+<p>用于检测一个对象是否等于另一个对象。</p>
+<p><strong>hashCode 方法</strong></p>
+<p>散列码。由对象导出的整型值。</p>
+<ul>
+<li>如果两个对象相等(equal)，那么他们一定有相同的哈希值。</li>
+<li>如果两个对象的哈希值相同，但他们未必相等(equal)。</li>
+</ul>
+<p><strong>toString 方法</strong></p>
+<p>对象序列化为字符串。默认为 类名+@+哈希值</p>
+<p>方法覆盖与方法重载</p>
+<pre><code>public class B(){ public void method1(){} }
+public class A(){
+
+    //覆盖
+    @Override
+    public void method1(){}
+
+    //重载
+    public void method1(String a){}
+}
+</code></pre><p>子类构造函数始终要调用父类构造函数。</p>
+<h4 id="实现抽象类和接口"><a href="#实现抽象类和接口" class="headerlink" title="实现抽象类和接口"></a>实现抽象类和接口</h4><pre><code>public class A extends B {} -- 继承抽象类
+public class A implements B {} -- 实现接口
+</code></pre><h4 id="初始化块-静态初始化块"><a href="#初始化块-静态初始化块" class="headerlink" title="初始化块/静态初始化块"></a>初始化块/静态初始化块</h4><pre><code>public class A{
+
+    {
+        System.out.println(&quot;初始化块&quot;);
+    }
+
+    static{
+        System.out.println(&quot;静态初始化块&quot;);
+    }
+
+    public A(){
+        System.out.println(&quot;构造函数&quot;);
+    }
+
+    ..
+}
+
+打印结果：
+    静态初始化块
+    初始化块
+    构造函数
+</code></pre><h4 id="final在Java语法中的各种作用"><a href="#final在Java语法中的各种作用" class="headerlink" title="final在Java语法中的各种作用"></a>final在Java语法中的各种作用</h4><pre><code>final public class A{ -- 不能被继承
+    public static final String FIELD_NAME = &quot;HELLO&quot;; --不能被改变
+
+    public final void method1(){
+        final int a = 0; --不能被改变
+    }
+}
+</code></pre><h4 id="Java包"><a href="#Java包" class="headerlink" title="Java包"></a>Java包</h4><p>Java允许使用包将类组织起来，类似于命名空间。</p>
+<p>类的导入，</p>
+<pre><code>java.util.Date today = new java.util.Date();
+</code></pre><p>显然这很麻烦，可以使用import语句导入一个特定的类或者完成的包：</p>
+<pre><code>import java.util.Date;
+
+import some.package.*;
+</code></pre><h4 id="Java中各种访问级别区别-default-private-public-protected"><a href="#Java中各种访问级别区别-default-private-public-protected" class="headerlink" title="Java中各种访问级别区别(default/private/public/protected)"></a>Java中各种访问级别区别(default/private/public/protected)</h4><p><img src="!--￼4--&gt;/img/access-level.png" alt="access-level"></p>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><pre><code>public class A{
+    private int i = 0;
+    public class B{
+        public void test(){
+            int i = A.this.i; --使用外部类的实例的成员变量
+            ...
+        }
+    }
+}
+</code></pre><h4 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h4><pre><code>public class A{
+    private int i = 0;
+    public static class B{
+        public void test(){
+
+        }
+    }
+}
+</code></pre><h4 id="内部类的实例化"><a href="#内部类的实例化" class="headerlink" title="内部类的实例化"></a>内部类的实例化</h4><pre><code>A a = new A();
+A.B b = a.new B();
+
+A.B ab = new A.B();
+</code></pre><h4 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h4><pre><code>A.B ab = a.new B(){
+
+    @Override
+    public void test(){
+        supper.test();
+    }
+
+}
+</code></pre><h4 id="C-中委托在JAVA中的实现方法-Deletegate-Callback，Hook"><a href="#C-中委托在JAVA中的实现方法-Deletegate-Callback，Hook" class="headerlink" title="C# 中委托在JAVA中的实现方法 - Deletegate, Callback，Hook"></a>C# 中委托在JAVA中的实现方法 - Deletegate, Callback，Hook</h4><pre><code>public class A{
+    public interface Listener{
+        void onClick();
+    }
+
+    public void invoked(Listener listener){
+        ...
+        listener.onClick();
+        ...
+    }
+}
+
+A a = new A();
+a.invoked(new Listener(){
+
+    @Override
+    public void onClick(){
+        System.out.println(&quot;onClick&quot;);
+    }
+
+});
+</code></pre><h4 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h4><pre><code>public enum WEEK{
+    MONDAY, TUESDAY
+} 
+
+public enum WEEK{
+    MONDAY(&quot;MON&quot;), TUESDAY(&quot;TUE&quot;)
+
+    private String value;
+
+    public WEEK(String value){
+        this.value = value;
+    }
+
+    public String getValue(){
+        return this.value
+    }
+}
+</code></pre><p>枚举类型其实是 继承于Enum的类。</p>
+<pre><code>public enum WEEK{
+    MONDAY, TUESDAY
+} 
+
+类似于 -- （当然，并不允许直接继承Enum)
+
+public class WEEK extends Enum{
+    public static final Enum MONDAY = new Enum(&quot;MONDAY&quot;, 0);
+    public static final Enum TUESDAY = new Enum(&quot;TUESDAY&quot;, 1);
+
+    Enum(String name, int ordinal) {
+        super(name, ordinal);
+    }
+}
+</code></pre><h2 id="常用的包与类"><a href="#常用的包与类" class="headerlink" title="常用的包与类"></a>常用的包与类</h2><pre><code>java.applet    Applets (Java programs that run inside a web page)  
+java.awt    Graphics and graphical user interfaces  
+java.beans    Support for JavaBeans components (classes wi th properties and event listeners)  
+java.io    Input and output  
+java.lang    Language support 
+java.math    Arbitrary-precision numbers
+java.net    Networking
+java.nio    &quot;New&quot; (memory-mapped) I/O
+java.rmi    Remote method invocations
+java.security    Security support
+java.sql    Database support
+java.text    Internationalized formatting of text and numbers
+java.time    Dates, time, duration, time zones, etc.
+java.util    Utilities (including data structures, concurrency, regular expressions, and logging)
+</code></pre><h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p><em>这里简单介绍一下如何利用反射动态创建对象，并写利用反射动态获取私有域，静态域，方法调用等</em></p>
+<pre><code>package com.sunyuki;
+public class A {
+    private String a = &quot;a&quot;;
+    public static final String B = &quot;B&quot;;
+
+    public void method1(){ System.out.println(&quot;method1&quot;); }
+
+    public String setA(String a){ return this.a = a; }
+}
+
+Class aClass = Class.forName(&quot;com.sunyuki.A&quot;);
+A a = (A)aClass.newInstance();
+a.setA(&quot;aaa&quot;);
+Fields[] fs = a.getDeclaredFields();
+for(Field f : fs){
+    f.setAccessible(true);
+    Object o = f.get(a);
+    System.out.println(o);
+}
+
+Method method1 = aClass.getMethod(&quot;method1&quot;);
+System.out.println(method1.invoke(a, null));
+
+打印出：
+    aaa
+    B
+    method1
+</code></pre><h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>异常</p>
+<p><img src="!--￼5--&gt;/img/exception.jpeg" alt="exceptions"></p>
+<pre><code>Throwable
+\--                
+    \-- Exception 
+
+                    \-- RuntimeException
+</code></pre><p>异常 – 如果遇到了无法处理的情况，那么Java的方法可以抛出一个异常，例如删除一个文件，文件不存在，试图处理删除文件的代码会抛出IOException异常。</p>
+<p>Java中异常分为两类 – 声明式异常和运行时异常，顾名思义，声明式异常需要在代码中显式的处理（抛出或捕获），而运行时异常需要程序在运行时才会知道。</p>
+<p>声明异常</p>
+<pre><code>public method1 throws IOException {
+    //delete files...
+    new File(&quot;c:\\abc.txt&quot;).delete();
+}
+</code></pre><p>运行异常</p>
+<pre><code>继承RuntimeException就不需要在方法上显式声明。（如NullPointerException)
+</code></pre><p>异常处理(异常捕获)</p>
+<pre><code>BufferedReader br = null;
+try{
+    br = new BufferdReader(..);
+    ...
+}catch(Excpetion e){
+    ...
+}finally{
+    ...
+    if(br != null){
+        br.close();
+    }
+}
+</code></pre><p>自定义异常</p>
+<pre><code>public class ApiException extends Exception{
+
+    public ApiException(){}
+    public ApiException(String message){
+        super(message);
+    }
+
+}
+
+public class ApiRuntimeException extends RuntimeException{
+
+    public ApiException(){}
+    public ApiException(String message){
+        super(message);
+    }
+}
+</code></pre><p>抛出异常 - 处理异常 完整流程</p>
+<pre><code>Class Biz{
+    private Dao dao;
+
+    public void save(Model model) throws ApiException(){
+        if(dao.findExisted(model.getId())){
+            throw new ApiException(&quot;已存在&quot;);
+        }
+        dao.insert(model);
+    }
+}
+
+Class FrontEndController{
+
+    public ResultModel save(Model model){
+        ResultModel res = new ResultModel();
+        res.setSuccess(true);
+        res.setMessage(&quot;成功&quot;);
+
+        try{
+            biz.save(model);
+        }catch(ApiException e){
+            logger.error(e);
+            res.setSuccess(false);
+            res.setMessage(e.getMessage());
+        }
+
+        return res;
+    }
+}
+</code></pre><h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>数据结构：hash/array/tree/link</p>
+<pre><code>Collection
+    \_ Set                    \_ List                        
+        \_HashSet \_TreeSet        \_LinkedList \_ArrayList
+</code></pre><h4 id="List-接口-队列-先进先出）。"><a href="#List-接口-队列-先进先出）。" class="headerlink" title="List 接口 (队列 - 先进先出）。"></a>List 接口 (队列 - 先进先出）。</h4><p>ArrayList - 内部由固定数组实现，所以请的内存是连续的，遍历这个集合就很快，如果添加元素后，元素个数大于数组大小，就会新申请一个更大的数组，新增就特别慢，删除是用后一个元素覆盖前一个元素。</p>
+<pre><code>Object o = new Object();
+List list = new ArrayList();
+list.add(o);
+for(int i = 0;i &lt; list.size();i++){
+    proccess(list.get(i));
+}
+list.remove(i-1);
+</code></pre><p>LinkedList - 链表，由于是用一个一个的不连续的内存 通过前后指针链接起来的，遍历这个集合或者获取其中某一个值就很慢，但是删除和新增特别快，因为只需要把前一个节点的指针指向后一个节点的指针即可。</p>
+<pre><code>Object o = new Object();
+List list = new LinkedList();
+list.add(o);
+for(int i = 0;i &lt; list.size();i++){
+    process(list.get(i));
+}
+list.remove(i-1);
+</code></pre><h4 id="Set-集-不在意顺序（没有下标），不允许有相同的元素（如何判断是不是相同：调用equals方法…）"><a href="#Set-集-不在意顺序（没有下标），不允许有相同的元素（如何判断是不是相同：调用equals方法…）" class="headerlink" title="Set 集(不在意顺序（没有下标），不允许有相同的元素（如何判断是不是相同：调用equals方法…）)"></a>Set 集(不在意顺序（没有下标），不允许有相同的元素（如何判断是不是相同：调用equals方法…）)</h4><p>HashSet 无序的</p>
+<pre><code>Set set = new HashSet();
+set.add(new Object());
+for(Object o : set){
+    process(o);            
+}
+
+Iterator iterator = set.iterator();
+while(iterator.hasNext()){
+    process(set.next());
+}
+</code></pre><p>TreeSet 有序的</p>
+<pre><code>Set set = new TreeSet(new Comparator() {
+    public int compare(Object o1, Object o2) {
+        return ((A)o1).getA() - ((A)o2).getA();
+    }
+});
+
+set.add(new Object());
+for(Object o : set){
+    process(o);            
+}
+
+Iterator iterator = set.iterator();
+while(iterator.hasNext()){
+    process(set.next());
+}
+</code></pre><h4 id="Comparable-与-Comparator"><a href="#Comparable-与-Comparator" class="headerlink" title="Comparable 与 Comparator"></a>Comparable 与 Comparator</h4><p>Comparable </p>
+<pre><code>class Student implements Comparable&lt;Student&gt;{
+    private String number;
+    private String name;
+
+    @Override public int compareTo(Student stu){
+        return number.compareTo(stu.number);  
+    }
+} 
+</code></pre><p>什么时候用Comparable与Comparator, Comparator只是作为临时的比较策略， 最好使用Comparable，这样的话不论在哪里使用到了排序，都可以不用再写Comparator，不过已经封装好的类，没有实现Comparable接口，这时可以使用Comparator。</p>
+<p>集合类型：list/set/map</p>
+<pre><code>Map
+    \_HashMap \_TreeMap
+</code></pre><p>Map（字典，图）</p>
+<p>HashMap 无序， 同一个键 只能有一个值</p>
+<pre><code>  Map map = new HashMap();
+Set keySet = map.keySet();
+for(Object key : keySet){
+    Object value = map.get(key);
+}
+map.put(&quot;key&quot;, &quot;value&quot;);
+</code></pre><p>TreeMap 有序</p>
+<pre><code>Map map = new TreeMap(new Comparator() {
+    public int compare(Object o1, Object o2) {
+        return ((A)o1).getA() - ((A)o2).getA();
+    }
+});
+ Set keySet = map.keySet();
+for(Object key : keySet){
+    Object value = map.get(key);
+}
+map.put(&quot;key&quot;, &quot;value&quot;);
+</code></pre><p>collection 与 collections 的区别</p>
+<p><img src="!--￼6--&gt;/img/collections.jpeg" alt="coll"></p>
+<p>线程安全与不安全</p>
+<p>ArrayList - Vector</p>
+<p>Stack 先进后出</p>
+<p>HashMap - HashTable</p>
+<p>Iterator - Enumeration</p>
+<p><em>基于这3个维度来介绍Java中不同集合</em></p>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>如果应用泛型</p>
+<p><em>泛型 - 旨在减少错误和增加可读性</em></p>
+<pre><code>List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+for(String str : list){
+    process(str);
+}
+
+List list = new ArrayList();
+for(Object o : list){
+    process((String)o);
+}
+</code></pre><p>定义泛型</p>
+<pre><code>public class Pair&lt;T&gt;{
+    private T first;
+    public Pair(T first, T second){}
+    public T getFirst(){return first};
+}
+</code></pre><p>泛型方法</p>
+<pre><code>public class Pair{
+    public static &lt;T&gt; T getMiddle(T... a){
+        return a[a.length / 2];
+        }
+    }
+} 
+
+String middle = Pair.getMiddle(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+</code></pre><p>如果应用通配符</p>
+<pre><code>public static void print(Pair&lt;? extends Employee&gt; pair){
+
+}
+
+public static void print(Pair&lt;? super Employee&gt; pair){
+
+}
+
+public static void print(Pair&lt;?&gt; pair){
+
+}
+</code></pre><p>为什么说Java相对于C#是假泛型</p>
+<p>Java 中的泛型在编译后实际上还是使用的强制转换。</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>定义线程与运行</p>
+<pre><code>public class ThreadA implements Runnable{  -- 或者继承Thread
+
+    public void run() {
+        while(true) {
+            System.out.println(&quot;run a&quot;);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        ThreadA threadA = new ThreadA();
+        new Thread(threadA).start();
+    }
+
+}
+</code></pre><p>中断线程  - 线程中断后 只是给线程一个警告，并不一定要结束线程。<br>Thread.currentThread().intercept();  </p>
+<p>线程中断测试<br>Thread.intercepted(); – 会清除中断状态(Thread.sleep也会清除中断)<br>Thread.currentThread().isIntercepted(); – 不会清除中断状态  </p>
+<p>线程状态</p>
+<p>6大状态</p>
+<ul>
+<li>New 新建</li>
+<li>Runnable 可运行</li>
+<li>Blocked 被阻塞</li>
+<li>Waiting 等待</li>
+<li>Time waiting 计时等待</li>
+<li>Terminated 被终止</li>
+</ul>
+<p><code>new Thread</code> ，这时他的状态为 <em>新建</em>， 还没有运行， 当然还有一些准备工作要做。<br><code>.start()</code>， 线程处于 <em>可运行</em> 状态。 一个在 <em>可运行</em> 状态的线程也可能还没运行，这取决于操作系统给线程提供运行的时间。<br>当线程处于<em>被阻塞</em> 或者 <em>等待</em>，它不运行任何代码且占用最少的资源，等待线程调度器重新激活它。</p>
+<ul>
+<li><p>当线程试图获取一个内部的对象锁，而该锁由其他线程使用，则该线程处于<em>被阻塞</em>状态，当其他线程释放锁，并且线程调度器允许本线程持有他的时候，该线程变成非阻塞状态</p>
+</li>
+<li><p>当线程等待另一个线程通知线程调度器一个条件时，它自己进入<em>等待</em>状态。在Java中调用<code>Object.wait</code>或者<code>Object.join</code>方法，或是等待<code>java.util.concurrent</code>库中的Lock或Condition时，就会进入这种情况。<em>等待</em>和<em>被阻塞</em>是不同的。</p>
+</li>
+<li><p>有几个方法有一个超时参数，调用他们导致线程进入<code>计时等待</code>状态。这个状态将一直保存到超时期满或者接收到适当的通知。带有超时参数的方法有Thread.sleep或Object.wait，Thread.join,Lock.tryLock以及Condition.await的计时版。</p>
+</li>
+</ul>
+<p>状态的转换 - 当一个线程被阻塞或等待（或终止），另一个线程被调度为运行状态。当一个线程被重新激活（例如超时期满或者成功获得了一个锁），调度器检查是否有比当前运行线程更高的优先级，如果是这样，调度器从当前运行线程中挑选一个，剥夺其运行权，选择一个新的线程运行。</p>
+<p>被终止的线程</p>
+<p>线程有两个原因死亡</p>
+<ul>
+<li>run方法正常退出而死亡</li>
+<li>因为一个没有捕获的异常终止了run方法而意外死亡</li>
+</ul>
+<p>特别是，可以调用线程的stop方法，该方法抛出TreadDeath错误对象，由此杀死线程。但是这个方法已过时。</p>
+<p><img src="!--￼7--&gt;/img/thread.png" alt="thread"></p>
+<p>Thread</p>
+<ul>
+<li>void join() 等待终止指定的线程</li>
+<li>void join(long millis) 等待指定的线程死亡或者经过的毫秒数</li>
+<li>Thread.State getState() (6大状态之一）</li>
+<li>void stop() <strong>已过时的方法</strong>，停止线程</li>
+<li>void suspend() 暂停线程的运行（挂起），<strong>已过时</strong>。</li>
+<li>void resume() 恢复挂起的线程，<strong>已过时</strong>。</li>
+</ul>
+<p>线程优先级</p>
+<p>通过<code>.setPriority</code>来设置线程的优先级。</p>
+<ul>
+<li>void setPriorty(int newPriorty) 设置优先级</li>
+<li>static int MIN_PRIORITY 最小优先级1</li>
+<li>static int MAX_PRIORITY 最大优先级10</li>
+<li>static int NORM_PRIORITY 默认优先级5</li>
+<li>static void yield() 使当前线程处于让步状态，如果有其他可运行线程与此线程有同样高的优先级，那么另外一个线程会先调度。 </li>
+</ul>
+<p>用户线程与守护线程</p>
+<p>t.setDaemon(true)</p>
+<p>守护线程的唯一用途就是为其他线程服务。当只剩下守护线程时，他就退出了。守护线程应该永远不去访问固有资源，如文件，数据库，因为可能随时在操作的时候中断。</p>
+<p>线程异常处理</p>
+<p>线程run()方法是不运行抛出申明式异常的，如果有RuntimeException或Error抛出，不必使用try catch 捕获，可以使用Thread.UncaughtExceptionHandler来处理线程结束前没有捕获到的异常</p>
+<pre><code>public class ThreadB extends Thread implements Thread.UncaughtExceptionHandler {
+
+public void run() {
+    while (true) {
+        System.out.println(&quot;rush b&quot;);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        this.stop(); //这个方法已经过时，不要使用。这里只是抛出异常的作用。
+    }
+}}
+
+ThreadB threadB = new ThreadB();
+threadB.start();
+threadB.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+    public void uncaughtException(Thread t, Throwable e) {
+        e.printStackTrace();
+        //log.error(&quot;thread exit&quot;);
+    }
+});
+
+输出
+    rush b
+    java.lang.ThreadDeath
+        at java.lang.Thread.stop(Thread.java:850)
+        at course.thread.ThreadB.run(ThreadB.java:17)
+</code></pre><p>也可以使用Thread.setDefaultUncaughtExceptionHandler来为所有线程指定线程异常处理器。</p>
+<p>线程安全（同步）</p>
+<pre><code>public class Ticket {
+public static int total = 100;
+
+static class Employee extends Thread {
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                if (total &gt; 0) {
+                    Thread.sleep(10);
+                    total -= 1;
+                    System.out.printf(&quot;%s sold %d, remain %d %n&quot;, Thread.currentThread().getName(), 1, total);
+                } else {
+                    return;
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+}
+
+public static void main(String[] args) {
+
+        for (int i = 0; i &lt; 10; i++) {
+            new Employee().start();
+        }
+    }
+}
+</code></pre><p>卖票程序.</p>
+<p>线程安全的一些基本概念：</p>
+<blockquote>
+<p>线程的安全性的定义：当多个线程访问某个类时，这个类都始终表现出正确的行为，那么这个类就被认为是线程安全的。  </p>
+<p>无状态对象：既不包含任何域，也不包含任何对其他类中域的引用（也就是不共享变量）。无状态对象一定是线程安全的。</p>
+<p>原子性：不可分割。</p>
+<p>竞争（竞态）条件：由于不恰当的执行顺序导致不正确的结果。</p>
+</blockquote>
+<p>竞争条件的一些情况</p>
+<ul>
+<li>先检查后执行</li>
+<li>读取-修改-写入</li>
+</ul>
+<p>在无状态的类中添加一个状态，该状态由线程安全的对象来管理，那么这个类仍然是线程安全的。</p>
+<p>线程池</p>
+<pre><code>ExecutorService pool = Executors.newCachedThreadPool();
+Future&lt;Integer&gt; res = pool.submit(new Callable&lt;Integer&gt;() {
+        public Integer call() throws Exception {
+            return 0;
+        }
+    });
+
+pool.shutdown();
+</code></pre><p>线程之间通信</p>
+<p>wait, notify、管道</p>
+<p>Callable与Runnable区别</p>
+<pre><code> FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;Integer&gt;(new Callable&lt;Integer&gt;() {
+                public Integer call() throws Exception {
+                    return 0;
+                }
+});
+new Thread(futureTask).start();
+futureTask.get();
+</code></pre><p>Callable 与 Runnable的区别就是，Callable可以获得一个返回值。通过Future#get方法来获取（此方法是一个阻塞方法）。</p>
+<p>Synchronized与ReentrantLock区别</p>
+<p><code>ReetrantLock</code> 显式锁，可以直接获取条件对象 lock.newConditon()。通过Condition的await()和signal()/signalAll()方法来使线程处于释放锁并处于等待状态， 解除等待状态。比 Synchronized 更多的用处。 </p>
+<p><code>Synchronized</code> 每个对象都内置了一个隐式锁， 通过Object的wait()和notify()/notifiyAll() 来添加到条件的等待集， 解除等待状态。 更简单，    可直接放在方法上，避免出错。但相比显式锁更有局限性，不能中断一个正在试图获取锁的进程（阻塞状态），试图获取锁不能设定超时，每个锁只有一个条件，可能不够。</p>
+<p>volatile有什么用</p>
+<p>保证共享变量的可见性(立即刷新到主内存)，有序性(防止重排序)，但不能保证原子性。</p>
+<p>同步器：信号量/倒计时门栓/栅栏/交换器/同步队列</p>
+<h4 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h4><pre><code>public class SThread {
+
+    public static void main(String[] args) {
+        ExecutorService service = Executors.newCachedThreadPool();
+        final Semaphore semp = new Semaphore(5);
+        for(int i = 0;i &lt; 20;i++){
+            final  int NO = i;
+            service.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        semp.acquire();
+                        System.out.println(&quot;access :&quot;  + NO);
+                        semp.release();
+                        System.out.println(&quot;--------&quot; + semp.availablePermits());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+        service.shutdown();
+    }
+}
+</code></pre><h4 id="倒计时门栓"><a href="#倒计时门栓" class="headerlink" title="倒计时门栓"></a>倒计时门栓</h4><pre><code>public class CThread {
+public static void main(String[] args) {
+    final CountDownLatch latch = new CountDownLatch(2);
+
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                System.out.println(&quot;子线程&quot; + Thread.currentThread().getName() + &quot;正在执行&quot;);
+                Thread.sleep(3000);
+                System.out.println(&quot;子线程&quot; + Thread.currentThread().getName() + &quot;执行完毕&quot;);
+                latch.countDown();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }).start();
+
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                System.out.println(&quot;子线程&quot; + Thread.currentThread().getName() + &quot;正在执行122222222&quot;);
+                Thread.sleep(3000);
+                System.out.println(&quot;子线程&quot; + Thread.currentThread().getName() + &quot;执行完毕&quot;);
+                latch.countDown();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }).start();
+
+    try {
+        System.out.println(&quot;等待2个子线程执行完毕...&quot;);
+        latch.await();
+        System.out.println(&quot;2个子线程已经执行完毕&quot;);
+        System.out.println(&quot;继续执行主线程&quot;);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+}
+}
+</code></pre><h4 id="循环栅栏-回环屏障"><a href="#循环栅栏-回环屏障" class="headerlink" title="循环栅栏(回环屏障)"></a>循环栅栏(回环屏障)</h4><pre><code>public class BThread {
+
+    public static void main(String[] args) {
+        int N = 4;
+        CyclicBarrier barrier  = new CyclicBarrier(N, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(&quot;do something&quot;);
+            }
+        });
+
+        for(int i=0;i&lt;N;i++)
+            new Writer(barrier).start();
+    }
+
+    static class Writer extends Thread{
+        private CyclicBarrier cyclicBarrier;
+        public Writer(CyclicBarrier cyclicBarrier) {
+            this.cyclicBarrier = cyclicBarrier;
+        }
+
+        @Override
+        public void run() {
+            System.out.println(&quot;线程&quot;+Thread.currentThread().getName()+&quot;正在写入数据...&quot;);
+            try {
+                Thread.sleep(5000);      //以睡眠来模拟写入数据操作
+                System.out.println(&quot;线程&quot;+Thread.currentThread().getName()+&quot;写入数据完毕，等待其他线程写入完毕&quot;);
+                cyclicBarrier.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }catch(BrokenBarrierException e){
+                e.printStackTrace();
+            }
+            System.out.println(&quot;所有线程写入完毕，继续处理其他任务...&quot;);
+        }
+    }
+}
+</code></pre><h4 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h4><p><strong>BlockingQueue</strong> 是 java.util.concurrent 包中 放入和拿出形式的线程安全的队列。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:center">Throws Exception</th>
+<th style="text-align:center">Special Value</th>
+<th style="text-align:center">Blocks</th>
+<th style="text-align:center">Times Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Insert</td>
+<td style="text-align:center">add(o)</td>
+<td style="text-align:center">offer(o)</td>
+<td style="text-align:center">put(o)</td>
+<td style="text-align:center">offer(o, timeout, timeunit)</td>
+</tr>
+<tr>
+<td style="text-align:left">Remove</td>
+<td style="text-align:center">remove(o)</td>
+<td style="text-align:center">poll()</td>
+<td style="text-align:center">take()</td>
+<td style="text-align:center">poll(timeout, timeunit)</td>
+</tr>
+<tr>
+<td style="text-align:left">Examine</td>
+<td style="text-align:center">element()</td>
+<td style="text-align:center">peek()</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Throws Exception:<br>If the attempted operation is not possible immediately, an exception is thrown.</li>
+<li>Special Value:<br>If the attempted operation is not possible immediately, a special value is returned (often true / false).</li>
+<li>Blocks:<br>If the attempted operation is not possible immedidately, the method call blocks until it is.</li>
+<li>Times Out:<br>If the attempted operation is not possible immedidately, the method call blocks until it is, but waits no longer than the given timeout. Returns a special value telling whether the operation succeeded or not (typically true / false).</li>
+</ol>
+<p>阻塞队列的实现：</p>
+<ul>
+<li>ArrayBlockingQueue  固定容量的队列</li>
+<li>DelayQueue 阻塞直到延迟过期</li>
+<li>LinkedBlockingQueue 动态容量队列</li>
+<li>PriorityBlockingQueue 优先级容量队列 - 元素需实现Comparable， 但不一定是按优先级排序的，但第一个一定是优先级最高的元素 </li>
+<li>SynchronousQueue 同步队列， 没有容量（或者说只能存一个）， 只能拿一个和取一个</li>
+</ul>
+<p><img src="!--￼8--&gt;/img/blocking-queue.png" alt="blockingQueue"></p>
+<pre><code>public class BlockingQueueExample {
+
+    public static void main(String[] args) throws Exception {
+
+        BlockingQueue queue = new ArrayBlockingQueue(1024);
+
+        Producer producer = new Producer(queue);
+        Consumer consumer = new Consumer(queue);
+
+        new Thread(producer).start();
+        new Thread(consumer).start();
+
+        Thread.sleep(4000);
+    }
+}
+
+public class Producer implements Runnable{
+
+    protected BlockingQueue queue = null;
+
+    public Producer(BlockingQueue queue) {
+        this.queue = queue;
+    }
+
+    public void run() {
+        try {
+            queue.put(&quot;1&quot;);
+            Thread.sleep(1000);
+            queue.put(&quot;2&quot;);
+            Thread.sleep(1000);
+            queue.put(&quot;3&quot;);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+public class Consumer implements Runnable{
+
+    protected BlockingQueue queue = null;
+
+    public Consumer(BlockingQueue queue) {
+        this.queue = queue;
+    }
+
+    public void run() {
+        try {
+            System.out.println(queue.take());
+            System.out.println(queue.take());
+            System.out.println(queue.take());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre><h4 id="交换器"><a href="#交换器" class="headerlink" title="交换器"></a>交换器</h4><p><img src="!--￼9--&gt;/img/exchanger.png" alt="exchanger"></p>
+<pre><code>Exchanger exchanger = new Exchanger();
+
+ExchangerRunnable exchangerRunnable1 =
+        new ExchangerRunnable(exchanger, &quot;A&quot;);
+
+ExchangerRunnable exchangerRunnable2 =
+        new ExchangerRunnable(exchanger, &quot;B&quot;);
+
+new Thread(exchangerRunnable1).start();
+new Thread(exchangerRunnable2).start();
+
+
+public class ExchangerRunnable implements Runnable{
+
+    Exchanger exchanger = null;
+    Object    object    = null;
+
+    public ExchangerRunnable(Exchanger exchanger, Object object) {
+        this.exchanger = exchanger;
+        this.object = object;
+    }
+
+    public void run() {
+        try {
+            Object previous = this.object;
+
+            this.object = this.exchanger.exchange(this.object);
+
+            System.out.println(
+                    Thread.currentThread().getName() +
+                    &quot; exchanged &quot; + previous + &quot; for &quot; + this.object
+            );
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre><h4 id="ConcurrentMap"><a href="#ConcurrentMap" class="headerlink" title="ConcurrentMap"></a>ConcurrentMap</h4><p>The java.util.concurrent.ConcurrentMap interface represents a Map which is capable of handling concurrent access (puts and gets) to it.</p>
+<p>The ConcurrentMap has a few extra atomic methods in addition to the methods it inherits from its superinterface, java.util.Map.</p>
+<p>使用 ConcurrentMap 效率更更高，而不是HashTable</p>
+<pre><code>ConcurrentMap concurrentMap = new ConcurrentHashMap();
+
+concurrentMap.put(&quot;key&quot;, &quot;value&quot;);
+
+Object value = concurrentMap.get(&quot;key&quot;);
+</code></pre><p>java并发工具参考: <a href="http://tutorials.jenkov.com/java-util-concurrent/index.html" target="_blank" rel="external">http://tutorials.jenkov.com/java-util-concurrent/index.html</a></p>
+<h2 id="Git使用"><a href="#Git使用" class="headerlink" title="Git使用"></a>Git使用</h2><p>SCM GIT </p>
+<p>获取帮助 - git help <verb>、 git <verb> –help、 man git-<verb></verb></verb></verb></p>
+<p>与SVN的不同 </p>
+<ul>
+<li>分布式版本控制软件, 每个人的电脑上都保存了一个项目的所有版本副本，而SVN一旦远程服务器出错，版本数据将会丢失。</li>
+<li>SVN的版本控制使用的是保存每一个版本的差异，而Git使用的是保存快照，所以Git切换版本特别快，但是使用了更多的空间。</li>
+<li>Git切换分支很快，因为仅仅新建了一个hashcode，将HEAD指向了这个hashcode。</li>
+</ul>
+<p>Hello World</p>
+<pre><code>git init
+git add .
+git commit -m &quot;first-commit&quot;
+git log
+</code></pre><p>git init </p>
+<p>初始化项目 - 在当前目录会出现一个隐藏文件夹.git，所有git的资源都放在这个目录下。这个操作仅仅创建了一些元数据，还没有开始跟踪项目里的任何一个文件。</p>
+<p>git status</p>
+<p>查看git状态</p>
+<p>git add </p>
+<pre><code>git add .
+
+git add *.c
+</code></pre><p>跟踪文件 - 添加到暂存区(index)</p>
+<p>git commit</p>
+<pre><code>git commit 
+git commit -m &quot;message&quot;
+</code></pre><p>提交到本地版本仓库</p>
+<p>git log</p>
+<p>查看日志</p>
+<p>git push</p>
+<pre><code>git push -u origin master
+</code></pre><p>git remote </p>
+<pre><code>git remote add origin http://192.168.2.230/zyl/git-test
+git remote -v
+git remote set-url origin http://192.168.2.230/zyl/git-test
+git remote remove origin
+git remote rename origin origin2
+</code></pre><p>git clone</p>
+<pre><code>git clone http://192.168.2.230/zyl/git-test
+</code></pre><p>git fetch</p>
+<p>拉取元数据，并不拉取数据。</p>
+<p>git merge</p>
+<pre><code>git merge origin master    
+</code></pre><ul>
+<li>快进</li>
+<li>自动合并</li>
+<li>冲突 </li>
+</ul>
+<p>git rebase</p>
+<p>衍合</p>
+<pre><code>git rebase
+</code></pre><p><img src="!--￼10--&gt;/img/merge.jpg" alt=""></p>
+<pre><code>git merge mywork origin
+</code></pre><p><img src="!--￼11--&gt;/img/rebase0.jpg" alt=""><br><img src="!--￼12--&gt;/img/rebase.jpg" alt=""></p>
+<pre><code>git rebase mywork origin
+</code></pre><p>相当于git merge，但是要和git merge的区别就是git merge产生冲突时会新建一个分支但不会更改原来的分支,git rebase直接删掉自己的分支然后再新建一个分支,如果没有产生冲突和git merge一模一样。</p>
+<p>git pull</p>
+<p>git pull = git fetch + git merge。</p>
+<pre><code>git pull origin master
+git pull (如果设置了upstream)
+</code></pre><p>git reset</p>
+<pre><code>git reset HEAD
+git reset --soft HEAD
+git reset --hard HEAD
+</code></pre><p>git checkout</p>
+<pre><code>git checkout new_branch
+git checkout -b new_branch
+git checkout -- .
+</code></pre><p>git reflog</p>
+<p>注意 reflog 只保存在本地</p>
+<pre><code>git reflog
+git reset --hard HEAD@{1}
+</code></pre><p>git diff</p>
+<pre><code>git diff
+git diff HEAD^ HEAD 
+git diff ds21fashafg gdg1fshk
+git difftool --tool-help
+git config --global diff.tool bc3
+git config --global difftool.bc3.path &quot;c:/program files/beyond compare 3/bcomp.exe&quot;
+git config --global merge.tool bc3
+git config --global mergetool.bc3.path &quot;c:/program files/beyond compare 3/bcomp.exe&quot;
+</code></pre><p>git config</p>
+<pre><code>git config --list
+git config user.email xxx@xxx.com
+git config user.name xxx
+git config credential.helper store
+git config http.proxy http://127.0.0.1:8118
+git config auto.crlf true
+git config core.editor gvim
+git config alias.commit ci
+</code></pre><p>gitk </p>
+<p>带界面的git</p>
+<pre><code>gitk --all
+</code></pre><p>.gitignore</p>
+<p>忽略文件，例子</p>
+<pre><code>*.c 忽略所有.c文件
+!lib.c lib.c除外
+/TODO 忽略根目录下的TODO文件夹
+doc/ 忽略doc文件夹下所有文件
+doc/*.txt 忽略doc/abc.txt但不忽略doc/server/arch.txt
+</code></pre><p>git tag</p>
+<pre><code>git tag v1.0
+git push origin v1.0
+</code></pre><p>git hook 的使用。。。</p>
+<h2 id="Maven使用"><a href="#Maven使用" class="headerlink" title="Maven使用"></a>Maven使用</h2><p>为什么用maven</p>
+<p>maven - 构建工具， 使项目的构建简单化，并且有一个统一的本地仓库。</p>
+<p>项目结构（约定优于配置的原则）</p>
+<pre><code>src
+    \_ src
+        \_ main
+            \_ java
+            \_ resource
+
+        \_ test
+            \_ java
+    \_ target
+pom.xml
+</code></pre><p>pom文件介绍</p>
+<p>每个项目根目录都有一个pom文件, 用于配置maven。</p>
+<p>maven 的生命周期</p>
+<ul>
+<li>清理</li>
+<li>初始化</li>
+<li>编译</li>
+<li>测试</li>
+<li>打包</li>
+<li>集成测试</li>
+<li>验证</li>
+<li>部署</li>
+<li>站点生成</li>
+</ul>
+<h4 id="再分为三类"><a href="#再分为三类" class="headerlink" title="再分为三类"></a>再分为三类</h4><ul>
+<li>clean 清理项目</li>
+<li>default 真正构建的所有步骤  |  ref: <a href="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html" target="_blank" rel="external">http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html</a><ul>
+<li>validate</li>
+<li>intitalize</li>
+<li>generate-sources</li>
+<li>process-sources</li>
+<li>generate-resources</li>
+<li>process-resources</li>
+<li>compile</li>
+<li>process-classes</li>
+<li>generate-test-sources</li>
+<li>process-test-sources</li>
+<li>generate-test-resources</li>
+<li>process-test-resources</li>
+<li>test-compile</li>
+<li>process-test-classes</li>
+<li>test</li>
+<li>prepare-package</li>
+<li>package</li>
+<li>pre-integration-test</li>
+<li>integration-test</li>
+<li>post-integration-test</li>
+<li>verify</li>
+<li>install 安装到本地</li>
+<li>deploy 将最终的包复制到远程仓库</li>
+</ul>
+</li>
+<li>site 建立和发布项目站点，MAVEN能基于POM所包含的信息，自动生成一个友好的站点</li>
+</ul>
+<p>maven常用命令: package/compile/clean/test</p>
+<p>maven的属性</p>
+<ul>
+<li>内置属性 ${basedir} 项目根目录（即包含pom.xml的目录),${version} 表示项目版本</li>
+<li>POM属性 引用POM文件中对应元素的值<ul>
+<li>${project.build.sourceDirectory} 项目源码路径,默认为src/main/java</li>
+<li>${project.build.testSourceDirectory} 项目测试源码路径,默认为src/test/java/</li>
+<li>${project.build.directory} 项目构建输出目录，默认为target/</li>
+<li>${proect.outputDirectory} 项目主代码编译目录，默认为target/classes/</li>
+<li>${project.testOutputDirector} 项目测试代码编译输出目录,默认为target/test-classes</li>
+<li>${project.groupId} 项目的groupId</li>
+<li>${project.artifactId} 项目的artifactId</li>
+<li>${project.version} 与${version}等价</li>
+<li>${project.build.finalName} 项目打包输出文件的名称，默认为${project.artifactId}-${project.version}</li>
+</ul>
+</li>
+<li>自定义属性，用<code>&lt;properties&gt;</code>元素定义的属性</li>
+<li>Settings属性，如${settings.localRepositroy}</li>
+<li>Java属性，所有的Java系统属性都可以使用Maven属性引用，如${user.home},可以用mvn help:system查看所有Java属性</li>
+<li>环境变量属性,如${env.JAVA_HOME}，可以用mvn help:system查看所有环境变量</li>
+</ul>
+<p><strong>依赖</strong></p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;&lt;/groupId&gt;
+    &lt;artifactId&gt;&lt;/artifactId&gt;
+    &lt;version&gt;&lt;/version&gt;
+    &lt;type&gt;&lt;/type&gt;
+    &lt;optional&gt;&lt;/optional&gt;
+    &lt;scope&gt;&lt;/scope&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+        &lt;/exclusion&gt;
+         ...
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+</code></pre><ul>
+<li>groupId、artifactId、version 基本坐标</li>
+<li>type 依赖类型，对应项目坐标定义的packaging。大部分情况下，该元素不必声明，其默认值为jar</li>
+<li>scope 依赖的范围</li>
+<li>optional 标记依赖是否可选</li>
+<li>exclusions 用来排除传递性依赖</li>
+</ul>
+<p>依赖范围</p>
+<ul>
+<li>compile 编译依赖范围。默认</li>
+<li>test 测试依赖范围 junit</li>
+<li>priovided 已提供依赖范围 tomcat</li>
+<li>runtime 运行时依赖范围 jdbc-driver</li>
+<li>system 系统依赖范围</li>
+<li>import (Maven 2.0.9)导入依赖范围</li>
+</ul>
+<p>传递性依赖</p>
+<p>传递性依赖和依赖范围</p>
+<p>依赖调解</p>
+<p>依赖调解第一原则 路径最优者优先</p>
+<ol>
+<li>A-&gt;B-&gt;C-&gt;X(1.0) </li>
+<li>A-&gt;D-&gt;X(2.0)</li>
+</ol>
+<p><em>选择2</em></p>
+<p>依赖调解第二原则 第一声明者优先(Maven 2.0.9)</p>
+<ol>
+<li>A-&gt;B-&gt;Y(1.0)</li>
+<li>A-&gt;C-&gt;Y(2.0)</li>
+</ol>
+<p>如果B的依赖声明在C之前，<em>Y（1.0）就会被解析使用</em></p>
+<p>可选依赖<br><strong>依赖将不会被传递</strong>，例如项目B有2个数据库驱动，设置这2个数据库驱动为可选，其他项目依赖项目B的时候就不会下载这2个数据库<br><code>&lt;option&gt;true&lt;/option&gt;</code></p>
+<p>排除依赖<br>如果你想排除掉某个传递性依赖，用<code>&lt;exclusions&gt;</code>,只需要<code>&lt;groupId&gt;</code>和<code>&lt;artifactId&gt;</code></p>
+<pre><code>&lt;dependencies&gt;
+&lt;/dependency&gt;
+    &lt;groupId&gt;&lt;/groupId&gt;
+    &lt;artifactId&gt;&lt;/artifactId&gt;
+    &lt;version&gt;&lt;/version&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;&lt;/groupId&gt;
+            &lt;artifactId&gt;&lt;/artifactId&gt;
+         &lt;/exclusion&gt;
+      &lt;exclusions&gt;
+&lt;/dependency&gt;
+&lt;dependencies&gt;
+</code></pre><p>归类依赖</p>
+<pre><code>&lt;properties&gt;
+    &lt;springframework.verision&gt;2.5&lt;/springframework.version&gt;
+&lt;/properties&gt;
+
+&lt;dependecies&gt;
+    &lt;dependency&gt;
+     &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+    &lt;version&gt;${springframework.version}&lt;/version&gt;
+    &lt;dependency&gt;
+&lt;/dependencies&gt;
+</code></pre><p>优化依赖<br><code>mvn dependency:list</code><br><code>mvn dependency:tree</code></p>
+<p>maven 插件</p>
+<p>插件目标：</p>
+<p>一个插件目标就是一个功能。<br>如<code>dependency:analyze</code>、<code>dependency:tree</code>和<code>dependency:list</code>。</p>
+<p>插件绑定 &amp; 内置绑定</p>
+<p>Maven的生命周期与插件相互绑定，用以完成实际的构建任务。<br>为了让用户几乎不用任何配置就能构建Maven项目，Maven的核心为一些主要的生命周期阶段绑定了很多插件的目标。  </p>
+<p>自定义绑定</p>
+<pre><code>&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-source-plugin&lt;/artifactId&gt;
+        &lt;version&gt;2.1.1&lt;/version&gt;
+        &lt;executions&gt;
+            &lt;execution&gt;
+                &lt;id&gt;attach-sources omg it&apos;s just a name&lt;/id&gt;
+                &lt;phase&gt;verify&lt;/phase&gt;
+                &lt;goals&gt;
+                    &lt;goal&gt;jar-no-fork&lt;/goal&gt;
+                &lt;/goals&gt;
+            &lt;/execution&gt;
+        &lt;/executions&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre><p>maven 聚合与继承</p>
+<p>聚合</p>
+<p>想要一次构建两个项目，而不是分别到模块的目录下执行mvn命令。Maven聚合（或者成为多模块）这一特性就是为该需求服务的。<br>aggregator:</p>
+<pre><code>&lt;project
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;
+    xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.sunyuki.ec&lt;/groupId&gt;
+    &lt;artifactId&gt;sunyuki-erp-aggregator&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;pom&lt;/packaging&gt;
+    &lt;name&gt;sunyuki ec erp&lt;/name&gt;  
+    &lt;modules&gt;
+        &lt;module&gt;../sunyuki-erp-base&lt;/module&gt;
+        &lt;module&gt;../sunyuki-erp-api&lt;/module&gt;
+        &lt;module&gt;../sunyuki-erp-external-api&lt;/module&gt;
+    &lt;/modules&gt;  
+&lt;/project&gt;
+</code></pre><p>请注意<code>packaging</code>为<code>POM</code></p>
+<p>继承</p>
+<p>两个POM有着许多相同的配置，例如有相同的groupId和version。在maven中，POM的继承这样的机制能让我们抽取出重复的配置。<br>parent:</p>
+<pre><code>&lt;project
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;
+    xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.sunyuki.ec&lt;/groupId&gt;
+    &lt;artifactId&gt;sunyuki-erp-parent&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;pom&lt;/packaging&gt;
+    &lt;name&gt;sunyuki ec erp&lt;/name&gt;  
+&lt;/project&gt;
+</code></pre><p>请注意<code>packaging</code>为<code>POM</code><br>child:</p>
+<pre><code>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;artifactId&gt;sunyuki-erp-api&lt;/artifactId&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;com.sunyuki.ec&lt;/groupId&gt;
+        &lt;artifactId&gt;sunyuki-erp-parent&lt;/artifactId&gt;
+        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+        &lt;relativePath&gt;../sunyuki-erp-parent/pom.xml&lt;/relativePath&gt;
+    &lt;/parent&gt;  
+&lt;/project&gt;
+</code></pre><h4 id="可继承的POM元素"><a href="#可继承的POM元素" class="headerlink" title="可继承的POM元素"></a>可继承的POM元素</h4><ul>
+<li>groupId</li>
+<li>version</li>
+<li>desciption</li>
+<li>organization</li>
+<li>inceptionYear</li>
+<li>url</li>
+<li>developers</li>
+<li>contributors</li>
+<li>distributionManagement</li>
+<li>issueManagement</li>
+<li>ciManagement</li>
+<li>scm 软件配置管理（版本控制系统）</li>
+<li>mailingLists</li>
+<li>properties</li>
+<li>dependecies</li>
+<li>denpendecyManagement</li>
+<li>repositroies</li>
+<li>build 包括项目的源码目录配置、输出目录配置、插件配置、插件管理配置等</li>
+<li>reporting</li>
+</ul>
+<p>依赖管理</p>
+<p>依赖可以继承，这时候容易想到在父类配置<code>&lt;repositroies&gt;</code>而子类不配置<code>&lt;repositroies&gt;</code>就可以继承，是可行的，但是存在问题，不需要对应库的子模块就一定要继承父类的<code>&lt;repositroies&gt;</code>吗?<br>maven提供的dependecyManagement元素能让子模块继承到父模块的依赖配置，又不会让子类引入实际的依赖。<br>父类：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;
+    xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.sunyuki.ec&lt;/groupId&gt;
+    &lt;artifactId&gt;sunyuki-erp-parent&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;pom&lt;/packaging&gt;
+    &lt;name&gt;sunyuki ec erp&lt;/name&gt;
+    &lt;dependencyManagement&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+            &lt;version&gt;1.0&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt; 
+&lt;/project&gt;
+</code></pre><p>子类也会继承到依赖管理，子类在写依赖时，version和scope都省去了，方便于统一管理<br>子类：</p>
+<pre><code>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;artifactId&gt;sunyuki-erp-external-api&lt;/artifactId&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;com.sunyuki.ec&lt;/groupId&gt;
+        &lt;artifactId&gt;sunyuki-erp-parent&lt;/artifactId&gt;
+        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+        &lt;relativePath&gt;../sunyuki-erp-parent/pom.xml&lt;/relativePath&gt;
+    &lt;/parent&gt; 
+    &lt;dependencies&gt;  
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+    &lt;/dependecies&gt;
+&lt;/project&gt;
+</code></pre><p>引入repositroyManagement的方式：</p>
+<ul>
+<li>复制</li>
+<li>继承</li>
+<li><p>import - 引入<code>com.juvenxu.mvnbook.account.accout-parent</code>项目的<code>dependencyManagement</code>，<code>scope</code>为<code>import</code>,<code>type</code>为<code>pom</code></p>
+  <dependencymanagement><br>      <dependencies><br>          <dependency><br>              <groupid>com.juvenxu.mvnbook.account</groupid><br>              <artifactid>accout-parent</artifactid><br>              <scope>import</scope><br>              <version>1.0-SNAPSHOT</version><br>              <type>pom</type><br>          </dependency><br>      </dependencies><br>  </dependencymanagement>
+
+
+
+</li>
+</ul>
+<h2 id="没有了"><a href="#没有了" class="headerlink" title="没有了"></a>没有了</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/13/2017-04-14-java-tutorial/" data-id="cj1gj1zwb0005n8glq5lsx7i7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/13/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/13/2017-02-14-mysql-restore/">MySQL 数据库恢复</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/13/2016-10-10-CSS/">CSS 盒子模型</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/13/2017-01-16-mysql-backup/">MySQL 数据库备份</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/13/2017-04-14-java-tutorial/">Java程序设计</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
