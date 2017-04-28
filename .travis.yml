@@ -1,0 +1,22 @@
+language: node_js
+
+node_js:
+  - "node"
+
+install:
+  - npm install
+
+before_script:
+   - npm install -g gulp
+
+script:
+     - gulp
+
+after_script:
+      - cd dist
+      - git init
+      - git config user.name "me10zyl"
+      - git config user.email "me10zyl@qq.com"
+      - git add .
+      - git commit -m 'Update $(env TZ=Asia/Shanghai date +"%Y-%m-%dT%H:%M:%S+8:00")'
+      - git push -f "https://github.com/me10zyl/blog.git" master:gh-pages
