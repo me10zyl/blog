@@ -7,10 +7,10 @@ install:
   - npm install
 
 before_script:
-   - npm install gulp
+  - npm install gulp
 
 script:
-     - gulp
+  - gulp
 
 after_script:
       - cd dist
