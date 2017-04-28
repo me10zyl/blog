@@ -17,11 +17,9 @@ before_script:
 script:
   - gulp
 
-after_script:
-      - cd dist
-      - git init
-      - git config user.name "me10zyl"
-      - git config user.email "me10zyl@qq.com"
-      - git add .
-      - git commit -m 'Update $(env TZ=Asia/Shanghai date +"%Y-%m-%dT%H:%M:%S+8:00")'
-      - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+deploy:
+   - provider: pages
+   - skip_cleanup: true
+   - github_token: ${GH_TOKEN}
+   - on:
+       - branch: master
