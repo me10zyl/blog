@@ -7,6 +7,4 @@ gulp.task('hexo', function(cb){
   });	
 });
 
-gulp.task('default', function() {
-
-});
+gulp.task('default',['hexo']);
