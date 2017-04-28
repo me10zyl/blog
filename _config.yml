@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: zyl@note
+title: allyn的日志
 subtitle:
 description:
 author: zyl
 language: 
-        - zh-CN
+        - zh-Hans
         - en
 timezone: Asia/Shanghai
 
@@ -65,7 +65,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
