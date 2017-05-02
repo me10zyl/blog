@@ -79,6 +79,19 @@
           </div>
         {% endif %}
 
+	<div class="post-list">
+	   <div class="post-list-hr">
+	      <span class="fa fa-fire" style="margin-right:2px"></span> 投稿列表
+	   </div>
+	   {% set reverse_posts = site.posts.reverse() %}
+	   {% for post in reverse_posts %}
+		
+		<div><a href="{{url_for(post.path)}}">{{ post.title }}</a></div>
+	   {% endfor %}
+	   <div class="post-list-hr">
+	   </div>
+	</div>
+
         <div class="links-of-author motion-element">
           {% if theme.social %}
             {% for name, link in theme.social %}
