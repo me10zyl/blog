@@ -91,6 +91,18 @@
 	   <div class="post-list-hr">
 	   </div>
 	</div>
+	
+	
+	
+	<div class="post-list" style="margin-top:30px">
+	   <div class="post-list-hr">
+	      <span class="fa fa-bookmark" style="margin-right:2px"></span> 标签云
+	   </div>
+	   {{ list_tags({orderBy:'count', order:-1}) }}
+	   <div class="post-list-hr">
+	   </div>
+	</div>
+	
 
         <div class="links-of-author motion-element">
           {% if theme.social %}
