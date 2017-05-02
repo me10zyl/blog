@@ -49,6 +49,7 @@ menu:
   #about: /about
   archives: /archives
   tags: /tags
+  html5demos: /demos
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -189,7 +190,7 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  display: post
+  display: always
   #display: always
   #display: hide
   #display: remove
