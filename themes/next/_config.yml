@@ -49,7 +49,7 @@ menu:
   #about: /about
   archives: /archives
   tags: /tags
-  html5demos: /demos
+  html5demos: http://me10zyl.github.io/demos
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -162,7 +162,7 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-#avatar:
+avatar: /images/xiana.png
 
 
 # Table Of Contents in the Sidebar
