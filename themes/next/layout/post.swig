@@ -9,6 +9,9 @@
 
 
 {% block content %}
+	{% if page.hidden === true %}
+		啊哦，《{{page.title}}》({{date(page.date, config.date_format)}}) 这篇文章被隐藏了... 看看其他的吧
+	{% else %}
 
   <div id="posts" class="posts-expand">
     {{ post_template.render(page) }}
@@ -25,11 +28,11 @@
       {% endif %}
     </div>
   </div>
-
+	{% endif %}
 {% endblock %}
 
 {% block sidebar %}
-  {{ sidebar_template.render(true) }}
+  {{ sidebar_template.render(false) }}
 {% endblock %}
 
 

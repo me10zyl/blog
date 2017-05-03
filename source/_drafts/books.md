@@ -2,6 +2,7 @@
 title: 书籍推荐
 tags:
  - book
+hidden: true
 ---
 # 一、书籍
 

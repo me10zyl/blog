@@ -8,7 +8,7 @@
 
    {% if page.type === 'drafts' %}
 	 {% for post in site.posts%}
-		{% if post.published === false && post.visual !== false %}
+		{% if post.published === false && post.hidden !== true %}
 		 	{{ draft_template.render(post, true) }}
 		{% endif %}
 	 {% endfor %}
