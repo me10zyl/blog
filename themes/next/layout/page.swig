@@ -7,11 +7,14 @@
 {% block content %}
 
    {% if page.type === 'drafts' %}
-	 {% for post in site.posts%}
+	<section id="posts" class="posts-expand">
+	    {% for post in site.posts %}
 		{% if post.published === false && post.hidden !== true %}
-		 	{{ draft_template.render(post, true) }}
-		{% endif %}
-	 {% endfor %}
+		      {{ draft_template.render(post, true) }}
+	        {% endif %}
+	    {% endfor %}
+	  </section>
+
   {% else %}
 
   <div id="posts" class="posts-expand">
