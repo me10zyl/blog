@@ -8,7 +8,7 @@
 
    {% if page.type === 'drafts' %}
 	<section id="posts" class="posts-expand">
-	    {% for post in site.posts %}
+	    {% for post in site.posts.reverse() %}
 		{% if post.published === false && post.hidden !== true %}
 		      {{ draft_template.render(post, true) }}
 	        {% endif %}
