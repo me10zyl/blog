@@ -102,19 +102,7 @@
 	   <div class="post-list-hr">
 	   </div>
 	</div>
-	
 
-	<div class="post-list">
-	   <div class="post-list-hr">
-	      <span class="fa fa-fire" style="margin-right:2px"></span> 标签 
-	   </div>
-	   {% for tag in site.tags%}
-		
-		<div><a href="">{{ tag }}</a></div>
-	   {% endfor %}
-	   <div class="post-list-hr">
-	   </div>
-	</div>
 
         <div class="links-of-author motion-element">
           {% if theme.social %}
