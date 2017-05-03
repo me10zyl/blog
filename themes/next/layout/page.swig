@@ -1,9 +1,18 @@
 {% extends '_layout.swig' %}
 {% import '_macro/sidebar.swig' as sidebar_template %}
+{% import '_macro/draft.swig' as draft_template %}
 
 {% block title %}{% set page_title_suffix = ' | ' + config.title %}{% if page.type === "categories" and not page.title %}{{ __('title.category') + page_title_suffix }}{% elif page.type === "tags" and not page.title %}{{ __('title.tag') + page_title_suffix }}{% else %}{{ page.title + page_title_suffix }}{% endif %}{% endblock %}
 
 {% block content %}
+
+   {% if page.type === 'drafts' %}
+	 {% for post in site.posts%}
+		{% if post.published === false && post.visual !== false %}
+		 	{{ draft_template.render(post, true) }}
+		{% endif %}
+	 {% endfor %}
+  {% else %}
 
   <div id="posts" class="posts-expand">
   {% include '_partials/page-header.swig' %}
@@ -26,11 +35,12 @@
           {{ list_categories() }}
         </div>
       </div>
-    {% else %}
+    {% else %} 
       {{ page.content }}
     {% endif %}
+   
   </div>
-
+  {% endif %}
 {% endblock %}
 
 {% block sidebar %}
