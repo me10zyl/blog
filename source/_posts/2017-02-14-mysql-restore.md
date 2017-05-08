@@ -1,13 +1,17 @@
 ---
 layout: post
-title: MySQL 数据库恢复
+title: MySQL 数据库基于LVM快照恢复
 tags: mysql
 author: zengyilun
 ---
+
+MySQL LVM快照的二进制日志恢复。
+
+<!-- more -->
+
 ## 二进制日志的恢复
 
 二进制日志非常关键，用户可以通过它完成`point-in-time`的恢复工作。MySQL数据库的replication同样需要二进制日志。  
-<!-- more -->
 
 要恢复二进制日志是非常简单的，通过mysqlbinlog即可。mysqlbinlog的使用方法如下：
 
