@@ -65,7 +65,9 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
 在`192.168.2.230`:  
 进入docker容器:
 
+{% codeblock lang:bash %}
     docker exec -it mysql_server /bin/bash
+{% endcodeblock %}
     
 更改数据库配置文件:
     
@@ -74,7 +76,9 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
     
 并且重命名`192.168.2.230`中的 `auto.cnf`:
 
+{% codeblock lang:bash %}
     mv auto.cnf auto.cnf.bak
+{% endcodeblock%}
     
 重命名这个文件的原因是这个文件定义了两台服务器的`uuid`，因为两台服务器的`docker`镜像是一样的，所以要让`mysql`重新生成`uuid`。
 
@@ -85,13 +89,15 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
 
 重启`mysql`
     
+{% codeblock lang:bash %}
     service mysql restart
-
+{% endcodeblock %}
 在`192.168.2.5`:  
 进入docker容器:
 
+{% codeblock lang:bash %}
     docker exec -it mysql_server /bin/bash
-    
+{% endcodeblock %}    
 更改数据库配置文件:
     
     [mysqld]
@@ -99,20 +105,24 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
 
 重启`mysql`
 
+{% codeblock lang:bash %}
     service mysql restart
-    
+{% endcodeblock %}    
 #### 3.配置主从数据库
 在`192.168.2.5`:  
 进入`192.168.2.5`的`docker`容器:  
 创建新用户用于复制功能:
     
+{% codeblock lang:bash %}
     mysql> CREATE USER 'repl'@'192.168.2.230' IDENTIFIED BY 'repl';
     mysql> GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.2.230';
+{% endcodeblock %}
     
 如果想看一下结果，可以查看`mysql`用户
 
+{% codeblock lang:bash %}
     mysql> select user,host from mysql.user;
-
+{% endcodeblock %}
 首先查询主数据库日志文件位置:  
 
     mysql> show master status
@@ -127,18 +137,22 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
 进入`192.168.2.230`的`docker`容器:  
 配置从服务器:
 
+{% codeblock lang:bash %}
     mysql> CHANGE MASTER TO
     MASTER_HOST ='192.168.2.5',
     MASTER_USER ='repl',
     MASTER_PASSWORD ='repl',
     MASTER_LOG_FILE ='mysql-bin.000017',
     MASTER_LOG_POS =120;
+{% endcodeblock %}
 
 其中`MASTER_LOG_FILE`与`MASTER_LOG_POS`要与主数据库中的`show master status`的结果一致。
 
 开启从数据库:
     
+{% codeblock lang:bash %}
     mysql> start slave;
+{% endcodeblock %}
     
 查看是否配置成功:
 
@@ -153,8 +167,10 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
     
 安装`mysql-connector for python`:
 
+{% codeblock lang:bash %}
     wget https://dev.mysql.com/get/Downloads/Connector-Python/mysql-connector-python-2.1.5-1.el6.x86_64.rpm
     rpm -i mysql-connector-python-2.1.5-1.el6.x86_64.rpm
+{% endcodeblock %}
     
 安好connector后开始写`python`脚本:
 
