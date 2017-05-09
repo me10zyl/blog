@@ -133,3 +133,7 @@ server2 `192.168.2.230` docker容器运行 mysql **从数据库**
     root@192.168.2.5$ service mysql stop
     
 关闭主库后，程序的连接设置成备库。
+
+参考资料
+---
+《高性能MySQL》

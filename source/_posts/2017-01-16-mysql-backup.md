@@ -37,7 +37,9 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
 
 开始在`192.168.2.5` **运行MySQL**:
 
-    docker run -d -h mysql-server --restart=always --name=mysql_server -p 3306:3306 -v /mnt1/data/mysql:/mnt/data/mysql-online 192.168.2.230:5000/sunyuki/mysqllinux:latest
+``` bash
+docker run -d -h mysql-server --restart=always --name=mysql_server -p 3306:3306 -v /mnt1/data/mysql:/mnt/data/mysql-online 192.168.2.230:5000/sunyuki/mysqllinux:latest
+```
     
 这样会运行一个`docker`容器，并且将`docker`中的`mysql`数据库文件`mnt/data/mysql-online`挂载到了本地磁盘`/mnt1/data/mysql`。
     
@@ -50,15 +52,19 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
 
 两台机器都运行起`docker`容器后，连接到`192.168.2.5`进入`mysql_server`容器更改配置文件:
 
-    docker exec -it mysql_server /bin/bash
+``` bash
+docker exec -it mysql_server /bin/bash
+```
 
 
 在数据库配置文件中设置(通常为`/etc/my.cnf`):
-    
-    [mysqld]
-    log-bin = mysql-bin
-    sync_binlog = 1
-    innodb_support_xa = 1
+
+``` bash    
+[mysqld]
+log-bin = mysql-bin
+sync_binlog = 1
+innodb_support_xa = 1
+```
     
 连接到`192.168.2.230`做同样的操作。
     
@@ -75,9 +81,11 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
 {% endcodeblock %}
     
 更改数据库配置文件:
-    
-    [mysqld]
-    server-id = 2
+
+``` bash
+[mysqld]
+server-id = 2
+```
     
 并且重命名`192.168.2.230`中的 `auto.cnf`:
 
@@ -89,8 +97,10 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
 
 `auto.cnf`中的内容一览:
 
-    [auto]
-    server-uuid=9f31bddf-d965-11e6-9c77-0242ac110003
+```bash
+[auto]
+server-uuid=9f31bddf-d965-11e6-9c77-0242ac110003
+```
 
 重启`mysql`
     
@@ -130,10 +140,12 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
 {% endcodeblock %}
 首先查询主数据库日志文件位置:  
 
+``` bash
     mysql> show master status
     
     | file             | position |
     | mysql-bin.000017 | 120      |
+```
     
 获取到两个重要的信息，二进制日志文件名与执行位置  
 
@@ -161,10 +173,13 @@ MySQL 复制是MySQL数据库提供的一种高可用高性能的解决方案，
     
 查看是否配置成功:
 
+``` bash
     mysql> show slave status;
     
     | Slave_IO_Running | Slave_SQL_Running | Last_IO_Error | Last_SQL_Error|
     | yes              | yes               |               |               |
+
+```
     
 如果`Slave_SQL_Running`与`Slave_IO_Running`其中一个不是`yes`，就没有配置成功，具体错误可以在`Last_IO_Error`和`Last_SQL_Error`中查看。
 
@@ -270,14 +285,17 @@ finally:
 在`192.168.2.230`执行（不进入`docker`):  
 查看分区:
 
+```
 	root@syk230# fdisk -l
 	    Device     Boot   Start        End    Sectors  Size Id Type
 	/dev/sda1  *       2048     999423     997376  487M 83 Linux
 	/dev/sda2       1001470 3907028991 3906027522  1.8T  5 Extended
 	/dev/sda5       1001472 3907028991 3906027520  1.8T 8e Linux LVM
+```
 
 查看卷组:
 
+```
 	root@syk230# vgdisplay
 	      --- Volume group ---
 	  VG Name               syk230-vg
@@ -299,14 +317,17 @@ finally:
 	  Alloc PE / Size       11076 / 43.27 GiB
 	  Free  PE / Size       465733 / 1.78 TiB
 	  VG UUID               brRcUd-vF1G-rWjH-EJW5-jiWG-fsrN-j2RtlN
-
+```
     
 在`syk230-vg`卷组上创建一个名为`mysql`的逻辑卷，大小为3G:
 
+```bash
     lvcreate -L 3G -n mysql syk230-vg
+```
     
 查看逻辑卷:
 
+```
 	root@syk230# lvdisplay
 	  --- Logical volume ---
 	  LV Path                /dev/syk230-vg/mysql
@@ -326,21 +347,30 @@ finally:
 	  Read ahead sectors     auto
 	  - currently set to     256
 	  Block device           252:2
+```
 
 格式化分区(ext4):
 
+```bash
     mkfs.ext4 /dev/syk230-vg/mysql
+```
     
 挂载分区:
 
+```bash
     vim /etc/fstab
+```
 
 添加内容:
     
+```bash
     /dev/mapper/syk230--vg-mysql /mnt1/data/mysql ext4 defaults 0 2
+```
     
 至此，为存储mysql数据逻辑卷创建好了。  
 **编写自动创建备份的脚本**:
+
+``` bash
 
 	#!/bin/bash
 	tmppath=/mnt1/data/mysqlbak1
@@ -365,31 +395,42 @@ finally:
 	umount $tmppath
 	rmdir $tmppath
 	lvremove -f /dev/syk230-vg/mysqlsnap1
+```
 
 
 其中`172.17.0.2`是`docker`中`mysql_server`容器本机内网ip。可以通过
 
-    docker network inspect bridge
+``` bash
+docker network inspect bridge
+```
     
 查询。  
 将执行脚本计划添加到`crontab`中:
 
+```bash
     crontab -e
+```
 
 添加内容
     
-    0 0 * * * /bin/bash /mnt1/data/mysqlbak.sh
+``` bash
+0 0 * * * /bin/bash /mnt1/data/mysqlbak.sh
+```
     
 这样每天凌晨备份一次数据库，并且不需要停止数据库。
 
 **删除30天之前的备份**  
 
-    find /mnt1/data/mysqlbak -mtime +30 -delete > /mnt1/data/mysqldel.sh
-    chmod 755 /mnt1/data/mysqldel.sh
+``` bash
+find /mnt1/data/mysqlbak -mtime +30 -delete > /mnt1/data/mysqldel.sh
+chmod 755 /mnt1/data/mysqldel.sh
+```
     
 crontab 添加内容:
     
-    0 0 * * * /bin/bash /mnt1/data/mysqldel.sh
+``` bash
+0 0 * * * /bin/bash /mnt1/data/mysqldel.sh
+```
 
 ## 4.小结
 总的说来，配置MySQL的复制功能比配置LVM简单太多,主要是因为是否能正确的使用LVM快照功能跟硬盘配置选项有直接的关系，主要有以下几点需要注意到： 
@@ -400,3 +441,7 @@ crontab 添加内容:
 - 如果安装系统时没有选择LVM，用`fdisk`创建新的分区并且更改磁盘类型为`8e`(LVM类型代码)
 
 结合MySQL的复制功能和LVM的快照功能，既能保证数据的实时同步，又能防止程序或数据库管理员的误操作。
+
+参考资料
+---
+《高性能MySQL》
