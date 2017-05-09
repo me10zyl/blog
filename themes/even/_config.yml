@@ -74,9 +74,9 @@ google_analytics:
 # Duoshuo
 # duoshuo_shortname:
 # Disqus
-disqus_shortname:
+# disqus_shortname:
 # netease
-# netease_key:
+netease_key: fbd74a3b14b54e05aebb88de37369614
 
 # ===========================================
 # Version
