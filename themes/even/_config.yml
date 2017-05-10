@@ -20,7 +20,7 @@ menu:
   Home: /
   Archives: /archives/
   Essay: /essays
-  Drafts: /drafts
+  # Drafts: /drafts
   Tags: /tags
   # Categories: /categories
   About: /about
