@@ -1,5 +1,9 @@
 <div class="logo-wrapper">
+{% if page.essays %}
+  <a href="{{ url_for('/essays') }}" class="logo"> 随笔与草稿</a>
+{% else %}
   <a href="{{ url_for('.') }}" class="logo">{{ config.title }}</a>
+{% endif %}
 </div>
 
 <nav class="site-navbar">

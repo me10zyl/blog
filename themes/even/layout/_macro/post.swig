@@ -29,7 +29,9 @@
     <div class="post-content">
       {% if is_home() %}
         {% set excerpt = "" %}
-        {% if post.description %}
+	{% if not post.published %}
+	  {% set excerpt = " " %}
+        {% elif post.description %}
           {% set excerpt = '<p>' + post.description + '</p>' %}
         {% elif post.excerpt %}
           {% set excerpt = post.excerpt %}

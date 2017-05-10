@@ -1,7 +1,7 @@
 {% extends "_layout.swig" %}
 {% import '_macro/post.swig' as post_template %}
 
-{% block title %} {{ config.title }} {% endblock %}
+{% block title %} {{ __('menu.essay') }} · {{ config.title }} {% endblock %}
 
 {% block content %}
   <section id="posts" class="posts">
