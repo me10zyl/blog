@@ -1,9 +1,9 @@
 <div class="logo-wrapper">
-{% if page.essays %}
-  <a href="{{ url_for('/essays') }}" class="logo">{{ config.title }}</a>
-{% else %}
+{# if page.essays #}
+  <!-- <a href="{{ url_for('/essays') }}" class="logo">{{ config.title }}</a> -->
+{# else #}
   <a href="{{ url_for('.') }}" class="logo">{{ config.title }}</a>
-{% endif %}
+{# endif #}
 </div>
 
 <nav class="site-navbar">
