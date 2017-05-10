@@ -35,5 +35,5 @@
 </nav>
 
 <nav style="clear:left">
-	{{ breadcrum(page.permalink, page.path) }}
+	{{ breadcrum(page.permalink, page.path, page.published) }}
 </nav>
