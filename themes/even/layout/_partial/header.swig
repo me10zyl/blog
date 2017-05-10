@@ -1,6 +1,6 @@
 <div class="logo-wrapper">
 {% if page.essays %}
-  <a href="{{ url_for('/essays') }}" class="logo"> 随笔与草稿</a>
+  <a href="{{ url_for('/essays') }}" class="logo">{{ config.title }}</a>
 {% else %}
   <a href="{{ url_for('.') }}" class="logo">{{ config.title }}</a>
 {% endif %}
@@ -32,4 +32,8 @@
       {% endif %}
     </ul>
   {% endif %}
+</nav>
+
+<nav style="clear:left">
+	{{ breadcrum(page.permalink, page.path) }}
 </nav>

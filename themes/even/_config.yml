@@ -82,3 +82,10 @@ disqus_shortname: allyn
 # Version
 # ===========================================
 version: 2.4.x
+
+
+breadcrum:
+  archives: 归档
+  essays: 随笔
+  tags: 标签
+  about: 关于
