@@ -12,19 +12,7 @@
            data-title="{{ page.title }}" data-url="{{ page.permalink }}">
       </div>
     {% elif theme.netease_key %}
-       <!-- <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div> -->
 	<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-<script>
-var cloudTieConfig = {
-  url: document.location.href, 
-  sourceId: "",
-  productKey: "fbd74a3b14b54e05aebb88de37369614",
-  target: "cloud-tie-wrapper"
-};
-var yunManualLoad = true;
-Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
-</script>
     {% endif %}
   </div>
 {% endif %}
