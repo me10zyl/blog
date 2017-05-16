@@ -36,3 +36,7 @@
 {% if not env.debug %}
   {% include "../_script/analytics.swig" %}
 {% endif %}
+
+{% if is_post() %}
+  {% include "../_script/mathjax.swig" %}
+{% endif %}
