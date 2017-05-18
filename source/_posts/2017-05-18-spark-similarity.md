@@ -27,7 +27,7 @@ Term frequency-inverse document frequency（词频-逆文档频率）是一个�
 
 也就是说，包含术语t的文档个数越多，逆文档频率越小，加一是为了避免除0。TD-IDF 度量可以简单的表示为TF和IDF的乘积：
 
-  $$ TFIDF(t, d, D) = TF(t,d)*IDF(文章id和i、j的映射。T,D) $$
+  $$ TFIDF(t, d, D) = TF(t,d)*IDF(T,D) $$
 
 TF-IDF 表示了一个术语在文章中的重要程度，如果将一篇文章中TF-IDF组合起来，就构成了一个向量，同时，算出另外一篇文章的TF-IDF，将两篇文章的TF-IDF向量的相同词语分别对应同一个维度，再用余弦定理计算出两篇文章的余弦值，余弦值越大（最大1，向量重合），说明这两篇文章越相似。
 
@@ -94,6 +94,20 @@ TF-IDF 表示了一个术语在文章中的重要程度，如果将一篇文章�
 ```
 
 计算出余弦值结果后再将通过文章id和i、j的映射取出对应的文章id，文章与文章的相似度也就能保存在数据库中了。
+
+```java
+ //将相似度矩阵转换，并存储数据库。
+        JavaRDD<Document> documents = (JavaRDD<Document>)res.entries().toJavaRDD().map(new Function<MatrixEntry, Document>() {
+            @Override
+            public Document call(MatrixEntry entry) throws Exception {
+                Document d = new Document();
+                d.put("id1", ids.get(new Long(entry.i()).intValue()));
+                d.put("id2", ids.get(new Long(entry.j()).intValue()));
+                d.put("score", entry.value());
+                return d;
+            }
+        });
+```
 
 [感谢 databricks 的文章](https://databricks.com/blog/2014/10/20/efficient-similarity-algorithm-now-in-spark-twitter.html)
 
