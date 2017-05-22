@@ -56,6 +56,8 @@
 
       {# Reward #}
       {% include "../_partial/_post/reward.swig" %}
+
+      {% include "../_partial/_post/jiathis.swig" %}
     {% endif %}
 
     {% if not is_home() %}

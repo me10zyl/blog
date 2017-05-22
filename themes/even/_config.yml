@@ -83,6 +83,7 @@ disqus_shortname: allyn
 # ===========================================
 version: 2.4.x
 
+jiathis: true
 
 breadcrum:
   archives: 归档
