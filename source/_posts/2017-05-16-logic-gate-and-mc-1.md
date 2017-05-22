@@ -4,8 +4,8 @@ date: 2017-05-16 08:24:14
 tags:
 - logic-gates
 - minecraft
-categrories:
-- minecraft 造计算机
+categories:
+- minecraft 造计算机系列
 ---
 
 如何在 Minecraft 中制造逻辑门？

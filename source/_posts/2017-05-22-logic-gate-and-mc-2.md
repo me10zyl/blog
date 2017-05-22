@@ -4,8 +4,8 @@ date: 2017-05-22 13:50:14
 tags:
 - logic-gates
 - minecraft
-categrories:
-- minecraft 造计算机
+categories:
+- minecraft 造计算机系列
 ---
 
 通过逻辑门来造加法器辣。

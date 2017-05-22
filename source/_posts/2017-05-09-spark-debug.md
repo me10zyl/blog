@@ -2,6 +2,7 @@
 title: Spark 远程调试
 tags: spark
 date: 2017-05-09 12:00:00
+categories: spark 入门系列
 ---
 
 使用 java remote debug 功能， 借助intellij idea 远程调试 WordCount 程序。
