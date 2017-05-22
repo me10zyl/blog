@@ -160,3 +160,6 @@ $$ A \land B = \neg ( \neg (A \land B)) = \neg ( \neg A \lor \neg B) $$
 
 ![](/images/mc/XNORgate.png)
 
+
+下面将使用这些逻辑门做一个半加器 {% post_link logic-gate-and-mc-2 %} 吧。
+
