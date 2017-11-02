@@ -9,6 +9,7 @@ node_js:
   - "node"
 
 install:
+  - npm set registry https://registry.npmjs.org/
   - npm install
 
 before_script:
