@@ -10,7 +10,6 @@ node_js:
 
 install:
   - npm set registry https://registry.npmjs.org/
-  - npm install hexo --save
   - npm install
 
 before_script:
