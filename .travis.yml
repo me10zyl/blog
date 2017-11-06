@@ -13,6 +13,7 @@ install:
   - npm install
 
 before_script:
+  - chmod 755 hexo
   - npm install gulp
 
 script:
