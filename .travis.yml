@@ -9,16 +9,13 @@ node_js:
   - "node"
 
 before_install:
-  - rm -rf node_modules/hexo*
+  - rm -rf node_modules/
 
 install:
   - npm install
 
 before_script:
   - npm install gulp
-  - pwd
-  - ls -l
-  - echo $PATH
 
 script:
   - gulp
