@@ -9,7 +9,7 @@ node_js:
   - "node"
 
 before_install:
-  - cp -r node_modules/node-sass ..
+  - cp -r node_modules/node-sass .
   - rm -rf node_modules/
   - mkdir node_modules
   - mv node-sass node_modules/
