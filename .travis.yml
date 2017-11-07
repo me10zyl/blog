@@ -13,7 +13,6 @@ before_install:
   - rm -rf node_modules/
   - mkdir node_modules
   - mv node-sass node_modules/
-  - ll node_modules
 
 install:
   - npm install
