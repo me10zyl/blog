@@ -13,8 +13,6 @@ before_install:
   - chmod +x node_modules/.bin/hexo.cmd
 
 install:
-  - npm set registry https://registry.npmjs.org/
-  - npm install
 
 before_script:
   - npm install gulp
