@@ -8,12 +8,15 @@ env:
 node_js:
   - "node"
 
+before_install:
+  - chmod +x hexo
+  - chmod +x hexo.cmd
+
 install:
   - npm set registry https://registry.npmjs.org/
   - npm install
 
 before_script:
-  - chmod 755 hexo
   - npm install gulp
 
 script:
