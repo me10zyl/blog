@@ -9,7 +9,7 @@ node_js:
   - "node"
 
 before_install:
-  - rm -rf node_modules/hexo
+  - rm -rf node_modules/hexo*
 
 install:
   - npm install
