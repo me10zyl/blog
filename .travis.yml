@@ -12,13 +12,11 @@ before_install:
   - chmod +x node_modules/.bin/hexo
   - chmod +x node_modules/.bin/hexo.cmd
 
-install:
-
 before_script:
   - npm install gulp
 
 script:
-  - node_modules/.bin/hexo clean && node_modules/.bin/hexo g
+  - gulp
 
 deploy:
   name: me10zyl
