@@ -12,8 +12,12 @@ before_install:
   - chmod +x node_modules/.bin/hexo
   - chmod +x node_modules/.bin/hexo.cmd
 
+install:
+  - npm install
+
 before_script:
   - npm install gulp
+  - hexo
 
 script:
   - gulp
