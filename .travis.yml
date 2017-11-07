@@ -20,7 +20,7 @@ before_script:
   - npm install gulp
 
 script:
-  - gulp
+  - ./hexo clean && ./hexo g
 
 deploy:
   name: me10zyl
