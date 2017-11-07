@@ -20,8 +20,7 @@ before_script:
   - pwd
   - ls -l
   - echo $PATH
-  - node hexo
-  - hexo
+  - node node_modules/hexo/bin/hexo
 
 script:
   - gulp
