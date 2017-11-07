@@ -1,5 +1,5 @@
 ---
-title: Intelij Idea Ê¹ÓÃ Tomcat ÔËĞĞ/µ÷ÊÔ Web Ó¦ÓÃ £¨³¬ÏêÏ¸£©
+title: Intelij Idea ä½¿ç”¨ Tomcat è¿è¡Œ/è°ƒè¯• Web åº”ç”¨ ï¼ˆè¶…è¯¦ç»†ï¼‰
 date: 2017-11-01 15:08:08
 tags:
 - intellij idea
@@ -8,20 +8,20 @@ categories:
 - intellij idea
 ---
 
-¹¤ÓûÉÆÆäÊÂ±ØÏÈÀûÆäÆ÷£¬±¾ÎÄÄâÓÃ Intellij Idea À´Æô¶¯ Tomcat ÔËĞĞ/µ÷ÊÔ Web Ó¦ÓÃ£¬ÉîÈë Idea Óë Tomcat ½áºÏµ÷ÊÔ£¬¼õÉÙÏîÄ¿²¿ÊğÊ±¼ä¡£
+å·¥æ¬²å–„å…¶äº‹å¿…å…ˆåˆ©å…¶å™¨ï¼Œæœ¬æ–‡æ‹Ÿç”¨ Intellij Idea æ¥å¯åŠ¨ Tomcat è¿è¡Œ/è°ƒè¯• Web åº”ç”¨ï¼Œæ·±å…¥ Idea ä¸ Tomcat ç»“åˆè°ƒè¯•ï¼Œå‡å°‘é¡¹ç›®éƒ¨ç½²æ—¶é—´ã€‚
 
 <!-- more -->
 
-## ¼òµ¥Ê¹ÓÃ
+## ç®€å•ä½¿ç”¨
 
-1. Run Configuration -> ĞÂ½¨ Tomcat Run Configuration
+1. Run Configuration -> æ–°å»º Tomcat Run Configuration
 
 ![image](/images/idea/1.png)
 
-2. Ñ¡Ôñµ±¸üĞÂ²Ù×÷(Ctrl + F10)»òÕß Intellij Idea Ê§È¥½¹µãµÄÊ±ºò¸üĞÂTomcat ÖĞµÄ classesºÍ×ÊÔ´£¨ÈÈ½»»»£©
+2. é€‰æ‹©å½“æ›´æ–°æ“ä½œ(Ctrl + F10)æˆ–è€… Intellij Idea å¤±å»ç„¦ç‚¹çš„æ—¶å€™æ›´æ–°Tomcat ä¸­çš„ classeså’Œèµ„æºï¼ˆçƒ­äº¤æ¢ï¼‰
 ![image](/images/idea/2.png)
 
-3. Ñ¡Ôñ²¿ÊğµÄartifact£¬ÕâÀïÑ¡ war exploded, ÎªÊ²Ã´²»Ñ¡ war, ÒòÎªwarÊÇwar exploded ´ò°üºóµÄ£¬ war exploded ²»´ò°ü£¬¶øÇÒ war ²»Ö§³Ö ¾²Ì¬×ÊÔ´µÄÈÈ²¿Êğ
+3. é€‰æ‹©éƒ¨ç½²çš„artifactï¼Œè¿™é‡Œé€‰ war exploded, ä¸ºä»€ä¹ˆä¸é€‰ war, å› ä¸ºwaræ˜¯war exploded æ‰“åŒ…åçš„ï¼Œ war exploded ä¸æ‰“åŒ…ï¼Œè€Œä¸” war ä¸æ”¯æŒ é™æ€èµ„æºçš„çƒ­éƒ¨ç½²
 ![image](/images/idea/3.png)
 
 
@@ -29,40 +29,40 @@ categories:
 
 ![image](/images/idea/4.png)
 
-## ¸ß¼¶Ó¦ÓÃ
+## é«˜çº§åº”ç”¨
 
-ÉèÖÃ Tomcat ÅäÖÃµÄÊ±ºò¿ÉÒÔ¿´µ½£¬ On Update action ºÍ On frame deactivation£¬ Õâ¸öÊÇÖ¸Ê²Ã´£¬½ÓÏÂÀ´»á½éÉÜ¡£
+è®¾ç½® Tomcat é…ç½®çš„æ—¶å€™å¯ä»¥çœ‹åˆ°ï¼Œ On Update action å’Œ On frame deactivationï¼Œ è¿™ä¸ªæ˜¯æŒ‡ä»€ä¹ˆï¼Œæ¥ä¸‹æ¥ä¼šä»‹ç»ã€‚
 
 ### On 'Update' action 
 
-¹ËÃûË¼Òå£¬¸üĞÂ²Ù×÷£¬ÊÇÖ¸ 'Update application'£¬ ¿ì½İ¼üÎª Ctrl + F10 £¬»òÕßµã»÷ÔËĞĞ/µ÷ÊÔ View×óÏÂ½Ç£¬Óë Build Project/Module(Ctrl + F9) ²»ÊÇÍ¬Ò»¸ö¸ÅÄî
+é¡¾åæ€ä¹‰ï¼Œæ›´æ–°æ“ä½œï¼Œæ˜¯æŒ‡ 'Update application'ï¼Œ å¿«æ·é”®ä¸º Ctrl + F10 ï¼Œæˆ–è€…ç‚¹å‡»è¿è¡Œ/è°ƒè¯• Viewå·¦ä¸‹è§’ï¼Œä¸ Build Project/Module(Ctrl + F9) ä¸æ˜¯åŒä¸€ä¸ªæ¦‚å¿µ
 
 ![image](/images/idea/5.png)
 
-¶ÔÓÚ exploded artifacts £¬ ¿ÉÑ¡µÄÑ¡ÏîÎª
+å¯¹äº exploded artifacts ï¼Œ å¯é€‰çš„é€‰é¡¹ä¸º
 
-+ Update Resources. ËùÓĞ¸Ä±äµÄ×ÊÔ´¶¼¸üĞÂ£¨CSS¡¢HTML¡¢JSµÈ£©
-+ Update classes and resources. ËùÓĞ¸Ä±äµÄ×ÊÔ´ºÍ¸Ä±äµÄJava Àà¶¼ÖØĞÂ±àÒë¸üĞÂ  
++ Update Resources. æ‰€æœ‰æ”¹å˜çš„èµ„æºéƒ½æ›´æ–°ï¼ˆCSSã€HTMLã€JSç­‰ï¼‰
++ Update classes and resources. æ‰€æœ‰æ”¹å˜çš„èµ„æºå’Œæ”¹å˜çš„Java ç±»éƒ½é‡æ–°ç¼–è¯‘æ›´æ–°  
 
-> ÔÚ Debug Ä£Ê½ÏÂ, ¸üĞÂµÄÀà¿ÉÒÔÈÈ½»»»(hot swapped). ÔÚ Run Ä£Ê½ÏÂ, IntelliJ IDEA Ö»¸üĞÂÊä³öÎÄ¼ş¼ĞÖĞµÄ¸Ä±äµÄÀà. Õâ¸öÀàÊµ¼ÊÉÏµ½µ×ÖØÔØÃ»ÓĞ£¬È¡¾öÓÚÔËĞĞ»·¾³µÄ¼æÈİĞÔ¡£
+> åœ¨ Debug æ¨¡å¼ä¸‹, æ›´æ–°çš„ç±»å¯ä»¥çƒ­äº¤æ¢(hot swapped). åœ¨ Run æ¨¡å¼ä¸‹, IntelliJ IDEA åªæ›´æ–°è¾“å‡ºæ–‡ä»¶å¤¹ä¸­çš„æ”¹å˜çš„ç±». è¿™ä¸ªç±»å®é™…ä¸Šåˆ°åº•é‡è½½æ²¡æœ‰ï¼Œå–å†³äºè¿è¡Œç¯å¢ƒçš„å…¼å®¹æ€§ã€‚
 
-+ Redeploy. Ó¦ÓÃ artifact ÖØĞÂ¹¹½¨ºÍÖØĞÂ²¿Êğ
-+ Restart Server. ·şÎñÆ÷ÖØÆô£¬Ó¦ÓÃ artifact ÖØĞÂ¹¹½¨ºÍÖØĞÂ²¿Êğ
++ Redeploy. åº”ç”¨ artifact é‡æ–°æ„å»ºå’Œé‡æ–°éƒ¨ç½²
++ Restart Server. æœåŠ¡å™¨é‡å¯ï¼Œåº”ç”¨ artifact é‡æ–°æ„å»ºå’Œé‡æ–°éƒ¨ç½²
 
-¶ÔÓÚ packed artifacts £¨²»´øexplodedµÄ)£¬¿ÉÑ¡µÄÑ¡ÏîÎª
+å¯¹äº packed artifacts ï¼ˆä¸å¸¦explodedçš„)ï¼Œå¯é€‰çš„é€‰é¡¹ä¸º
 
-+ Hot swap classes. ¸Ä±äµÄÀàÖØĞÂ±àÒëºÍÔÚÔËĞĞÊ±ÖØ¼ÓÔØ. Ö»ÔÚ **debug** Ä£Ê½ÏÂÓĞÓÃ
-+ Redeploy. Ó¦ÓÃ artifact ÖØĞÂ¹¹½¨ºÍÖØĞÂ²¿Êğ
-+ Restart Server. ·şÎñÆ÷ÖØÆô£¬Ó¦ÓÃ artifact ÖØĞÂ¹¹½¨ºÍÖØĞÂ²¿Êğ
++ Hot swap classes. æ”¹å˜çš„ç±»é‡æ–°ç¼–è¯‘å’Œåœ¨è¿è¡Œæ—¶é‡åŠ è½½. åªåœ¨ **debug** æ¨¡å¼ä¸‹æœ‰ç”¨
++ Redeploy. åº”ç”¨ artifact é‡æ–°æ„å»ºå’Œé‡æ–°éƒ¨ç½²
++ Restart Server. æœåŠ¡å™¨é‡å¯ï¼Œåº”ç”¨ artifact é‡æ–°æ„å»ºå’Œé‡æ–°éƒ¨ç½²
 
 ## On frame deactivation
 
-Õâ¸öÃû´ÊµÄÒâË¼¼´ ´ÓIntellij idea ÇĞ»»µ½ÆäËû³ÌĞò£¬´¥·¢µÄ²Ù×÷¡£³ıÁË
-Do nothing Ñ¡Ïî£¬ÆäËûÑ¡Ïî¶¼¸ú 'On Update action'Ò»ÖÂ¡£
+è¿™ä¸ªåè¯çš„æ„æ€å³ ä»Intellij idea åˆ‡æ¢åˆ°å…¶ä»–ç¨‹åºï¼Œè§¦å‘çš„æ“ä½œã€‚é™¤äº†
+Do nothing é€‰é¡¹ï¼Œå…¶ä»–é€‰é¡¹éƒ½è·Ÿ 'On Update action'ä¸€è‡´ã€‚
 
 ## Deploy applications configured in Tomcat instance
 
-¹´Ñ¡ÉÏÕâ¸öÑ¡Ïî£¬ÕâÑù¾Í»á²¿Êğ tomcat ÖĞµÄÆäËûÓ¦ÓÃ£¬ ±ÈÈç
+å‹¾é€‰ä¸Šè¿™ä¸ªé€‰é¡¹ï¼Œè¿™æ ·å°±ä¼šéƒ¨ç½² tomcat ä¸­çš„å…¶ä»–åº”ç”¨ï¼Œ æ¯”å¦‚
 
 + docs
 + examples

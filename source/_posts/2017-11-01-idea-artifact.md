@@ -1,5 +1,5 @@
 ---
-title: Intellij Idea - Àí½â artifact ²¢ÓëÖ®¹¤×÷
+title: Intellij Idea - ç†è§£ artifact å¹¶ä¸ä¹‹å·¥ä½œ
 date: 2017-11-1 15:41:43 
 tags:
 - openvpn
@@ -8,52 +8,52 @@ categories:
 - linux
 ---
 
-Artifact - Intellij Idea ÓëÈí¼ş¹¤³ÌÖĞÒ»¸öÖØÒªµÄ¸ÅÄî£¬±¾ÎÄÏêÏ¸½âÊÍÁËArtifactÔÚIntellij Idea µÄ´æÔÚĞÎÊ½ÓëÓ¦ÓÃ¡£
+Artifact - Intellij Idea ä¸è½¯ä»¶å·¥ç¨‹ä¸­ä¸€ä¸ªé‡è¦çš„æ¦‚å¿µï¼Œæœ¬æ–‡è¯¦ç»†è§£é‡Šäº†Artifactåœ¨Intellij Idea çš„å­˜åœ¨å½¢å¼ä¸åº”ç”¨ã€‚
 
 <!-- more -->
 
-## Ê²Ã´ÊÇ artifact?
+## ä»€ä¹ˆæ˜¯ artifact?
 
-Artifact ÊÇÄãÏîÄ¿ÖĞµÄ×ÊÔ´¼¯ºÏ£¬ÓÃÓÚ²âÊÔ¡¢²¿Êğ¡¢·¢²¼ÄãµÄÈí¼ş½â¾ö·½°¸¡££¨ÀıÈçÒ»¶Ñ±àÒëºÃµÄ Java Àà »òÕß Ò»¸ö´ò°üµÄJava³ÌĞò£¬ Ò»¸öÎÄ¼ş¼Ğ½á¹¹µÄÍøÒ³Ó¦ÓÃ »òÕß Ò»¸ö´ò°üµÄÍøÒ³Ó¦ÓÃ£¬µÈµÈ£©¡£  
+Artifact æ˜¯ä½ é¡¹ç›®ä¸­çš„èµ„æºé›†åˆï¼Œç”¨äºæµ‹è¯•ã€éƒ¨ç½²ã€å‘å¸ƒä½ çš„è½¯ä»¶è§£å†³æ–¹æ¡ˆã€‚ï¼ˆä¾‹å¦‚ä¸€å †ç¼–è¯‘å¥½çš„ Java ç±» æˆ–è€… ä¸€ä¸ªæ‰“åŒ…çš„Javaç¨‹åºï¼Œ ä¸€ä¸ªæ–‡ä»¶å¤¹ç»“æ„çš„ç½‘é¡µåº”ç”¨ æˆ–è€… ä¸€ä¸ªæ‰“åŒ…çš„ç½‘é¡µåº”ç”¨ï¼Œç­‰ç­‰ï¼‰ã€‚  
 
-ÎÄ¼ş¼Ğ½á¹¹µÄ Artifact »òÕß ´ò°üµÄ½á¹¹°üÀ¨ÒÔÏÂ×é¼ş£º
-+ Ò»¸ö»ò¶à¸ömoduleµÄ±àÒëÊä³ö
-+ module ÒÀÀµ¿â ÖĞ°üº¬µÄ ¿â
-+ ×ÊÔ´¼¯ºÏ £¨ÍøÒ³¡¢Í¼Æ¬¡¢ÃèÊöÎÄ¼şµÈ£©
-+ ÆäËû Artifact
-+ ¸ö±ğÎÄ¼ş£¬Ä¿Â¼ºÍÑ¹Ëõ°ü
+æ–‡ä»¶å¤¹ç»“æ„çš„ Artifact æˆ–è€… æ‰“åŒ…çš„ç»“æ„åŒ…æ‹¬ä»¥ä¸‹ç»„ä»¶ï¼š
++ ä¸€ä¸ªæˆ–å¤šä¸ªmoduleçš„ç¼–è¯‘è¾“å‡º
++ module ä¾èµ–åº“ ä¸­åŒ…å«çš„ åº“
++ èµ„æºé›†åˆ ï¼ˆç½‘é¡µã€å›¾ç‰‡ã€æè¿°æ–‡ä»¶ç­‰ï¼‰
++ å…¶ä»– Artifact
++ ä¸ªåˆ«æ–‡ä»¶ï¼Œç›®å½•å’Œå‹ç¼©åŒ…
 
 
-## ÅäÖÃ artifact
+## é…ç½® artifact
 
-Í¨¹ı `File | Project Structure | Artifacts` ÅäÖÃArtifact À´Ö¸¶¨Æä½á¹¹ºÍÄÚÈİ
+é€šè¿‡ `File | Project Structure | Artifacts` é…ç½®Artifact æ¥æŒ‡å®šå…¶ç»“æ„å’Œå†…å®¹
 
-## ¹¹½¨ artifacts
+## æ„å»º artifacts
 
-1. Í¨¹ı ` Build | Build Artifacts` ¹¹½¨
-2. Í¨¹ı ` Run | Debug` ÖĞµÄ Before  Lauch £¬Ìí¼Ó `Build <ArtifactName> artifact` ÈÎÎñ£¬ artifact »áÔÚ³ÌĞòÔËĞĞ»òÕßµ÷ÊÔµÄÊ±ºò ¹¹½¨
-3. artifact ¹¹½¨Ä¬ÈÏÊä³öÄ¿Â¼Îª`out/artifacts/<artifact_dir>`£¬µ«ÊÇÈç¹ûÓĞMaven µÄ»°ÊäÈëÎª `target/<artifact_dir>`
+1. é€šè¿‡ ` Build | Build Artifacts` æ„å»º
+2. é€šè¿‡ ` Run | Debug` ä¸­çš„ Before  Lauch ï¼Œæ·»åŠ  `Build <ArtifactName> artifact` ä»»åŠ¡ï¼Œ artifact ä¼šåœ¨ç¨‹åºè¿è¡Œæˆ–è€…è°ƒè¯•çš„æ—¶å€™ æ„å»º
+3. artifact æ„å»ºé»˜è®¤è¾“å‡ºç›®å½•ä¸º`out/artifacts/<artifact_dir>`ï¼Œä½†æ˜¯å¦‚æœæœ‰Maven çš„è¯è¾“å…¥ä¸º `target/<artifact_dir>`
 
-## ¹¹½¨Ñ¡Ïî
+## æ„å»ºé€‰é¡¹
 
-¹¹½¨Ò»¸öArtifact (Build | Build Artifacts)£¬ÓĞÈçÏÂµÄÑ¡Ïî£º
-+ **Build.** µÚÒ»´ÎÊ¹ÓÃ£¬Õû¸ö artifact ¶¼¹¹½¨¡£ÏÂ´ÎÊ¹ÓÃ£¬ Ö»ÓĞÒ»²¿·ÖµÄ¸Ä±ä»á±»¹¹½¨ ÒòÎª ×îºóµÄ¹¹½¨ÒÑ¾­Ìí¼Óµ½ Êä³öÄ¿Â¼ÁË¡£
-+ **Rebuild.** Õû¸ö artifact ¶¼¹¹½¨¡£Êµ¼ÊÉÏ£¬ÏÈÊ¹ÓÃÁË`clean`ÔÙÊ¹ÓÃ`build`
-+ **Clean.** É¾³ıÊä³öÄ¿Â¼µÄËùÓĞartifact
-+ **Edit.** ±à¼­ artifact configuration
+æ„å»ºä¸€ä¸ªArtifact (Build | Build Artifacts)ï¼Œæœ‰å¦‚ä¸‹çš„é€‰é¡¹ï¼š
++ **Build.** ç¬¬ä¸€æ¬¡ä½¿ç”¨ï¼Œæ•´ä¸ª artifact éƒ½æ„å»ºã€‚ä¸‹æ¬¡ä½¿ç”¨ï¼Œ åªæœ‰ä¸€éƒ¨åˆ†çš„æ”¹å˜ä¼šè¢«æ„å»º å› ä¸º æœ€åçš„æ„å»ºå·²ç»æ·»åŠ åˆ° è¾“å‡ºç›®å½•äº†ã€‚
++ **Rebuild.** æ•´ä¸ª artifact éƒ½æ„å»ºã€‚å®é™…ä¸Šï¼Œå…ˆä½¿ç”¨äº†`clean`å†ä½¿ç”¨`build`
++ **Clean.** åˆ é™¤è¾“å‡ºç›®å½•çš„æ‰€æœ‰artifact
++ **Edit.** ç¼–è¾‘ artifact configuration
 
-## ÔËĞĞ Jar Artifact
+## è¿è¡Œ Jar Artifact
 
- Í¨¹ı JAR Application run configurations ÔËĞĞ¡£
- 1.  ´ò¿ª Run/Debug Configurations?¶Ô»°¿ò (e.g. Run | Edit Configurations).
- 2. µã + ²¢Ñ¡Ôñ JAR Application.
+ é€šè¿‡ JAR Application run configurations è¿è¡Œã€‚
+ 1.  æ‰“å¼€ Run/Debug Configurations?å¯¹è¯æ¡† (e.g. Run | Edit Configurations).
+ 2. ç‚¹ + å¹¶é€‰æ‹© JAR Application.
 
-## ²¿Êğ artifacts µ½application servers ºÍ cloud platforms
+## éƒ¨ç½² artifacts åˆ°application servers å’Œ cloud platforms
 
-ÓĞºÜ¶à artifact ¸ñÊ½ £¨±ÈÈç WAR£¬Exploded WAR, EAR, Exploded EAR) ¶¼ÊÊºÏ²¿Êğµ½³ÌĞò·şÎñÆ÷ºÍÔÆ·şÎñÆ÷£¬ÏÂÃæÊÇ²¿Êğ²½Öè£º
-1. ÔÚ·şÎñÆ÷ »òÕß Ô¶³Ì·şÎñÆ÷ run/debug configuration£¬Ö¸¶¨ artifact À´²¿Êğ¡£
-2. ÔËĞĞ run/debug configuration »òÕß ÔÚ **Application Servers**, **Run** or **Debug** tool window ÉÏÊ¹ÓÃ **Deploy** Í¼±ê¡£
+æœ‰å¾ˆå¤š artifact æ ¼å¼ ï¼ˆæ¯”å¦‚ WARï¼ŒExploded WAR, EAR, Exploded EAR) éƒ½é€‚åˆéƒ¨ç½²åˆ°ç¨‹åºæœåŠ¡å™¨å’Œäº‘æœåŠ¡å™¨ï¼Œä¸‹é¢æ˜¯éƒ¨ç½²æ­¥éª¤ï¼š
+1. åœ¨æœåŠ¡å™¨ æˆ–è€… è¿œç¨‹æœåŠ¡å™¨ run/debug configurationï¼ŒæŒ‡å®š artifact æ¥éƒ¨ç½²ã€‚
+2. è¿è¡Œ run/debug configuration æˆ–è€… åœ¨ **Application Servers**, **Run** or **Debug** tool window ä¸Šä½¿ç”¨ **Deploy** å›¾æ ‡ã€‚
 
-## artifact Óë exploded artifact µÄÇø±ğ
+## artifact ä¸ exploded artifact çš„åŒºåˆ«
 
-artifact ÊÇ exploded artifact ´ò°üºóµÄ²úÆ·£¬ ¶ø exploded artifact ÊÇÎÄ¼ş¼Ğ½á¹¹µÄ£¬³ıÁËÕâ¸öÇø±ğ£¬ÔÚTomcat ²¿ÊğÕâÁ½ÖÖ artifact µÄÊ±ºò£¬µ÷ÊÔµÄÊ±ºòÒ²ÓĞÒ»¶¨Çø±ğ¡£Ïê¼û [Intelij Idea Ê¹ÓÃ Tomcat ÔËĞĞ/µ÷ÊÔ Web Ó¦ÓÃ £¨³¬ÏêÏ¸£©](/idea-tomcat)
+artifact æ˜¯ exploded artifact æ‰“åŒ…åçš„äº§å“ï¼Œ è€Œ exploded artifact æ˜¯æ–‡ä»¶å¤¹ç»“æ„çš„ï¼Œé™¤äº†è¿™ä¸ªåŒºåˆ«ï¼Œåœ¨Tomcat éƒ¨ç½²è¿™ä¸¤ç§ artifact çš„æ—¶å€™ï¼Œè°ƒè¯•çš„æ—¶å€™ä¹Ÿæœ‰ä¸€å®šåŒºåˆ«ã€‚è¯¦è§ [Intelij Idea ä½¿ç”¨ Tomcat è¿è¡Œ/è°ƒè¯• Web åº”ç”¨ ï¼ˆè¶…è¯¦ç»†ï¼‰](/idea-tomcat)
