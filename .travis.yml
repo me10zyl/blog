@@ -18,8 +18,9 @@ install:
 before_script:
   - npm install gulp
   - pwd
-  - ll
+  - ls -l
   - echo $PATH
+  - node hexo
   - hexo
 
 script:
