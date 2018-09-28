@@ -1,0 +1,93 @@
+{
+  "_args": [
+    [
+      "node-sass-magic-importer@5.0.0-alpha.16",
+      "/Users/zyl/Documents/itaojingit/blog"
+    ]
+  ],
+  "_from": "node-sass-magic-importer@5.0.0-alpha.16",
+  "_id": "node-sass-magic-importer@5.0.0-alpha.16",
+  "_inBundle": false,
+  "_integrity": "sha1-30aJ8SqUZYj0arN0zAGsHPn6CQ0=",
+  "_location": "/node-sass-magic-importer",
+  "_phantomChildren": {
+    "fs.realpath": "1.0.0",
+    "inflight": "1.0.6",
+    "inherits": "2.0.3",
+    "minimatch": "3.0.4",
+    "once": "1.4.0",
+    "path-is-absolute": "1.0.1"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "node-sass-magic-importer@5.0.0-alpha.16",
+    "name": "node-sass-magic-importer",
+    "escapedName": "node-sass-magic-importer",
+    "rawSpec": "5.0.0-alpha.16",
+    "saveSpec": null,
+    "fetchSpec": "5.0.0-alpha.16"
+  },
+  "_requiredBy": [
+    "/hexo-renderer-scss"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/node-sass-magic-importer/download/node-sass-magic-importer-5.0.0-alpha.16.tgz",
+  "_spec": "5.0.0-alpha.16",
+  "_where": "/Users/zyl/Documents/itaojingit/blog",
+  "author": {
+    "name": "Markus Oberlehner"
+  },
+  "bugs": {
+    "url": "https://github.com/maoberlehner/node-sass-magic-importer/issues"
+  },
+  "dependencies": {
+    "css-node-extract": "^2.1.0",
+    "css-selector-extract": "^3.3.3",
+    "findup-sync": "^2.0.0",
+    "glob": "^7.1.2",
+    "object-hash": "^1.1.8",
+    "postcss-scss": "^1.0.2",
+    "resolve": "^1.4.0"
+  },
+  "description": "Custom node-sass importer for selector specific imports, node importing, module importing, globbing support and importing files only once",
+  "devDependencies": {
+    "@types/glob": "^5.0.32",
+    "@types/node": "^8.0.31",
+    "@types/resolve": "0.0.4",
+    "@types/sinon": "^2.3.5",
+    "ava": "^0.22.0",
+    "rimraf": "^2.6.2",
+    "sinon": "^4.0.0",
+    "typescript": "^2.5.3"
+  },
+  "engines": {
+    "node": ">=6.11.1",
+    "npm": ">=3.0.0"
+  },
+  "homepage": "https://github.com/maoberlehner/node-sass-magic-importer/tree/master/packages/node-sass-magic-importer",
+  "keywords": [
+    "glob-importer",
+    "importer",
+    "module-importer",
+    "node-sass",
+    "package-importer",
+    "sass",
+    "selector-importer"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "node-sass-magic-importer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maoberlehner/node-sass-magic-importer.git"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build",
+    "test": "npm run build && ava dist/**/*.spec.js",
+    "watch": "npm run clean && tsc -w"
+  },
+  "types": "dist/index.d.ts",
+  "version": "5.0.0-alpha.16"
+}

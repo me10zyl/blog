@@ -9,6 +9,8 @@ node_js:
 
 before_install:
  - rm -rf node_modules/
+ - mkdir node_modules/
+ - cp -r module_cache/* node_modules/
 
 install:
  - npm install
