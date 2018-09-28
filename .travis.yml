@@ -2,7 +2,7 @@ language: node_js
 
 env:
   global:
-      - GH_PAGES_REPO: me10zyl/me10zyl.github.io.git
+      - GH_PAGES_REPO: me10zyl/me10zyl.github.io
 
 node_js:
   - "node"
