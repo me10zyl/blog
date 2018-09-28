@@ -72,11 +72,12 @@ deploy:
   on:
     branch: master
 ```
-7.GitHub生成 Travis Access Token
+7.登陆 [travis.org](travis.org)，OAuth你的Github
+8.GitHub生成 Travis Access Token
 ![1](/images/hexo/20180928113319644.png)
  
 ![2](/images/hexo/20180928113400040.png)
-8.在 Travis 仓库配置 $GH_TOKEN 环境变量，拷贝刚才生成的Access Token
+9.在 Travis 仓库配置 $GH_TOKEN 环境变量，拷贝刚才生成的Access Token
 ![3](/images/hexo/20180928113446154.png)
-9.提交代码，等待1分钟，成功访问你的博客： [http://me10zyl.github.io](http://me10zyl.github.io)
+10.提交代码，等待1分钟，成功访问你的博客： [http://me10zyl.github.io](http://me10zyl.github.io)
 
