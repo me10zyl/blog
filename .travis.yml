@@ -8,7 +8,7 @@ node_js:
   - "node"
 
 before_install:
-  - rm -rf node_modules/
+ - echo "start run"
 
 install:
   - npm install
