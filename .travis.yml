@@ -2,7 +2,7 @@ language: node_js
 
 env:
   global:
-      - GH_REF: me10zyl/me10zyl.github.io.git
+      - GH_PAGES_REPO: me10zyl/me10zyl.github.io.git
 
 node_js:
   - "node"
@@ -28,6 +28,6 @@ deploy:
   target_branch: master
   local_dir: dist
   fqdn: www.zengyilun.com
-  repo: $GH_REF
+  repo: $GH_PAGES_REPO
   on:
     branch: master
