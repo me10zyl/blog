@@ -2,8 +2,7 @@ language: node_js
 
 env:
   global:
-      - GH_REF: github.com/me10zyl/blog.git
-      - secure: "VwJOSFPIC1Qd152CcJ87aFQ6KcQhF9nuDI/PRToy5HKbwPvELBNVl7MStJ6ajRUG7p9Cy75ZI86pNvQOGnELDd65mL+fHJFXk2sEfTzlvgegxT4TINWIpOKpwHkgrPKwLtzUsQM93WZGAVJGw+zRQKRA7MBY4KTQUGQ00U/XiZTFng1xOhDwlpwaCgzi0Fj4MXvxuyL1eNJnEXB5TRu5WUR74iejraYAQaxpa0bIEFxgce64B0YbiU42uHrW11DYiZGELXNDIMYG9wI2oepvujT2VKmlraXsNvGu9W0f5OhmyjMJKiQUj3iLrj7pL5TbFdKeJTcUQJmjr2GBoaGqNnnlEmFpXRMdApO+fMEwFG/vrgXbNYElr72FpUG+vs31lf/+lPdpS9spexZTALhksEvLsslnJtZcCd4eJIdD6nTY6aWSDwrb+5BQGEzzwK8JWTpoyr1HMzuhakskl3K3ff2rcwCKDacrJ1fk6YP1u+3gUixFpvs8A/W61ZqC8ODO5vieIM1Im+FbBWrpkQccMrFrU40HjU/rh65yyZlR5XyBNhcf5jEkp1Mcqi+eXtgJke6ms+DUtvGXcFu2tLVx2KGyFmtIYa1w0kCAWAAU0QVn4xXXO1qGYMJp5hirwpA1TLWvFiSzy3IDZ2ZzfGEeKcTy2mSJZrQ1ljFWc8GnkHY="
+      - GH_REF: me10zyl/blog.git
 
 node_js:
   - "node"
@@ -26,8 +25,9 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GH_TOKEN # Set in travis-ci.org dashboard
-  target_branch: gh-pages
+  target_branch: master
   local_dir: dist
   fqdn: www.zengyilun.com
+  repo: $GH_REF
   on:
     branch: master
