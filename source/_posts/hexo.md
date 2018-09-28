@@ -18,10 +18,63 @@ tags: Hexo
     nvm install stable
     ```
     
-5.执行Hexo 博客创建命令
+5.找到一个文件夹 blog/，执行Hexo 博客创建命令
 ```
 hexo init
 ```
-6.配置 `.travis.yml`
+6.在 blog/ 中添加 `gulpfile.js`
+```javascript
+var exec = require('child_process').exec;
+var gulp = require('gulp');
+gulp.task('hexo', function(cb){
+  exec('hexo clean && hexo g', function(err){
+	if(err) return cb(err);
+	cb();
+  });	
+});
 
+gulp.task('default',['hexo']);
+```
+7.在 blog/ 中添加 `.travis.yml`，按需修改
+```yml
+language: node_js
+
+env:
+  global:
+      - GH_PAGES_REPO: me10zyl/me10zyl.github.io
+
+node_js:
+  - "node"
+
+before_install:
+  - rm -rf node_modules/
+
+install:
+  - npm install
+
+before_script:
+  - npm install gulp
+
+script:
+  - gulp
+
+deploy:
+  name: me10zyl
+  email: me10zyl@qq.com
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN # Set in travis-ci.org dashboard
+  target_branch: master
+  local_dir: dist
+  fqdn: www.zengyilun.com
+  repo: $GH_PAGES_REPO
+  on:
+    branch: master
+```
+7.GitHub生成 Travis Access Token
+![](/hexo/20180928113319644.png)
+![](/hexo/20180928113400040.png)
+8.在 Travis 仓库配置 $GH_TOKEN 环境变量，拷贝刚才生成的Access Token
+![](/hexo/20180928113446154.png)
+9.提交代码，等待1分钟，成功访问你的博客： [http://me10zyl.github.io](http://me10zyl.github.io)
 
