@@ -29,7 +29,8 @@ before_script:
  - echo "start run"
 
 script:
-  - gulp
+  - hexo clean
+  - hexo g
 
 deploy:
   name: me10zyl
