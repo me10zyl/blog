@@ -8,13 +8,14 @@ node_js:
   - "node"
 
 before_install:
- - npm install hexo --save
+ - rm -rf node_modules/
 
 install:
- - echo "start run 2"
+ - npm install
+ - npm install gulp
 
 before_script:
- - echo "start run 3"
+ - echo "start run"
 
 script:
   - gulp
