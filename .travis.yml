@@ -8,7 +8,7 @@ node_js:
   - "node"
 
 before_install:
- - echo "start run"
+ - npm install hexo --save
 
 install:
  - echo "start run 2"
@@ -31,3 +31,7 @@ deploy:
   repo: $GH_PAGES_REPO
   on:
     branch: master
+
+cache:
+    directories:
+        - node_modules
