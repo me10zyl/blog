@@ -2,7 +2,7 @@ language: node_js
 
 env:
   global:
-      - GH_REF: me10zyl/blog.git
+      - GH_REF: me10zyl/me10zyl.github.io.git
 
 node_js:
   - "node"
