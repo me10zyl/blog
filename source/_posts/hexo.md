@@ -72,7 +72,7 @@ deploy:
   on:
     branch: master
 ```
-7.登陆 [travis.org](travis.org)，OAuth你的Github
+7.登陆 [travis-ci.org](http://travis-ci.org)，登陆你的Github账号
 8.GitHub生成 Travis Access Token
 ![1](/images/hexo/20180928113319644.png)
  
