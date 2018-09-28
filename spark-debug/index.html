@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-cn,zh-Hans,en,default">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="Spark 远程调试"/>
+
+
+
+
+  <meta name="keywords" content="spark," />
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rainy Mood - allyn 的日志">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://www.zengyilun.com/spark-debug/"/>
+
+
+<meta name="description" content="使用 java remote debug 功能， 借助intellij idea 远程调试 WordCount 程序。">
+<meta name="keywords" content="spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark 远程调试">
+<meta property="og:url" content="http://www.zengyilun.com/spark-debug/index.html">
+<meta property="og:site_name" content="Rainy Mood - allyn 的日志">
+<meta property="og:description" content="使用 java remote debug 功能， 借助intellij idea 远程调试 WordCount 程序。">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://www.zengyilun.com/images/spark/spark-04.png">
+<meta property="og:image" content="http://www.zengyilun.com/images/spark/spark-02.png">
+<meta property="og:image" content="http://www.zengyilun.com/images/spark/spark-10.png">
+<meta property="og:image" content="http://www.zengyilun.com/images/spark/spark-09.png">
+<meta property="og:image" content="http://www.zengyilun.com/images/spark/spark-08.png">
+<meta property="og:image" content="http://www.zengyilun.com/images/spark/spark-11.png">
+<meta property="og:image" content="http://www.zengyilun.com/images/spark/spark-07.png">
+<meta property="og:image" content="http://www.zengyilun.com/images/spark/spark-06.png">
+<meta property="og:image" content="http://www.zengyilun.com/images/spark/spark-09.png">
+<meta property="og:image" content="http://www.zengyilun.com/images/spark/spark-05.png">
+<meta property="og:updated_time" content="2018-09-28T01:38:40.418Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spark 远程调试">
+<meta name="twitter:description" content="使用 java remote debug 功能， 借助intellij idea 远程调试 WordCount 程序。">
+<meta name="twitter:image" content="http://www.zengyilun.com/images/spark/spark-04.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: true,
+    searchPath: "/search.xml",
+    fancybox: true,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5d142d59d006582dbacd580c9eb430f5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!--
+<script type="text/javascript" async
+  src="/js/src/mathjax-2.7.1.js">
+</script>-->
+
+
+
+    <title> Spark 远程调试 · Rainy Mood - allyn 的日志 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Rainy Mood - allyn 的日志</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/essays">
+        <li class="mobile-menu-item">
+          
+          
+            Essay
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+
+  <!-- <a href="/essays" class="logo">Rainy Mood - allyn 的日志</a> -->
+
+  <a href="/." class="logo">Rainy Mood - allyn 的日志</a>
+
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/essays">
+            
+            
+              随笔
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+<nav style="clear:left">
+	<a href='/'> 首页 </a> &gt <a href='http://www.zengyilun.com/spark-debug/'>spark-debug</a>
+</nav>
+
+      </header>
+
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Spark 远程调试
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017年5月9日
+	</span>
+        
+          <div class="post-tags" style="display:inline-block">
+            
+              <a href="/tags/spark/">#spark</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-text">附录</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>使用 java remote debug 功能， 借助intellij idea 远程调试 WordCount 程序。</p>
+<a id="more"></a>
+<p>Java 中进行远程调试步骤：</p>
+<ol>
+<li>在服务端配置启动参数，激活服务端的远程调试功能。</li>
+<li>本地客户端连接调试服务端。</li>
+<li>添加断点并且启动本地程序。</li>
+</ol>
+<p>配置 Master 远程调试： 配置 Spark java 运行参数。</p>
+<p>找到 <code>SPARK_HOME/conf/spark-env.sh</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SPARK_MASTER_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</span><br></pre></td></tr></table></figure>
+<p>修改后， 启动 Spark 集群 <code>SPARK_HOME/sbin/start-all.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | grep java | grep master</span><br><span class="line">root     21610     1  6 02:58 pts/0    00:00:05 /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.131-2.b11.el7_3.x86_64/jre/bin/java -cp /usr/<span class="built_in">local</span>/spark-2.1.0-bin-hadoop2.7/conf/:/usr/<span class="built_in">local</span>/spark-2.1.0-bin-hadoop2.7/jars/* -agentlib:jdwp=transport=dt_socket,server=y,<span class="built_in">suspend</span>=n,address=5005 -Xmx1g org.apache.spark.deploy.master.Master --host 192.168.2.5 --port 7077 --webui-port 8080</span><br></pre></td></tr></table></figure>
+<p>可以看到 java 运行参数已经被加上了。</p>
+<p>添加 Spark Master 程序断点 <code>Master.scala</code></p>
+<p><img src="/images/spark/spark-04.png" alt=""></p>
+<p>点击调试按钮，连接调试服务端</p>
+<p><img src="/images/spark/spark-02.png" alt=""></p>
+<p><img src="/images/spark/spark-10.png" alt=""></p>
+<p>启动本地驱动程序，Master 程序已经调试成功了</p>
+<p><img src="/images/spark/spark-09.png" alt=""></p>
+<p><img src="/images/spark/spark-08.png" alt=""></p>
+<p>接下来，配置 Worker 远程调试。</p>
+<p>同理配置 <code>SPARK_HOME/conf/spark-env.sh</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SPARK_WORKER_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</span><br></pre></td></tr></table></figure>
+<p>在 Worker.scala 打上断点</p>
+<p><img src="/images/spark/spark-11.png" alt=""></p>
+<p>客户端连接服务端</p>
+<p><img src="/images/spark/spark-07.png" alt=""></p>
+<p><img src="/images/spark/spark-06.png" alt=""></p>
+<p>执行本地驱动程序，Worker 程序调试成功</p>
+<p><img src="/images/spark/spark-09.png" alt=""></p>
+<p><img src="/images/spark/spark-05.png" alt=""></p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><figure class="highlight java"><figcaption><span>WordCount.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WordCount</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SparkConf conf = <span class="keyword">new</span> SparkConf().setAppName(<span class="string">"wordCount"</span>)</span><br><span class="line">                .setJars(<span class="keyword">new</span> String[]&#123;<span class="string">".//target//wordcount.jar"</span>&#125;)</span><br><span class="line">                .setMaster(<span class="string">"spark://192.168.2.5:7077"</span>);</span><br><span class="line">        JavaSparkContext sc = <span class="keyword">new</span> JavaSparkContext(conf);</span><br><span class="line">        JavaRDD&lt;String&gt; input = sc.textFile(<span class="string">"/usr/local/spark-2.1.0-bin-hadoop2.7/README.md"</span>);</span><br><span class="line">        JavaRDD&lt;String&gt; words = input.flatMap(<span class="keyword">new</span> FlatMapFunction&lt;String, String&gt;() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> Iterator&lt;String&gt; <span class="title">call</span><span class="params">(String s)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> Arrays.asList(s.split(<span class="string">" "</span>)).iterator();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        JavaPairRDD&lt;Object, Object&gt; counts = words.mapToPair(<span class="keyword">new</span> PairFunction&lt;String, Object, Object&gt;() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> Tuple2&lt;Object, Object&gt; <span class="title">call</span><span class="params">(String s)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> Tuple2&lt;Object, Object&gt;(s, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).reduceByKey(<span class="keyword">new</span> Function2&lt;Object, Object, Object&gt;() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">(Object x, Object y)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> (Integer)x + (Integer)y;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        counts.saveAsTextFile(<span class="string">"/tmp/wc"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>allyn</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://www.zengyilun.com">http://www.zengyilun.com</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://www.zengyilun.com/spark-debug/">http://www.zengyilun.com/spark-debug/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+
+      
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style" style="height:15px;margin-top:10px">
+	<span class="jiathis_txt">分享到：</span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/spark/">spark</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/bool/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">布尔代数与计算机</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/spark-2/">
+        <span class="next-text nav-default">Spark 快速入门教程（二） - Self-Contained 应用程序</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:me10zyl@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+<!--
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+-->
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2017 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">allyn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.zengyilun.com/spark-debug/';
+        this.page.identifier = 'spark-debug/';
+        this.page.title = 'Spark 远程调试';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//allyn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  <script type="text/html" id="search-result">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          <a href="$url$" class="post-link">
+            $title$
+          </a>
+        </h1>
+      </header>
+      <div class="post-content">
+        $content$
+        <div class="read-more">
+          <a href="$url$" class="read-more-link">
+            阅读更多
+          </a>
+        </div>
+      </div>
+    </article>
+  </script>
+  <script type="text/html" id="no-search-result">
+    <div class="no-result">
+      <h2>No result found!</h2>
+    </div>
+  </script>
+  <script type="text/javascript" src="/js/src/search.js?v=2.4.x"></script>
+
+  </body>
+</html>
