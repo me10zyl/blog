@@ -11,10 +11,10 @@ before_install:
  - echo "start run"
 
 install:
-  - npm install
+ - echo "start run 2"
 
 before_script:
-  - npm install gulp
+ - echo "start run 3"
 
 script:
   - gulp
