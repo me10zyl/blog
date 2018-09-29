@@ -6,6 +6,9 @@ tags: hexo
 项目地址：[https://github.com/zhuzhuyule/HexoEditor](https://github.com/zhuzhuyule/HexoEditor) 
 Hexo Editor, 专门为写 Hexo日志而生， 改编自MoeEditor，支持 Markdown，Latex 等。
 <!-- more -->
+下载地址：
+Windows x64: [https://github.com/zhuzhuyule/HexoEditor/releases/download/v1.5.30/HexoEditor_1.5.30_win_x64.exe](https://github.com/zhuzhuyule/HexoEditor/releases/download/v1.5.30/HexoEditor_1.5.30_win_x64.exe)
+Mac x64:[https://github.com/zhuzhuyule/HexoEditor/releases/download/v1.5.30/HexoEditor_1.5.30_mac_x64.dmg](https://github.com/zhuzhuyule/HexoEditor/releases/download/v1.5.30/HexoEditor_1.5.30_mac_x64.dmg)
 ![1](https://raw.githubusercontent.com/zhuzhuyule/HexoEditor/master/screenshots/main.png)
 # 特点
 * HexoEditor 独有功能
