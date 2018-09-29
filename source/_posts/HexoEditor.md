@@ -5,6 +5,7 @@ tags: hexo
 ---
 项目地址：[https://github.com/zhuzhuyule/HexoEditor](https://github.com/zhuzhuyule/HexoEditor) 
 Hexo Editor, 专门为写 Hexo日志而生， 改编自MoeEditor，支持 Markdown，Latex 等。
+<!-- more -->
 ![1](https://raw.githubusercontent.com/zhuzhuyule/HexoEditor/master/screenshots/main.png)
 # 特点
 * HexoEditor 独有功能
@@ -40,6 +41,8 @@ Hexo Editor, 专门为写 Hexo日志而生， 改编自MoeEditor，支持 Markdo
 ![https://raw.githubusercontent.com/zhuzhuyule/HexoEditor/master/screenshots/menu.png](https://raw.githubusercontent.com/zhuzhuyule/HexoEditor/master/screenshots/menu.png)
 
 缺点：
-    + 一键部署不是很好用，没有自定义添加外部程序的功能 
-    + 粘贴图片后地址为/pic.png，而不是/images/pic.png
-    + hexo 命令执行好像还没成功过？！
++ 一键部署不是很好用，没有自定义添加外部程序的功能 
++ 粘贴图片后地址为/pic.png，而不是/images/pic.png
++ 最后有一个一键打开Hexo根目录命令行的功能
++ hexo 命令执行好像还没成功过，已经配了Hexo的_config.yml，无限操作执行中...如图所示：
+![1](/images/HexoEditor/20180929093043591.png)
