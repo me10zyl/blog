@@ -38,6 +38,7 @@ Hexo Editor, 专门为写 Hexo日志而生， 改编自MoeEditor，支持 Markdo
   * 本地化
   * 专注模式
 
+Electron 构建，理论上是跨平台的，Windows Mac都能使用。
 ![https://raw.githubusercontent.com/zhuzhuyule/HexoEditor/master/screenshots/menu.png](https://raw.githubusercontent.com/zhuzhuyule/HexoEditor/master/screenshots/menu.png)
 
 缺点：
