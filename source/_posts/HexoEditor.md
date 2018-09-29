@@ -1,5 +1,5 @@
 ---
-title: 快速写日志，HexoEditor
+title: 快速写日志，Hexo的专用编辑器 - HexoEditor
 date: 2018-09-29 09:16:08
 tags: hexo
 ---
@@ -46,3 +46,14 @@ Hexo Editor, 专门为写 Hexo日志而生， 改编自MoeEditor，支持 Markdo
 + 最后有一个一键打开Hexo根目录命令行的功能
 + hexo 命令执行好像还没成功过，已经配了Hexo的_config.yml，无限操作执行中...如图所示：
 ![1](/images/HexoEditor/20180929093043591.png)
+
+使用此编辑器后写博客的步骤简化为：
+1. 打开 Alfred, 输入 hexo 打开 HexoEditor
+![1](/images/HexoEditor/20180929093606497.png)
+2. 新建 Post，在_post文件夹自动生成文件，并含有date，修改title, tag，文件名同步 title 修改。
+![2](/images/HexoEditor/20180929093729763.png)
+![3](/images/HexoEditor/20180929093910225.png)
+3. 写博客途中有图片直接截图点粘贴，自动生成图片和路径，把路径前缀加上/images
+如 `![](/HexoEditor/20180929094201824.png)`，其中HexoEditor为标题名称，需要手动修改为`![](/images/HexoEditor/20180929094201824.png)`
+3. 保存，打开终端，提交代码
+
