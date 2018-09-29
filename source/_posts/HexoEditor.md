@@ -47,7 +47,7 @@ Electron 构建，理论上是跨平台的，Windows Mac都能使用。
 缺点：
 + 一键部署不是很好用，没有自定义添加外部程序的功能 
 + 粘贴图片后地址为/pic.png，而不是/images/pic.png
-+ 最后有一个一键打开Hexo根目录命令行的功能
++ 最好有一个一键打开Hexo根目录命令行的功能
 + hexo 命令执行好像还没成功过，已经配了Hexo的_config.yml，无限操作执行中...如图所示：
 ![1](/images/HexoEditor/20180929093043591.png)
 
