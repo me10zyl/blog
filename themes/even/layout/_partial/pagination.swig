@@ -6,6 +6,17 @@
         <span class="prev-text">{{ __('posts.prev') }}</span>
       </a>
     {% endif %}
+    {% if page.prev or page.next %}
+    <div class="page-numbers">
+    {{
+      paginator({
+        current: page.current,
+       prev_next: false,
+        mid_size: 1
+      })
+    }}
+    </div>
+  {% endif %}
     {% if page.next %}
       <a class="next" href="{{ url_for(page.next_link) }}">
         <span class="next-text">{{ __('posts.next') }}</span>
@@ -13,6 +24,9 @@
       </a>
     {% endif %}
   </nav>
+
+
+
 {% else %}
   <nav class="post-nav">
     {% if page.prev.path %}
