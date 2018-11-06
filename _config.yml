@@ -79,7 +79,7 @@ deploy:
 
 douban:
   user: 89547618
-  builtin: true
+  builtin: false
   book:
     title: '书籍📚'
     quote: '读过与想读的📚'
