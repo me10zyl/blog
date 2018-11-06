@@ -9,9 +9,9 @@ node_js:
 
 before_install:
     - rm -rf node_modules/
+	  - git submodule update
 
 install:
-	- git submodule update
   - npm install
 
 before_script:
