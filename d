@@ -1,4 +1,5 @@
 #!/bin/bash
 hexo clean
+hexo douban -b
 hexo g
-hexo d
+hexo deploy
