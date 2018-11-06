@@ -9,7 +9,7 @@ node_js:
 
 before_install:
     - rm -rf node_modules/
-	  - git submodule update
+    - git submodule update
 
 install:
   - npm install
@@ -19,7 +19,7 @@ before_script:
 
 script:
   - hexo clean
-  - hexo "douban -b"
+  - hexo douban -b
   - hexo g
 
 deploy:
