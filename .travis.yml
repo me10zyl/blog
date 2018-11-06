@@ -12,6 +12,7 @@ before_install:
 
 install:
   - npm install
+	- git submodule update
 
 before_script:
  - echo "start run"
