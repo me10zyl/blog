@@ -18,6 +18,7 @@ before_script:
 
 script:
   - hexo clean
+  - hexo douban -b
   - hexo g
 
 deploy:

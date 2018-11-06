@@ -77,3 +77,16 @@ deploy:
   repo: https://github.com/me10zyl/me10zyl.github.io
   branch: master
 
+douban:
+  user: 89547618
+  builtin: false
+  book:
+    title: '书籍📚'
+    quote: '读过与想读的📚'
+  movie:
+    title: 'This is my movie title'
+    quote: 'This is my movie quote'
+  game:
+    title: 'This is my game title'
+    quote: 'This is my game quote'
+  timeout: 10000 

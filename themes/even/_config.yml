@@ -18,6 +18,7 @@ rss: default
 # ===========================================
 menu:
   Home: /
+  Books: /books
   Archives: /archives/
   Essay: /essays
   # Drafts: /drafts
@@ -87,6 +88,7 @@ jiathis: true
 
 breadcrum:
   archives: 归档
+  books: 书籍
   essays: 随笔
   tags: 标签
   about: 关于

@@ -1,0 +1,3 @@
+[submodule "hexo-douban-plus"]
+	path = hexo-douban-plus
+	url = https://github.com/me10zyl/hexo-douban-plus
