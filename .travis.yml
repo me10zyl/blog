@@ -11,8 +11,8 @@ before_install:
     - rm -rf node_modules/
 
 install:
-  - npm install
 	- git submodule update
+  - npm install
 
 before_script:
  - echo "start run"
