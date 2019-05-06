@@ -1,10 +1,10 @@
 ---
 title: nginx rewrite 模块
 date: 2019-05-06 10:54:02
-tags:
+tags: nginx
 ---
 ngx_http_rewrite_module 使用 REPL 来改写URL，实现**重定向**，**重新匹配跳转**，**改写反向代理URL**功能。
-
+<!-- more -->
 #### 重定向
 
 ```
@@ -26,6 +26,8 @@ server{
 
 #### 重新匹配跳转
 ```
+# 没有rewrite 后面没有任何 flag 时就顺序执行 
+# 当 location 中没有 rewrite 模块指令可被执行时 就重写发起新一轮location匹配
 server{
     location / {
         proxy_pass http://www.baidu.com;
