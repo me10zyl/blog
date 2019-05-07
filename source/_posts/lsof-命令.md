@@ -29,7 +29,7 @@ nginx   4537 root    4w   REG   1,11   230269 2234613 /usr/local/Cellar/nginx/1.
 
 FD: 列中的文件描述符cwd 值表示应用程序的当前工作目录，这是该应用程序启动的目录，除非它本身对这个目录进行更改,txt 类型的文件是程序代码，如应用程序二进制文件本身或共享库，如上列表中显示的 /sbin/init 程序。 
 
-其次数值表示应用程序的文件描述符，这是打开该文件时返回的一个整数。如上的最后一行文件/dev/initctl，其文件描述符为 10。u 表示该文件被打开并处于读取/写入模式，而不是只读 ® 或只写 (w) 模式。同时还有大写 的W 表示该应用程序具有对整个文件的写锁。该文件描述符用于确保每次只能打开一个应用程序实例。初始打开每个应用程序时，都具有三个文件描述符，从 0 到 2，分别表示标准输入、输出和错误流。所以大多数应用程序所打开的文件的 FD 都是从 3 开始。
+其次数值表示应用程序的文件描述符，这是打开该文件时返回的一个整数。如上的最后一行文件/dev/initctl，其文件描述符为 10。u 表示该文件被打开并处于读取/写入模式，而不是只读 ® 或只写 (w) 模式。同时还有大写 的W 表示该应用程序具有对整个文件的写锁。该文件描述符用于确保每次只能打开一个应用程序实例。初始打开每个应用程序时，都具有三个文件描述符，**从 0 到 2，分别表示标准输入、输出和错误流。**所以大多数应用程序所打开的文件的 FD 都是从 3 开始。
 
 与 FD 列相比，Type 列则比较直观。文件和目录分别称为 REG 和 DIR。而CHR 和 BLK，分别表示字符和块设备；或者 UNIX、FIFO 和 IPv4，分别表示 UNIX 域套接字、先进先出 (FIFO) 队列和网际协议 (IP) 套接字。
 
@@ -124,6 +124,7 @@ lsof -i:80
 sudo lsof -a -i4 -itcp -s TCP:LISTEN -P
 sudo lsof -aPi4 -itcp -sTCP:LISTEN
 ```
+-a 并且 （默认不加-a是或)
 
 #### 查看打开的文件夹
 ```bash
@@ -136,6 +137,24 @@ sudo lsof +D /usr/local/Cellar/nginx/1.15.5/logs/
 ```bash
 sudo lsof -p 3361
 ```
+
+#### 根据文件描述范围列出文件信息
+```bash
+sudo lsof -d 2-3
+```
+
+#### 查找nginx 错误日志在哪
+```bash
+$ sudo lsof -a -d 2 -c nginx
+COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF    NODE NAME
+nginx   4536 root    2w   REG   1,11   230269 2234613 /usr/local/Cellar/nginx/1.15.5/logs/error.log
+nginx   4537 root    2w   REG   1,11   230269 2234613 /usr/local/Cellar/nginx/1.15.5/logs/error.log
+```
+或者
+```bash
+sudo lsof -d 2 | grep nginx
+```
+
 
 
 
