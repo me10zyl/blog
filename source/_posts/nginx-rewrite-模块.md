@@ -5,6 +5,7 @@ tags: nginx
 ---
 ngx_http_rewrite_module 使用 REPL 来改写URL，实现**重定向**，**重新匹配跳转**，**改写反向代理URL**功能。
 <!-- more -->
+
 #### 重定向
 
 ```
