@@ -61,3 +61,8 @@ Electron 构建，理论上是跨平台的，Windows Mac都能使用。
 如 `![](/HexoEditor/20180929094201824.png)`，其中HexoEditor为标题名称，需要手动修改为`![](/images/HexoEditor/20180929094201824.png)`
 3. 保存，打开终端，提交代码
 
+HexoEditor改进：allyn Fork的代码
+[https://github.com/me10zyl/HexoEditor](https://github.com/me10zyl/HexoEditor)
+1. 增加添加自定义bash脚本执行到右键菜单
+2. 图片粘贴问题（待改进）
+
