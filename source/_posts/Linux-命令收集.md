@@ -3,6 +3,9 @@ title: Linux 命令收集
 date: 2019-05-08 16:27:12
 tags: linux
 ---
+用过的linux命令都在这里。
+<!-- more -->
+
 passwd [username] 更改用户密码
 pwd 显示当前目录路径 
 useradd [username] 添加用户 
