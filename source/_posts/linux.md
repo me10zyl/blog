@@ -103,3 +103,5 @@ ps -eo pid,lstart,etime,cmd | grep tj-im-ser 查看程序启动时间
 /usr/local/mysql/bin/mysqlbinlog /usr/local/mysql/data/master-bin.000296
 
 /usr/local/mysql/bin/mysqlbinlog --start-datetime="2019-01-18 00:00:00" binlog.000201 --base64-output="decode-rows" --database=tjk_db_v2 -v
+
+find . -size +50MB -print -exec rm {} \;
