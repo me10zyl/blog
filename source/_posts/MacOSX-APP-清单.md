@@ -6,7 +6,7 @@ tags: [mac,app]
 
 现在正在用的APP清单：
 更新日期:
-<date>2019年 5月24日 星期五 11时08分25秒 CST</date>
+<date>Fri May 24 11:14:00 CST 2019</date>
 <!-- more -->
 
 本列表由ls_app_md脚本生成：
