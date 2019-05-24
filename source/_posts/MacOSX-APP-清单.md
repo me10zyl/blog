@@ -6,7 +6,7 @@ tags: [mac,app]
 
 现在正在用的APP清单：
 更新日期:
-<date>Fri May 24 11:14:00 CST 2019</date>
+<date>2019年 5月24日 星期五 11时22分04秒 CST</date>
 <!-- more -->
 
 本列表由ls_app_md脚本生成：
@@ -18,7 +18,6 @@ sed -i "" "s/<date>.*<\/date>/<date>`date`<\/date>/;/^\+.*/d;/^list:/r app.list"
 ```
 
 list:
-+ AirServer
 + Alfred 3
 + Aliwangwang
 + App Store
@@ -129,6 +128,6 @@ list:
 + oss-browser
 + rdm
 + wechatwebdevtools
-+ 企业微信
 + 爱奇艺
++ 企业微信
 + 网易有道词典
