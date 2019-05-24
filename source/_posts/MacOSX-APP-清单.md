@@ -14,7 +14,7 @@ tags: [mac,app]
 #!/bin/bash
 cd ~/blog
 $(ls /Applications | grep -v '^\.' | sed -n 's/\(.*\).app$/+ \1/p;' > app.list)
-sed -i "" "s/<date>.*<\/date>/<date>`date`<\/date>/;/^\+.*/d;/list:/r app.list" source/_posts/MacOSX-APP-清单.md
+sed -i "" "s/<date>.*<\/date>/<date>`date`<\/date>/;/^\+.*/d;/^list:/r app.list" source/_posts/MacOSX-APP-清单.md
 ```
 
 list:
