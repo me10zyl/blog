@@ -1,0 +1,2 @@
+#!/bin/bash
+ls /Applications | grep -v '^\.' | sed -n 's/\(.*\).app$/+ \1/p;'
