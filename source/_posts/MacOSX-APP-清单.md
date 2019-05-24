@@ -1,13 +1,12 @@
 ---
 title: MacOSX APP 清单
 date: 2019-05-24 09:52:25
-tags: - mac
-      - app
+tags: [mac,app]
 ---
 
 现在正在用的APP清单：
 更新日期:
-<date>2019年 5月24日 星期五 10时57分23秒 CST</date>
+<date>2019年 5月24日 星期五 10时58分03秒 CST</date>
 
 <list>
 + AirServer
