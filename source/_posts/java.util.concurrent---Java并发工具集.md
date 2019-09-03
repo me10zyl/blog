@@ -30,13 +30,102 @@ tags: [java,concurrency]
 这个生产线程会持续的产生新的objects并插入队列中，直到队列到达上界。这个限制，换句话说。如果这个`blocking queue`到达了他的上界，这个生产线程在插入新的object时就会被阻塞。它会一直被阻塞直到消费线程从这个队列中拿走object。
 
 #### 阻塞队列方法
-一个`BlockingQueue`有4套不同的方法，包括插入，移除和检验元素是否在队列中。每套方法或多或少的有阻塞方法。这是一个方法表：
+一个`BlockingQueue`，对于插入，移除和检验元素是否在队列中，都有4个不同的行为。如果请求的操作不能立即执行，每个行为表现也不同。这是一个方法表：
 
 |	|Throws Exception|	Special Value|	Blocks|	Times Out|
 |---| ---|---|---|
 |Insert|add(o)|offer(o)|put(o)|offer(o, timeout,timeunit)|
 |Remove	|remove(o)|	poll()	|take()|	poll(timeout,timeunit)|
 |Examine|	element()	|peek()	 	 | | |
+4个不同行为的意思是：
 
+1. **Throw Exceptions**:
+    如果请求的操作不能立即执行，一个异常抛出
+2. **Special Value**：
+    如果请求的操作不能立即执行，一个特殊的值被返回（通常是 true/false)
+3. **Blocks**:
+    如果请求的操作不能立即执行，一个方法会被阻塞。
+4. **Times Out**：
+    如果请求的操作不能立即执行，一个方法会被阻塞，但是等到给出的超时时间就不再等待。返回了一个特殊的值表明是成功还是失败（经常是true/false)
 
+在`BlockingQueue`中不能插入null。如果你插入null，`BlockingQueue`会抛出 `NullPointerException`。
 
+### BlockingQueue的实现
+因为`BlockingQueue`是一个接口，你至少使用其中一个实现来使用它。`BlockQueue`在`java.util.concrrent`包中有以下实现（Java 6）：
+    
++ ArrayBlockingQueue
++ DelayQueue
++ LinkedBlockingQueue
++ PriorityBlockingQueue
++ SynchronousQueue
+
+### Java BlockingQueue的例子
+这是一个Java`BlockingQueue`例子。这个例子使用了`BlockingQueue`的实现 - `ArrayBlockingQueue`。
+
+第一步，`BlockingQueueExample`类在分别的线程中开启了一个`Producer`和一个`Consumer`。`Producer`在共享的`BlockingQueue`中插入一些字符串，`Consumer`从中拿出。
+
+```java
+public class BlockingQueueExample {
+
+    public static void main(String[] args) throws Exception {
+
+        BlockingQueue queue = new ArrayBlockingQueue(1024);
+
+        Producer producer = new Producer(queue);
+        Consumer consumer = new Consumer(queue);
+
+        new Thread(producer).start();
+        new Thread(consumer).start();
+
+        Thread.sleep(4000);
+    }
+}
+```
+
+这是一个`Producer`类。注意它在每次调用`put()`时睡眠了一秒钟。这会导致`Consumer`阻塞，一直等待队列中有东西。
+
+```java
+public class Producer implements Runnable{
+
+    protected BlockingQueue queue = null;
+
+    public Producer(BlockingQueue queue) {
+        this.queue = queue;
+    }
+
+    public void run() {
+        try {
+            queue.put("1");
+            Thread.sleep(1000);
+            queue.put("2");
+            Thread.sleep(1000);
+            queue.put("3");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+这是一个`Consumer`类，他会从队列中拿取东西，然后打印到`System.out`。
+
+```java
+public class Consumer implements Runnable{
+
+    protected BlockingQueue queue = null;
+
+    public Consumer(BlockingQueue queue) {
+        this.queue = queue;
+    }
+
+    public void run() {
+        try {
+            System.out.println(queue.take());
+            System.out.println(queue.take());
+            System.out.println(queue.take());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
