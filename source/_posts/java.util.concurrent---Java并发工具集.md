@@ -26,7 +26,7 @@ tags: [java,concurrency]
     
 这个生产线程会持续的产生新的objects并插入队列中，直到队列到达上界。这个限制，换句话说。如果这个`blocking queue`到达了他的上界，这个生产线程在插入新的object时就会被阻塞。它会一直被阻塞直到消费线程从这个队列中拿走object。
 
-#### 阻塞队列方法
+    #### BlockingQueue的方法
 一个`BlockingQueue`，对于插入，移除和检验元素是否在队列中，都有4个不同的行为。如果请求的操作不能立即执行，每个行为表现也不同。这是一个方法表：
 
 |	|Throws Exception|	Special Value|	Blocks|	Times Out|
