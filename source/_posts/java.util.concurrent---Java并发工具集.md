@@ -126,3 +126,30 @@ public class Consumer implements Runnable{
     }
 }
 ```
+# ArrayBlockingQueue
+
+`ArrayBlockingQueue`类实现了`BlockingQueue`接口。阅读`BlockingQueue`教程获取这个接口的更多信息。
+
+`ArrayBlockingQueue`是一个有边界，内部存储形式为一个数组的阻塞队列。有边界意思是不能存储无限量的元素。在同一实际存储元素有上界。你可以在实例化的时候设置这个上界，之后就不能改变了。
+
+`ArrayBlockingQueue`内部存储元素为FIFO（先进先出）顺序。队列的头部元素是最先插入的元素，队列的尾部是最后插入的元素。
+
+这里展示了如何实例化和使用`ArrayBlockingQueue`:
+
+```java
+BlockingQueue queue = new ArrayBlockingQueue(1024);
+
+queue.put("1");
+
+Object object = queue.take();
+```
+
+`BlockingQueue`例子使用了Java泛型。
+
+```java
+BlockingQueue<String> queue = new ArrayBlockingQueue<String>(1024);
+
+queue.put("1");
+
+String string = queue.take();
+```
