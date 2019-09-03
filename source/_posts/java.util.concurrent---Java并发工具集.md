@@ -7,8 +7,8 @@ tags: [java,concurrency]
     
 <!--more-->
     
-    在这个教程中我会带你浏览一遍 `java.util.concurrent` 类，一个一个的介绍，所以你可以学习怎样使用他们。我会使用Java 6的版本。我不确定对于Java 5有什么不同。
-    我不会解释Java并发核心问题 - 也就是背后的理论。如果你感兴趣，看看我另一个教程 - `Java Concurrency tutorial`。
+在这个教程中我会带你浏览一遍 `java.util.concurrent` 类，一个一个的介绍，所以你可以学习怎样使用他们。我会使用Java 6的版本。我不确定对于Java 5有什么不同。
+我不会解释Java并发核心问题 - 也就是背后的理论。如果你感兴趣，看看我另一个教程 - `Java Concurrency tutorial`。
 
 # BlockingQueue
 
