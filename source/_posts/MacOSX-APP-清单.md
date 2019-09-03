@@ -6,7 +6,7 @@ tags: [mac,app]
 
 现在正在用的APP清单：
 更新日期:
-<date>2019年 5月24日 星期五 14时38分12秒 CST</date>
+<date>Tue Sep  3 10:39:14 CST 2019</date>
 <!-- more -->
 
 本列表由ls_app_md脚本生成：
@@ -20,6 +20,7 @@ sed -i "" "s/<date>.*<\/date>/<date>`date`<\/date>/;/^\+.*/d;/^list:/r app.list"
 list:
 + Alfred 3
 + Aliwangwang
++ Anki
 + App Store
 + Automator
 + BaiduNetdisk_mac
@@ -35,11 +36,14 @@ list:
 + Dashboard
 + DataGrip
 + Dictionary
++ Eudic
 + FWMSO2016VL
 + FaceTime
++ Flotato
 + Flux
-+ Folx
 + Font Book
++ GSP5
++ GeoGebra Geometry
 + Go2Shell
 + GoodSync
 + Google Chrome
@@ -64,17 +68,18 @@ list:
 + Microsoft Word
 + Mission Control
 + Moom
++ Mos
 + MySQLWorkbench
 + Navicat Premium
 + NeteaseMusic
 + Noizio
 + Notes
 + Nutstore
++ OmniFocus
 + OmniGraffle
 + OneDrive
 + OpenBoard
 + OpenWebMonitor3
-+ PP助手
 + Paste
 + Pennywise
 + Photo Booth
@@ -95,7 +100,6 @@ list:
 + ShadowsocksX-NG-R8
 + Siri
 + Sketch
-+ Skipper
 + SnippetsLab
 + Steam
 + Stickies
@@ -107,12 +111,9 @@ list:
 + Thunder
 + Time Machine
 + TweetDeck
-+ Ukelele
 + VMware Fusion
 + Visual Studio Code
 + WeChat
-+ Wireless Signal
-+ WirelessUtility
 + Wireshark
 + Workspaces
 + Xcode
@@ -127,7 +128,9 @@ list:
 + labelme
 + oss-browser
 + rdm
++ thief-book
 + wechatwebdevtools
-+ 爱奇艺
 + 企业微信
++ 小程序开发者工具
++ 爱奇艺
 + 网易有道词典
