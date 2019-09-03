@@ -3,9 +3,6 @@ title: java.util.concurrent - Java并发工具集
 date: 2019-09-03 10:07:39
 tags: [java,concurrency]
 ---
-
-# java.util.concurrent - Java并发工具集
-
    Java 5 添加了一个新的Java包， `java.util.concurrent` 包。这个包有一系列的类使开发并发（多线程）程序更简单。在这个包添加之前，你只能自己编写工具类。
     
 <!--more-->
