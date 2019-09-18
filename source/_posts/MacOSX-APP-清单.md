@@ -6,7 +6,7 @@ tags: [mac,app]
 
 现在正在用的APP清单：
 更新日期:
-<date>Tue Sep  3 11:43:22 CST 2019</date>
+<date>Wed Sep 18 13:50:39 CST 2019</date>
 <!-- more -->
 
 本列表由ls_app_md脚本生成：
@@ -52,6 +52,7 @@ list:
 + Image Capture
 + IntelliJ IDEA
 + JD-GUI
++ JavaFX Scene Builder 2.0
 + KeePassXC
 + Kext Utility
 + Kext Wizard
