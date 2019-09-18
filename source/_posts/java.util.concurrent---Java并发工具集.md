@@ -153,3 +153,19 @@ queue.put("1");
 
 String string = queue.take();
 ```
+
+# DelayQueue
+
+`DelayQueue`类实现了`BlockingQueue`接口。阅读`BlockingQueue`获取这个接口的更多信息。
+
+`DelayQueue`在内部阻塞元素直到一个特定的延时过期。元素必须实现`java.util.concurrent.Delayed`接口。这是接口的样子：
+
+```java
+public interface Delayed extends Comparable<Delayed> {
+
+ public long getDelay(TimeUnit timeUnit);
+
+}
+```
+
+`getDelay()`方法返回值在被释放之前应该会被延迟保留，如果返回0或负数，延迟就已过期了，元素会在下一次在`DelayQueue`调用`take()` etc. 被释放。
