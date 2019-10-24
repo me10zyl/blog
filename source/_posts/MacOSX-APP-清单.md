@@ -6,7 +6,7 @@ tags: [mac,app]
 
 现在正在用的APP清单：
 更新日期:
-<date>Thu Oct 24 10:36:35 CST 2019</date>
+<date>2019年10月24日 星期四 10时39分58秒 CST</date>
 <!-- more -->
 
 本列表由ls_app_md脚本生成：
@@ -132,7 +132,7 @@ list:
 + rdm
 + thief-book
 + wechatwebdevtools
-+ 企业微信
-+ 小程序开发者工具
 + 爱奇艺
++ 企业微信
 + 网易有道词典
++ 小程序开发者工具
