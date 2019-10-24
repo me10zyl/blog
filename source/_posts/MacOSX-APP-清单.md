@@ -6,7 +6,7 @@ tags: [mac,app]
 
 现在正在用的APP清单：
 更新日期:
-<date>Wed Sep 18 13:53:40 CST 2019</date>
+<date>Thu Oct 24 10:22:28 CST 2019</date>
 <!-- more -->
 
 本列表由ls_app_md脚本生成：
@@ -28,6 +28,7 @@ list:
 + Beyond Compare
 + Calculator
 + Calendar
++ Charles
 + Chess
 + CleanMyMac 3
 + Contacts
